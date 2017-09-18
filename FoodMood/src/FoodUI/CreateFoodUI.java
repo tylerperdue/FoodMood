@@ -1,12 +1,9 @@
-/*
- * The FoodUI Class
- */
 package FoodUI;
 
 /**
  *
  * @author bryaningram
  */
-public class FoodUI {
+public class CreateFoodUI {
     
 }

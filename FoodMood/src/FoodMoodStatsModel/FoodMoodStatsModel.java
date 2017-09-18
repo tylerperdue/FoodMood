@@ -5,10 +5,38 @@
  */
 package FoodMoodStatsModel;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author bryaningram
  */
 public class FoodMoodStatsModel {
+    ArrayList<String> masterList = new ArrayList<>();
     
+    /**
+     * FoodMoodStatsModel Constructor. Creates the arrayList for all past FoodMood
+     * entries. 
+     * <br>
+     * 
+     */
+    public FoodMoodStatsModel(){
+        
+    }
+    
+    /** 
+     * Getter method for the arrayList. 
+     * <br>
+     * @return 
+     */
+    public ArrayList getMasterList(){
+        return masterList;
+    }
+    
+    /**
+     * Setter method for the arrayList.
+     */
+    public void setMasterList(){
+        
+    }
 }

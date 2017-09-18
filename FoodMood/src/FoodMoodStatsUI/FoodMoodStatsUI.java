@@ -10,5 +10,17 @@ package FoodMoodStatsUI;
  * @author bryaningram
  */
 public class FoodMoodStatsUI {
+    /**
+     * Class Constructor. Initializes all UI components on the frame.
+     */
+    public FoodMoodStatsUI(){
+        initComponents();
+    }
     
+    /**
+     * Initialize components method for the class. 
+     */
+    public void initComponents(){
+        
+    }
 }

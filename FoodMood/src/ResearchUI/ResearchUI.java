@@ -3,12 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MoodUI;
+package ResearchUI;
+
+import javax.swing.JFrame;
 
 /**
  *
- * @author bryaningram
+ * @author Jake
  */
-public class MoodUI {
+public class ResearchUI extends JFrame {
     
+    
+    /**
+     * Class Constructor 
+     */
+    public ResearchUI(){
+        
+    }
 }

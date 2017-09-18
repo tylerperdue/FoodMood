@@ -11,4 +11,28 @@ package NotificationsController;
  */
 public class NotificationsController {
     
+    /**
+     * 
+     */
+    public NotificationsController(){
+        
+        
+    }
+    
+   
+    /**
+     * 
+     * @param notificationText takes a string to display text on notification.
+     */
+    public void displayNotification(String notificationText){
+        
+    }
+    
+    public void setNotificationTime(){
+        
+        
+    }
+    
+    
+    
 }

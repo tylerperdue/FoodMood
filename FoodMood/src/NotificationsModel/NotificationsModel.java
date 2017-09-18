@@ -11,4 +11,12 @@ package NotificationsModel;
  */
 public class NotificationsModel {
     
+    public NotificationsModel(){
+        
+        
+    }
+    
+    
+    
+            
 }

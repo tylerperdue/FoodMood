@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -5,10 +6,44 @@
  */
 package CorrelationController;
 
+import FoodMoodHistoryModel.FoodMoodMasterList;
+
 /**
  *
  * @author Jake
  */
 public class CorrelationController {
     
+    
+    FoodMoodMasterList masterList;
+   
+    
+    /**
+     * Correlation Controller class constructor
+     */
+    public CorrelationController(){
+        
+    }
+    
+    
+    /**
+     * Sort method for the Correlation List.
+     * @return 
+     */
+    public FoodMoodMasterList sortHistory(){
+        
+        return masterList;
+    }
+    
+    
+    /**
+     * Search method for the History List.
+     * @return returns the masterList arrayList 
+     */
+    public FoodMoodMasterList searchHistory(){
+        
+        return masterList;
+    }
+    
 }
+    

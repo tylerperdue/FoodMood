@@ -5,10 +5,41 @@
  */
 package ChartModel;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Jake
  */
 public class Chart {
     
+
+    ArrayList<String> masterList = new ArrayList<>();
+    
+    /**
+     * Chart Constructor. Creates the arrayList for all past FoodMood Chart
+     * entries. 
+     * 
+     * 
+     */
+    public Chart(){
+        
+    }
+    
+    /** 
+     * Getter method for the arrayList. 
+     * <br>
+     * @return 
+     */
+    public ArrayList getMasterList(){
+        return masterList;
+    }
+    
+    /**
+     * Setter method for the arrayList.
+     */
+    public void setMasterList(){
+        
+    }
 }
+    

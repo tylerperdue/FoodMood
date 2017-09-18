@@ -5,10 +5,24 @@
  */
 package ChartUI;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Jake
  */
-public class ChartUI {
+public class ChartUI extends JFrame {
+    /**
+     * Class Constructor. Initializes all UI components on the frame.
+     */
+    public ChartUI(){
+        initComponents();
+    }
     
+    /**
+     * Initialize components method for the class. 
+     */
+    public void initComponents(){
+        
+    }
 }

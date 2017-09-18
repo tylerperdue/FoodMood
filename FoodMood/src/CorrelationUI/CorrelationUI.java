@@ -5,10 +5,26 @@
  */
 package CorrelationUI;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Jake
  */
-public class CorrelationUI {
+public class CorrelationUI extends JFrame {
+   /**
+     * Class Constructor. Initializes all UI components on the frame.
+     */
+    public CorrelationUI(){
+        initComponents();
+    }
+    
+    /**
+     * Initialize components method for the class. 
+     */
+    public void initComponents(){
+        
+    }
+
     
 }

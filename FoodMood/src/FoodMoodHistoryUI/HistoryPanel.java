@@ -3,17 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FoodMoodStatsUI;
+package FoodMoodHistoryUI;
+
+import javax.swing.JPanel;
 
 /**
  *
- * @author bryaningram
+ * @author Jake
  */
-public class FoodMoodStatsUI {
+public final class HistoryPanel extends JPanel{
+    
     /**
      * Class Constructor. Initializes all UI components on the frame.
      */
-    public FoodMoodStatsUI(){
+    public HistoryPanel(){
         initComponents();
     }
     
@@ -23,4 +26,6 @@ public class FoodMoodStatsUI {
     public void initComponents(){
         
     }
+    
+    
 }

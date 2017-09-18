@@ -11,5 +11,29 @@ package RecommendationController;
  */
 public class RecommendationController {
     
+    /**
+     * Class controller 
+     */
+    public RecommendationController(){
+        
+        
+    }
+    
+    
+    /**
+     * Refreshes the recommendation list.
+     */
+    public void refreshList(){
+        
+    }
+    
+    /**
+     * Method to generate a recommendation from the list based on Moods.
+     */
+    public void findRecommedation(){
+        
+        
+    }
+    
     
 }

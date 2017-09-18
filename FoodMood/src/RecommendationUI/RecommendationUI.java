@@ -5,10 +5,20 @@
  */
 package RecommendationUI;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author bryaningram
  */
-public class RecommendationUI {
+public class RecommendationUI extends JFrame{
+    
+   public RecommendationUI(){
+        
+    }
+   
+   
+    
+    
     
 }

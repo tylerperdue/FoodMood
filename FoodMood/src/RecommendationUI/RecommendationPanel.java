@@ -3,24 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FoodMoodStatsUI;
+package RecommendationUI;
+
+import javax.swing.JPanel;
 
 /**
  *
- * @author bryaningram
+ * @author Jake
  */
-public class FoodMoodStatsUI {
+public class RecommendationPanel extends JPanel{
+    
     /**
-     * Class Constructor. Initializes all UI components on the frame.
+     * class constructor
      */
-    public FoodMoodStatsUI(){
-        initComponents();
+    public RecommendationPanel(){
+        
+        
     }
     
     /**
-     * Initialize components method for the class. 
+     * Initializes Components for the Panel.
      */
     public void initComponents(){
+        
         
     }
 }

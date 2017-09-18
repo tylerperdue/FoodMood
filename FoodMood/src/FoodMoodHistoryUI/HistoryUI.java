@@ -5,10 +5,17 @@
  */
 package FoodMoodHistoryUI;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Jake
  */
-public class HistoryUI {
+public class HistoryUI extends JFrame {
+    
+    public HistoryUI(){
+        
+    }
+    
     
 }

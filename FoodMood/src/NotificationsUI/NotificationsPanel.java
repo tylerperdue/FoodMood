@@ -5,22 +5,29 @@
  */
 package NotificationsUI;
 
-import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
- * @author bryaningram
+ * @author Jake
  */
-public final class NotificationsUI extends JFrame{
+public class NotificationsPanel extends JPanel{
     
     
     /**
      * Class Constructor
      */
-    public NotificationsUI(){
+    public NotificationsPanel(){
+        
+        initComponents();
+    }
+    
+    /**
+    * Method to initialize components.
+    */
+    public void initComponents(){
         
         
     }
     
-   
 }

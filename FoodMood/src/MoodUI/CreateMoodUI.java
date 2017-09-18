@@ -9,6 +9,6 @@ package MoodUI;
  *
  * @author bryaningram
  */
-public class MoodUI {
+public class CreateMoodUI {
     
 }

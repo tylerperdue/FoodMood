@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package ChartController;
+import ChartUI.ChartUI;
 import FoodMoodHistoryModel.FoodMoodMasterList;
 import java.util.ArrayList;
 /**
@@ -14,13 +15,14 @@ public class ChartController {
     
     
     FoodMoodMasterList masterList;
-   
+    private ChartUI chartUI;
     
     /**
      * History Controller class constructor
      */
     public ChartController(){
         
+        chartUI = new ChartUI(this);
     }
     
     

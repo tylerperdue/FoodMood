@@ -4,18 +4,18 @@
  * and open the template in the editor.
  */
 package foodmood;
-
+import NavigationController.NavController;
 /**
  *
  * @author Jake
  */
 public class FoodMood {
-
+    NavController navCtrl;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here  
+        NavController navCtrl = new NavController(); 
     }
     
 }

@@ -5,24 +5,15 @@
  */
 package FoodUI;
 
-import javax.swing.JPanel;
+import javax.swing.JFrame;
 
 /**
  *
  * @author jro5165
  */
-public class DeleteFoodPanel extends JPanel{
+public class FoodUI extends JFrame{
     
-    /**
-     * Class Constructor.
-     */
-    public DeleteFoodPanel(){
-        
-        initComponents();
-        
-    }
-    
-    public void initComponents(){
+    public FoodUI(){
         
     }
 }

@@ -11,16 +11,12 @@ package FoodMoodStatsUI;
  */
 public class FoodMoodStatsUI {
     /**
-     * Class Constructor. Initializes all UI components on the frame.
+     * Class Constructor. Initializes all UI components on the frame, such as the FoodMoodStatsPanel
      */
     public FoodMoodStatsUI(){
-        initComponents();
-    }
-    
-    /**
-     * Initialize components method for the class. 
-     */
-    public void initComponents(){
         
     }
+    
+   
+  
 }

@@ -13,6 +13,10 @@ import javax.swing.JFrame;
  */
 public class RecommendationUI extends JFrame{
     
+    
+    /**
+     * Class Constructor
+     */
    public RecommendationUI(){
         
     }

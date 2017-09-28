@@ -13,12 +13,17 @@ import javax.swing.JPanel;
  */
 public class ResearchPanel extends JPanel{
     
-    
+    /**
+     * Class constructor.
+     */
     public ResearchPanel(){
         initComponents();
         
     }
     
+    /**
+     * Method to initiate components. 
+     */
     public void initComponents(){
         
     }

@@ -1,4 +1,4 @@
-package UserProfileView;
+package UserProfileUI;
 
 import UserProfileController.ProfileController;
 import UserProfileModel.User;
@@ -10,9 +10,10 @@ import javax.swing.JTextArea;
  *
  * Last Updated By: Tyler
  */
-public class ViewProfileUI {
+public class UpdateProfileUI extends JFrame{
     /**
      * Receives data from ProfileController and displays information to user.
+     * 
      */
     ProfileController pc;
     User user;

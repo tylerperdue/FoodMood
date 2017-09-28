@@ -13,18 +13,11 @@ import javax.swing.JFrame;
  */
 public class CorrelationUI extends JFrame {
    /**
-     * Class Constructor. Initializes all UI components on the frame.
+     * Class Constructor. Initializes all UI components on the frame, such as the CorrelationPanel
      */
     public CorrelationUI(){
-        initComponents();
-    }
-    
-    /**
-     * Initialize components method for the class. 
-     */
-    public void initComponents(){
+        
         
     }
-
-    
+        
 }

@@ -5,10 +5,21 @@
  */
 package MoodUI;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author bryaningram
  */
-public class CreateMoodUI {
+public class CreateMoodUI extends JFrame {
+    
+    
+    /**
+     * Class Constructor. 
+     */
+    public CreateMoodUI(){
+        
+    }
+    
     
 }

@@ -14,7 +14,7 @@ import javax.swing.JPanel;
 public final class HistoryPanel extends JPanel{
     
     /**
-     * Class Constructor. Initializes all UI components on the frame.
+     * Class Constructor. Initializes all UI components on the panel.
      */
     public HistoryPanel(){
         initComponents();

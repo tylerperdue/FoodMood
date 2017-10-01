@@ -5,6 +5,9 @@
  */
 package FoodMoodHistoryUI;
 
+import FoodMoodHistoryController.HistoryController;
+import FoodMoodHistoryModel.FoodMoodMasterList;
+import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
 /**
@@ -13,8 +16,13 @@ import javax.swing.JFrame;
  */
 public class HistoryUI extends JFrame {
     
-    public HistoryUI(){
-        
+    public HistoryUI(HistoryController historyCtrl){
+        System.out.println("HistoryUI Class Instantiated. Test Passed.");
+        HistoryPanel historyPanel = new HistoryPanel(historyCtrl.viewFoodMoodList(), historyCtrl);
+        this.setLayout(new BorderLayout());
+        // TEST
+        this.add(historyPanel);
+        FoodMoodMasterList foodmood = new FoodMoodMasterList("TEST", "This is a test foodmood item.");
     }
     
     

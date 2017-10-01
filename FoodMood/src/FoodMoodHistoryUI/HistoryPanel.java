@@ -5,6 +5,10 @@
  */
 package FoodMoodHistoryUI;
 
+import FoodMoodHistoryController.HistoryController;
+import FoodMoodHistoryModel.FoodMoodMasterList;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /**
@@ -13,18 +17,19 @@ import javax.swing.JPanel;
  */
 public final class HistoryPanel extends JPanel{
     
-    /**
-     * Class Constructor. Initializes all UI components on the panel.
-     */
-    public HistoryPanel(){
-        initComponents();
+    HistoryController historyCtrl;
+    
+    public HistoryPanel(ArrayList<FoodMoodMasterList> foodmoodlist, HistoryController historyCtrl){
+        System.out.println("HistoryPanel Class Initialized. Test Passed.");
+        this.historyCtrl = historyCtrl;
     }
     
-    /**
-     * Initialize components method for the class. 
-     */
-    public void initComponents(){
-        
+    private class Handler implements ActionListener {
+
+        @Override
+        public void actionPerformed(java.awt.event.ActionEvent e) {
+            throw new UnsupportedOperationException("Not supported yet.");
+        }
     }
     
     

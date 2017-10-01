@@ -6,6 +6,11 @@ package FoodModel;
 public class Food {
     String name;
     String description;
+    
+    public Food(String name, String description){
+        this.name = name;
+        this.description = description;
+    }
 
     public String getName() {
         return name;

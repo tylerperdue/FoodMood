@@ -1,34 +1,45 @@
 package FoodController;
 
+import NavigationController.NavController;
+import FoodUI.FoodUI;
 import FoodModel.Food;
+import FoodModel.FoodList;
+import java.util.ArrayList;
 /**
  *
  * Last Updated By: Tyler
  */
 public class FoodController {
+    
+    NavController navCntrl;
+    
+    public FoodController(NavController navCntrl){
+        System.out.println("FoodController Class Instantiated. Test Passed.");
+        this.navCntrl= navCntrl;
+        FoodUI foodUI = new FoodUI(this);
+        navCntrl.switchToMoodCntrl();
+    }
+    
     public void createFood(Food food){
-        /**
-         * Accepts a Food object and records an entry in the database. 
-         */
+        // Open Database connection 
+        // Query Database
+        System.out.println("FoodController - Successfully created Food.");
     }
-    public Food readFood(){
-        /**
-         * Reads and returns a Food object from the database. 
-         */
-        Food example = new Food();
-        return example;
+    public ArrayList<Food> viewFoodList(){
+        FoodList foodlist = new FoodList();
+        ArrayList<Food> listOfFoods = foodlist.getFoodList();
+        System.out.println("FoodController - Successfully viewed FoodList. Test Passed.");
+        return listOfFoods;
     }
-    public void updateFood(Food user){
-        /**
-         * Accepts a Food object, parses the database for that food, and updates
-         * that record with new food information. 
-         */
+    public void updateFood(Food food){
+        // Open Database connection
+        // Query Database
+        System.out.println("FoodController - Successfully updated food.");
     }
-    public void deleteFood(Food user){
-        /**
-         * Accepts a Food object, parses the database for that food, and deletes
-         * that record. 
-         */   
+    public void deleteFood(Food food){
+        // Open Database connection
+        // Query Database
+        System.out.println("FoodController - Successfully deleted food.");
     }
     
 }

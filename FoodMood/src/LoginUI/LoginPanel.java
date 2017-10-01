@@ -14,7 +14,7 @@ import javax.swing.JPanel;
  */
 public class LoginPanel extends JPanel {
     public LoginPanel(){
-        System.out.println("LoginPanel Class Initialized. Test Passed.");
+        System.out.println("LoginPanel Class Instantiated. Test Passed.");
     }
     
     private class Handler implements ActionListener {

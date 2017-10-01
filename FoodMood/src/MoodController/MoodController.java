@@ -1,34 +1,45 @@
 package MoodController;
 
 import MoodModel.Mood;
+import MoodModel.MoodList;
+import MoodUI.MoodUI;
+import NavigationController.NavController;
+import java.util.ArrayList;
 
 /**
  *
  * Last Updated By: Tyler
  */
 public class MoodController {
+    
+    NavController navCntrl;
+    
+    public MoodController(NavController navCntrl){
+        System.out.println("MoodController Class Instantiated. Test Passed.");
+        this.navCntrl = navCntrl;
+        MoodUI moodUI = new MoodUI(this);
+        navCntrl.switchToFoodMoodStatsCntrl();
+    }
+    
     public void createMood(Mood mood){
-        /**
-         * Accepts a User object and records an entry in the database. 
-         */
+        // Open Database connection
+        // Quary Database
+        System.out.println("MoodController - Successfully created Mood.");
     }
-    public Mood readAccount(){
-        /**
-         * Reads and returns a User object from the database. 
-         */
-        Mood example = new Mood();
-        return example;
+    public ArrayList<Mood> getMoodList(){
+        MoodList moodlist = new MoodList();
+        ArrayList<Mood> listOfMoods = moodlist.getMoodList();
+        System.out.println("Mood Controller - Successfully viewed MoodList. Test Passed.");
+        return listOfMoods;
     }
-    public void updateAccount(Mood mood){
-        /**
-         * Accepts a User object, parses the database for that user, and updates
-         * that record with new user information. 
-         */
+    public void updateMood(Mood mood){
+        // Open Database connection
+        // Quary Database
+        System.out.println("MoodController - Successfully updated Mood.");
     }
-    public void deleteAccount(Mood mood){
-        /**
-         * Accepts a User object, parses the database for that user, and deletes
-         * that record. 
-         */   
+    public void deleteMood(Mood mood){
+        // Open Database connection
+        // Quary Database
+        System.out.println("MoodController - Successfully deleted Mood."); 
     }
 }

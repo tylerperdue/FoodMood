@@ -17,6 +17,7 @@ public class FoodController {
         System.out.println("FoodController Class Instantiated. Test Passed.");
         this.navCntrl= navCntrl;
         FoodUI foodUI = new FoodUI(this);
+        navCntrl.switchToMoodCntrl();
     }
     
     public void createFood(Food food){

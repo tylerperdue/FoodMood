@@ -22,7 +22,7 @@ public class LoginController {
     
     public LoginController(NavController navCntrl){
         this.navCntrl = navCntrl;
-        System.out.println("LoginController Class Initialized. Test Passed.");
+        System.out.println("LoginController Class Instantiated. Test Passed.");
         LoginUI loginUI = new LoginUI();
     }
     

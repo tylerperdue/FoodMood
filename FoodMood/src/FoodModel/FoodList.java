@@ -8,12 +8,12 @@ import java.util.ArrayList;
  */
 public class FoodList {
     
-    public FoodList () {
+    public FoodList() {
         System.out.println("FoodList Class Instantiated. Test Passed.");
     }
     
     public ArrayList<Food> getFoodList() {
-        ArrayList<Food> foodlist = new ArrayList<Food>();
+        ArrayList<Food> foodlist = new ArrayList<>();
         
         // TEST
         Food test1 = new Food("Strawberry", "A red fruit.");

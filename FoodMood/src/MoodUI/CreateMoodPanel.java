@@ -3,25 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FoodUI;
+package MoodUI;
 
-import FoodController.FoodController;
-import FoodModel.Food;
+import MoodController.MoodController;
+import MoodModel.Mood;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /**
  *
  * @author jro5165
  */
-public class FoodListPanel extends JPanel {
-    
-    FoodController foodCntrl;
-    
-    public FoodListPanel(ArrayList<Food> foodlist, FoodController foodCntrl){
-        System.out.println("FoodListPanel Class Instantiated. Test Passed.");
-        this.foodCntrl = foodCntrl;
+public class CreateMoodPanel extends JPanel {
+    public CreateMoodPanel(MoodController moodCntrl){
+        System.out.println("MoodLisPanel Class Instantiated. Test Passed.");
+        // TEST
+        Mood mood = new Mood("TEST", 4);
+        moodCntrl.createMood(mood);
     }
     
     private class Handler implements ActionListener {

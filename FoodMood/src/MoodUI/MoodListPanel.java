@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package FoodUI;
+package MoodUI;
 
-import FoodController.FoodController;
-import FoodModel.Food;
+import MoodController.MoodController;
+import MoodModel.Mood;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JPanel;
@@ -15,13 +15,13 @@ import javax.swing.JPanel;
  *
  * @author jro5165
  */
-public class FoodListPanel extends JPanel {
+public class MoodListPanel extends JPanel {
     
-    FoodController foodCntrl;
+    MoodController moodCntrl;
     
-    public FoodListPanel(ArrayList<Food> foodlist, FoodController foodCntrl){
-        System.out.println("FoodListPanel Class Instantiated. Test Passed.");
-        this.foodCntrl = foodCntrl;
+    public MoodListPanel(ArrayList<Mood> moodlist, MoodController moodCntrl){
+        System.out.println("MoodListPanel Class Instantiated. Test Passed.");
+        this.moodCntrl = moodCntrl;
     }
     
     private class Handler implements ActionListener {

@@ -5,7 +5,7 @@
  */
 package FoodMoodStatsController;
 import FoodMoodStatsModel.FoodMoodStatsModel;
-import java.util.ArrayList;
+import NavigationController.NavController;
 
 /**
  *
@@ -13,13 +13,13 @@ import java.util.ArrayList;
  */
 public class FoodMoodStatsController {
     FoodMoodStatsModel masterList;
-   
-    
+    NavController navCntrl;
+  
     /**
      * History Controller class constructor
      */
-    public FoodMoodStatsController(){
-        
+    public FoodMoodStatsController(NavController navCntrl){
+        System.out.println("FoodMoodStatsController Class Instantiated. Test Passed.");
     }
     
     

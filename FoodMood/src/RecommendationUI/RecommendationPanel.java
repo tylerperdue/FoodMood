@@ -5,6 +5,9 @@
  */
 package RecommendationUI;
 
+import FoodModel.Food;
+import RecommendationController.RecommendationController;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /**
@@ -13,19 +16,15 @@ import javax.swing.JPanel;
  */
 public class RecommendationPanel extends JPanel{
     
-    /**
-     * class constructor
-     */
-    public RecommendationPanel(){
-        
-        
-    }
+    RecommendationController recommendCtrl;
     
     /**
-     * Initializes Components for the Panel.
+     * class constructor
+     * @param foodlist
+     * @param recommendCtrl
      */
-    public void initComponents(){
-        
-        
+    public RecommendationPanel(ArrayList<Food> foodlist, RecommendationController recommendCtrl){
+        System.out.println("RecommendationPanel Class Instantiated. Test Passed.");
+        this.recommendCtrl = recommendCtrl;
     }
 }

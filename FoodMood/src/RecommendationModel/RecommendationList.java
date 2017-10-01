@@ -20,24 +20,22 @@ public class RecommendationList {
      * Class constructor
      */
     public RecommendationList(){
-        
-        
+        System.out.println("RecommendationList Class Instantiated. Test Passed.");
     }
     
     /**
      * Getter for the recommendation list. 
      * @return 
      */
-    public ArrayList getRecList(){
-        
+    public ArrayList<Food> getRecList(){
         return recommendationList;
     }
     
     /**
      * Setter for the recommendation list. 
+     * @param foodlist
      */
-    public void setRecList(){
-        
-        
+    public void setRecList(ArrayList<Food> foodlist){
+        this.recommendationList = foodlist;
     }
 }

@@ -38,7 +38,7 @@ public class NavController {
     private ProfileController profileCtrl;
     
     public NavController(){
-        System.out.println("NavController Class Initialized. Test Passed.");
+        System.out.println("NavController Class Instantiated. Test Passed.");
     }
     
     public void switchToChartCntrl() {
@@ -53,7 +53,12 @@ public class NavController {
     
     public void switchToFoodCntrl() {
         System.out.println("NavController - Switched to Food Controller.");
-        FoodController foodCtrl = new FoodController(this);
+        FoodController foodCntrl = new FoodController(this);
+    }
+    
+    public void switchToMoodCntrl() {
+        System.out.println("NavController - Swtiched to Mood Controller.");
+        MoodController moodCntrl = new MoodController(this);
     }
     
     public void switchToHistoryCntrl() {
@@ -63,7 +68,7 @@ public class NavController {
     
     public void switchToFoodMoodStatsCntrl() {
         System.out.println("NavController - Switched to Food Mood Stats Controller.");
-        //FoodMoodStatsController foodMoodStatsCtrl = new FoodMoodStatsController(this);
+        FoodMoodStatsController foodMoodStatsCtrl = new FoodMoodStatsController(this);
     }
     
     public void switchToLoginCntrl() {

@@ -16,7 +16,7 @@ import javax.swing.JPanel;
  */
 public class CreateFoodPanel extends JPanel {
     public CreateFoodPanel(FoodController foodCntrl){
-        System.out.println("FoodListPanel Class Initialized. Test Passed.");
+        System.out.println("FoodListPanel Class Instantiated. Test Passed.");
         // TEST
         Food food = new Food("TEST", "This is a test food item.");
         foodCntrl.createFood(food);

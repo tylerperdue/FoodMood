@@ -5,10 +5,23 @@
  */
 package LoginUI;
 
+import java.awt.event.ActionListener;
+import javax.swing.JPanel;
+
 /**
  *
  * @author jro5165
  */
-public class LoginPanel {
+public class LoginPanel extends JPanel {
+    public LoginPanel(){
+        System.out.println("LoginPanel Class Initialized. Test Passed.");
+    }
     
+    private class Handler implements ActionListener {
+
+        @Override
+        public void actionPerformed(java.awt.event.ActionEvent e) {
+            throw new UnsupportedOperationException("Not supported yet.");
+        }
+    }
 }

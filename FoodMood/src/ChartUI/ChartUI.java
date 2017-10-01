@@ -5,6 +5,7 @@
  */
 package ChartUI;
 
+import ChartController.ChartController;
 import javax.swing.JFrame;
 
 /**
@@ -12,11 +13,11 @@ import javax.swing.JFrame;
  * @author Jake
  */
 public class ChartUI extends JFrame {
-    
+
     /**
      * Class Constructor. Initializes all UI components on the frame, such as the ChartPanel. 
      */
-    public ChartUI(){
+    public ChartUI(ChartController ChartCtrl){
        
     }
     

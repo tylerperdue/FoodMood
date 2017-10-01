@@ -11,13 +11,13 @@ public class ProfileController {
          * Accepts a User object and records an entry in the database. 
          */
     }
-    public User readAccount(){
-        /**
-         * Reads and returns a User object from the database. 
-         */
-        User example = new UserProfileModel.User();
-        return example;
-    }
+//    public User readAccount(){
+//        /**
+//         * Reads and returns a User object from the database. 
+//         */
+//        User example = new User("john", "password", "John", "Doe", 45);
+//        return example;
+//    }
     public void updateAccount(User user){
         /**
          * Accepts a User object, parses the database for that user, and updates

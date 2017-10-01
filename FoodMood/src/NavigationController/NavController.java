@@ -38,7 +38,6 @@ public class NavController {
     private ProfileController profileCtrl;
     
     public NavController(){
-        
-        
+        System.out.println("NavController Class Initialized. Test Passed.");
     }
 }

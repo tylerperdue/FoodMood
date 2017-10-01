@@ -4,18 +4,22 @@
  * and open the template in the editor.
  */
 package foodmood;
+
 import NavigationController.NavController;
+import LoginController.LoginController;
+
 /**
  *
  * @author Jake
  */
 public class FoodMood {
-    NavController navCtrl;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         NavController navCtrl = new NavController(); 
+        LoginController loginCtrl = new LoginController(navCtrl);
+        loginCtrl.authenticate("john", "password");
     }
     
 }

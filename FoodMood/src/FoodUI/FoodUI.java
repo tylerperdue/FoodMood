@@ -5,15 +5,27 @@
  */
 package FoodUI;
 
+import FoodController.FoodController;
+import FoodModel.Food;
 import javax.swing.JFrame;
+import java.awt.BorderLayout;
 
 /**
  *
  * @author jro5165
  */
-public class FoodUI extends JFrame{
+public class FoodUI extends JFrame {
     
-    public FoodUI(){
-        
+    public FoodUI(FoodController foodCntrl) {
+        System.out.println("FoodUI Class Instantiated. Test Passed.");
+        FoodListPanel foodListPanel = new FoodListPanel(foodCntrl.viewFoodList(), foodCntrl);
+        CreateFoodPanel createFoodPanel = new CreateFoodPanel(foodCntrl);
+        this.setLayout(new BorderLayout());
+        // TEST
+        this.add(foodListPanel);
+        this.add(createFoodPanel);
+        Food food = new Food("TEST", "This is a test food item.");
+        foodCntrl.deleteFood(food);
+        foodCntrl.updateFood(food);
     }
 }

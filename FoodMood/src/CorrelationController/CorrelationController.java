@@ -6,6 +6,7 @@
  */
 package CorrelationController;
 
+import CorrelationUI.CorrelationUI;
 import FoodMoodHistoryModel.FoodMoodMasterList;
 
 /**
@@ -13,7 +14,7 @@ import FoodMoodHistoryModel.FoodMoodMasterList;
  * @author Jake
  */
 public class CorrelationController {
-    
+    CorrelationUI ui;
     //test
     FoodMoodMasterList masterList;
    
@@ -22,18 +23,19 @@ public class CorrelationController {
      * Correlation Controller class constructor
      */
     public CorrelationController(){
-        
+        iniateUI();
     }
     
     
-    /**
-     * Sort method for the Correlation List.
-     * @return 
-     */
-    public FoodMoodMasterList sortHistory(){
-        
-        return masterList;
+    public void iniateUI() {
+    
+            CorrelationUI ui = new CorrelationUI();
+            
+            
     }
+    
+    
+   
     
     
     /**

@@ -15,6 +15,7 @@ public class User {
     int age;
     
     public User(String username, String password, String firstname, String lastname, int age) {
+        
         this.username = username;
         this.password = password;
         this.firstname = firstname;

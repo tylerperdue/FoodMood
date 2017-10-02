@@ -11,10 +11,12 @@ package NotificationsModel;
  */
 public class NotificationsModel {
     
-    public NotificationsModel(){
+    public NotificationsModel(String notificationText){
         
+        notificationText = "Notification test";
         
     }
+    
     
     
     

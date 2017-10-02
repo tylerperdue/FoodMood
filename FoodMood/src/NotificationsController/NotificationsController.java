@@ -14,8 +14,9 @@ public class NotificationsController {
     /**
      * 
      */
+    int notificationTime = 0;
     public NotificationsController(){
-        
+        this.notificationTime = notificationTime;
         
     }
     
@@ -26,11 +27,14 @@ public class NotificationsController {
      */
     public void displayNotification(String notificationText){
         
+        System.out.println("Notification Displayed");
     }
     
-    public void setNotificationTime(){
+    public void setNotificationTime(int notificationTime){
         
-        
+       System.out.println("Notification time is: " + notificationTime);
+       
+       
     }
     
     

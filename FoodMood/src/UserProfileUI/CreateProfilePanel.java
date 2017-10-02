@@ -18,8 +18,9 @@ public class CreateProfilePanel extends JPanel {
      * Class constructor
      */
     public CreateProfilePanel(){
-        
+        System.out.println("CreateProfilePanel class instantiated. Test Passed.");
         initComponents();
+        
     }
     
     

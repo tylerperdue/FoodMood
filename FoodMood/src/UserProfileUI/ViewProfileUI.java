@@ -19,4 +19,14 @@ public class ViewProfileUI extends JFrame{
     JFrame viewProfile;
     JButton deleteAccountBtn;
     JTextArea accountInfo;
+    
+    public ViewProfileUI(){
+        System.out.println("ViewProfileUI class instantiated. Test Passed.");
+        pc.readAccount();
+        
+        
+    }
+    
+    
+   
 }

@@ -20,4 +20,11 @@ public class UpdateProfileUI extends JFrame{
     JFrame viewProfile;
     JButton deleteAccountBtn;
     JTextArea accountInfo;
+    
+    public UpdateProfileUI(ProfileController pc ){
+        System.out.println("UpdateProfileUI Class instantiated. Test Passed. ");
+        
+        
+        pc.updateAccount(user);
+    }
 }

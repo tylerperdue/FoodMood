@@ -18,7 +18,7 @@ public class UpdateProfilePanel extends JPanel{
      * Class Constructor. 
      */
     public UpdateProfilePanel(){
-    
+        System.out.println("UpdateProfilePanel class instantiated. Test Passed. ");
         initComponents();
         
 }

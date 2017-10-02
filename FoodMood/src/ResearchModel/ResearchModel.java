@@ -10,5 +10,11 @@ package ResearchModel;
  * @author Jake
  */
 public class ResearchModel {
+ 
     
+    public ResearchModel(){
+        
+        System.out.println("Research model class instantiated. Test Passed.");
+        
+    }
 }

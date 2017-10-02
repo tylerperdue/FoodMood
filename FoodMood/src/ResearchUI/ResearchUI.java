@@ -18,6 +18,7 @@ public class ResearchUI extends JFrame {
      * Class Constructor 
      */
     public ResearchUI(){
+        System.out.println("ResearchUI Class instantiated. Test Passed.");
         
     }
 }

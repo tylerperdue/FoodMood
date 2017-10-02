@@ -17,6 +17,7 @@ public class ViewProfilePanel extends JPanel{
      * Class constructor. 
      */
     public ViewProfilePanel(){
+        System.out.println("ViewProfilePanel class instantiated. Test Passed. ");
         initComponents();
         
     }

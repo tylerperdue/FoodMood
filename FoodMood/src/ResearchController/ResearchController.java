@@ -19,5 +19,9 @@ public class ResearchController {
     public ResearchController()
     {
         
+        System.out.println("Research Controller class instantiated. Test Passed. ");
+        
     }
+    
+    
 }

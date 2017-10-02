@@ -9,6 +9,7 @@ public class Mood {
     int rating;
     
     public Mood(String name, int rating){
+        System.out.println("Mood Class Instantiated. Test Passed.");
         this.name = name;
         this.rating = rating;
     }

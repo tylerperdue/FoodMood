@@ -21,7 +21,7 @@ public class ChartController {
      * History Controller class constructor
      */
     public ChartController(){
-        
+        System.out.println("ChartController has been instantiated");
         chartUI = new ChartUI(this);
     }
     

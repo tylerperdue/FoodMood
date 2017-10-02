@@ -23,7 +23,7 @@ public class Chart {
      * 
      */
     public Chart(){
-        
+        System.out.println("Chart has been instantiated");
     }
     
     /** 

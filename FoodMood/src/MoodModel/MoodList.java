@@ -12,7 +12,7 @@ public class MoodList {
         System.out.println("MoodList Class Instantiated. Test Passed.");
     }
     
-    public ArrayList<Mood> getMoodList() {
+    public static ArrayList<Mood> getMoodList() {
         ArrayList<Mood> foodlist = new ArrayList<>();
         
         // TEST

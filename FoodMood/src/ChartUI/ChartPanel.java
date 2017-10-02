@@ -5,6 +5,7 @@
  */
 package ChartUI;
 
+import ChartModel.Chart;
 import javax.swing.JPanel;
 
 /**
@@ -16,10 +17,11 @@ public class ChartPanel extends JPanel{
     /**
      * Class constructor. Initializes components on the JPanel.
      */
+    private Chart CM;
     public ChartPanel(){
-        
+        System.out.println("ChartPanel has been instantiated");
         initComponents();
-        
+        CM = new Chart();
     }
     
     /** 

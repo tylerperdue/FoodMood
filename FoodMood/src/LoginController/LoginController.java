@@ -33,7 +33,7 @@ public class LoginController {
         for(int i = 0; i < listOfUsers.size(); i++){
             if(listOfUsers.get(i).getUsername().equals(username) && listOfUsers.get(i).getPassword().equals(password)){
                 System.out.println("LoginController - authenticate(): User Authenticated. Test Passed.");
-                navCntrl.switchToFoodCntrl();
+                //navCntrl.switchToFoodCntrl();
                 break;
             }
         }

@@ -18,7 +18,7 @@ public class NotificationsPanel extends JPanel{
      * Class Constructor
      */
     public NotificationsPanel(){
-        
+        System.out.println("NotificationsPanel Class Instantiated. Test Passed.");
         initComponents();
     }
     

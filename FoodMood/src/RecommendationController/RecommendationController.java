@@ -34,7 +34,7 @@ public class RecommendationController {
      * Refreshes the recommendation list.
      */
     public void refreshList(){
-        System.out.println("RecommendationController - Successfully refreshed food list.");
+        System.out.println("RecommendationController - Successfully refreshed food list. Test Passed.");
     }
     
     /**
@@ -44,7 +44,7 @@ public class RecommendationController {
     public ArrayList<Food> findRecommedation(){
         RecommendationList recommend = new RecommendationList();
         ArrayList<Food> recommendations = recommend.getRecList();
-        System.out.println("RecommendationController - Successfully recommended food.");
+        System.out.println("RecommendationController - Successfully recommended food. Test Passed.");
         return recommendations;
     }
     

@@ -9,16 +9,11 @@ package NotificationsModel;
  *
  * @author bryaningram
  */
-public class NotificationsModel {
+public class Notification {
     
-    public NotificationsModel(String notificationText){
-        
+    public Notification(String notificationText){
+        System.out.println("Notification Class Instantiated. Test Passed.");
         notificationText = "Notification test";
-        
     }
     
-    
-    
-    
-            
 }

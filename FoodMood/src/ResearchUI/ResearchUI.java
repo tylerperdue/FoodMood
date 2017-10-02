@@ -19,6 +19,6 @@ public class ResearchUI extends JFrame {
      */
     public ResearchUI(){
         System.out.println("ResearchUI Class instantiated. Test Passed.");
-        
+        ResearchPanel researchPanel = new ResearchPanel();
     }
 }

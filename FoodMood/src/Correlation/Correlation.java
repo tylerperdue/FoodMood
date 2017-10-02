@@ -16,8 +16,7 @@ public class Correlation {
     
 public Correlation()
 {
-    System.out.println("Correlation has been instantiated");
-    CC = new ChartController();
+    System.out.println("Correlation Class Instantiated. Test Passed.");
 }
 
 public double calculateCorrelation()

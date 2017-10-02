@@ -17,7 +17,7 @@ public class ResearchPanel extends JPanel{
      * Class constructor.
      */
     public ResearchPanel(){
-        System.out.println("Research panel class instantiated. Test passed.");
+        System.out.println("Research Panel class instantiated. Test passed.");
         initComponents();
         
     }

@@ -6,7 +6,7 @@
 package ChartController;
 import ChartUI.ChartUI;
 import FoodMoodHistoryModel.FoodMoodMasterList;
-import java.util.ArrayList;
+import NavigationController.NavController;
 /**
  *
  * @author Jake
@@ -20,8 +20,8 @@ public class ChartController {
     /**
      * History Controller class constructor
      */
-    public ChartController(){
-        System.out.println("ChartController has been instantiated");
+    public ChartController(NavController navCntrl){
+        System.out.println("ChartController Class Instantiated. Test Passed.");
         chartUI = new ChartUI(this);
     }
     

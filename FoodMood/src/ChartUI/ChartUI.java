@@ -20,7 +20,7 @@ public class ChartUI extends JFrame {
     private ChartPanel CP;
     public ChartUI(ChartController ChartCtrl){
        CP = new ChartPanel();
-       System.out.println("ChartUI has been instantiated");
+       System.out.println("ChartUI Class Instantiated. Test Passed.");
     }
     
   

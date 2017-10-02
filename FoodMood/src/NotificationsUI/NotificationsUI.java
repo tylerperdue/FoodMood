@@ -1,26 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package NotificationsUI;
 
+import NotificationsController.NotificationsController;
+import java.awt.BorderLayout;
 import javax.swing.JFrame;
 
 /**
  *
- * @author bryaningram
+ * @author jro5165
  */
-public final class NotificationsUI extends JFrame{
+public class NotificationsUI extends JFrame {
     
-    
-    /**
-     * Class Constructor
-     */
-    public NotificationsUI(){
-        
-        
+    public NotificationsUI(NotificationsController notificationsCntrl) {
+        System.out.println("NotificationsUI Class Instantiated. Test Passed.");
+        NotificationsPanel notificationsPanel = new NotificationsPanel();
+        this.setLayout(new BorderLayout());
+        // TEST
+        this.add(notificationsPanel);
+        notificationsCntrl.displayNotification("EXAMPLE");
+        notificationsCntrl.setNotificationTime(45);
     }
-    
-   
 }

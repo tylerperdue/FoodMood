@@ -14,7 +14,7 @@ public class ResearchModel {
     
     public ResearchModel(){
         
-        System.out.println("Research model class instantiated. Test Passed.");
+        System.out.println("Research Class Instantiated. Test Passed.");
         
     }
 }

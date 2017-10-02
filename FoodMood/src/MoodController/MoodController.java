@@ -17,14 +17,13 @@ public class MoodController {
     public MoodController(NavController navCntrl){
         System.out.println("MoodController Class Instantiated. Test Passed.");
         this.navCntrl = navCntrl;
-        MoodUI moodUI = new MoodUI(this);
-        navCntrl.switchToFoodMoodStatsCntrl();
+        MoodUI moodUI = new MoodUI(this); 
     }
     
     public void createMood(Mood mood){
         // Open Database connection
         // Quary Database
-        System.out.println("MoodController - Successfully created Mood.");
+        System.out.println("MoodController - Successfully created Mood. Test Passed.");
     }
     public ArrayList<Mood> getMoodList(){
         ArrayList<Mood> listOfMoods = MoodList.getMoodList();

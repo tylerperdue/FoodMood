@@ -43,12 +43,12 @@ public class NavController {
     
     public void switchToChartCntrl() {
         System.out.println("NavController - Switched to Chart Controller. Test Passed.");
-        //ChartController chartCtrl = new ChartController(this.getClass());
+        ChartController chartCtrl = new ChartController(this);
     }
     
     public void switchToCorrelationCntrl() {
         System.out.println("NavController - Switched to Correlation Controller. Test Passed.");
-        //CorrelationController correlationCtrl = new CorrelationController(this);
+        CorrelationController correlationCtrl = new CorrelationController(this);
     }
     
     public void switchToFoodCntrl() {
@@ -63,7 +63,7 @@ public class NavController {
     
     public void switchToHistoryCntrl() {
         System.out.println("NavController - Switched to History Controller. Test Passed.");
-        //HistoryController historyCtrl = new HistoryController(this);
+        HistoryController historyCtrl = new HistoryController(this);
     }
     
     public void switchToFoodMoodStatsCntrl() {
@@ -78,21 +78,21 @@ public class NavController {
     
     public void switchToNotificationsCntrl() {
         System.out.println("NavController - Switched to Notifications Controller. Test Passed.");
-        //NotificationsController notifcationsCtrl = new NotificationsController(this);
+        NotificationsController notifcationsCtrl = new NotificationsController(this);
     }
     
     public void switchToRecommendationCntrl() {
         System.out.println("NavController - Switched to Recommendation Controller. Test Passed.");
-        //RecommendationController recommendationCtrl = new RecommendationController(this);
+        RecommendationController recommendationCtrl = new RecommendationController(this);
     }
     
     public void switchToResearchCntrl() {
         System.out.println("NavController - Switched to Research Controller. Test Passed.");
-        //ResearchController researchCtrl = new ResearchController(this);
+        ResearchController researchCtrl = new ResearchController(this);
     }
     
     public void switchToProfileCntrl() {
         System.out.println("NavController - Switched to Profile Controller. Test Passed.");
-        //ProfileController profileCtrl = new ProfileController(this);
+        ProfileController profileCtrl = new ProfileController(this);
     }
 }

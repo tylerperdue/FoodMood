@@ -5,6 +5,10 @@
  */
 package ResearchController;
 
+import NavigationController.NavController;
+import ResearchModel.ResearchModel;
+import ResearchUI.ResearchUI;
+
 /**
  *
  * @author Jake
@@ -16,11 +20,11 @@ public class ResearchController {
     /**
      * Class Constructor. 
      */
-    public ResearchController()
+    public ResearchController(NavController navCntrl)
     {
-        
-        System.out.println("Research Controller class instantiated. Test Passed. ");
-        
+        System.out.println("Research Controller class instantiated. Test Passed.");
+        ResearchModel research = new ResearchModel();
+        ResearchUI researchUI = new ResearchUI();
     }
     
     

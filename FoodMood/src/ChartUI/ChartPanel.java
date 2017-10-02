@@ -19,7 +19,7 @@ public class ChartPanel extends JPanel{
      */
     private Chart CM;
     public ChartPanel(){
-        System.out.println("ChartPanel has been instantiated");
+        System.out.println("ChartPanel Instantiated. Test Passed.");
         initComponents();
         CM = new Chart();
     }

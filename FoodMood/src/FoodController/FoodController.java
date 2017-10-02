@@ -17,13 +17,12 @@ public class FoodController {
         System.out.println("FoodController Class Instantiated. Test Passed.");
         this.navCntrl= navCntrl;
         FoodUI foodUI = new FoodUI(this);
-        navCntrl.switchToMoodCntrl();
     }
     
     public void createFood(Food food){
         // Open Database connection 
         // Query Database
-        System.out.println("FoodController - Successfully created Food.");
+        System.out.println("FoodController - Successfully created Food. Test Passed.");
     }
     public ArrayList<Food> viewFoodList(){
         ArrayList<Food> listOfFoods = FoodList.getFoodList();

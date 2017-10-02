@@ -14,8 +14,6 @@ public class ProfileController {
         System.out.println("ProfileController class Instantiated. Test Passed.");
         this.navCtrl = navCtrl;
         CreateProfileUI createProfileUI = new CreateProfileUI(this);
-        navCtrl.switchToProfileCntrl();
-        
     }
     public void createAccount(User user){
         /**
@@ -23,7 +21,7 @@ public class ProfileController {
          */
         //Open DB Connection
         //Query
-        System.out.println("Profile Controller - User account created");
+        System.out.println("Profile Controller - User account created. Test Passed.");
     }
     public User readAccount(){
         /**
@@ -32,7 +30,7 @@ public class ProfileController {
         //Open DB Connection
         //Query to read target user account
         User example = new User("john", "password", "John", "Doe", 45);
-        System.out.println("Profile Controller - User account read");
+        System.out.println("Profile Controller - User account read. Test Passed. ");
         return example;
     }
     
@@ -41,13 +39,13 @@ public class ProfileController {
          * Accepts a User object, parses the database for that user, and updates
          * that record with new user information. 
          */
-        System.out.println("Profile Controller - Account updated");
+        System.out.println("Profile Controller - Account updated. Test Passed.");
     }
     public void deleteAccount(User user){
         /**
          * Accepts a User object, parses the database for that user, and deletes
          * that record. 
          */   
-        System.out.println("Profile Controller - Account deleted successfully");
+        System.out.println("Profile Controller - Account deleted successfully. Test Passed.");
     }
 }

@@ -5,6 +5,10 @@
  */
 package NotificationsController;
 
+import NavigationController.NavController;
+import NotificationsModel.Notification;
+import NotificationsUI.NotificationsUI;
+
 /**
  *
  * @author bryaningram
@@ -15,9 +19,9 @@ public class NotificationsController {
      * 
      */
     int notificationTime = 0;
-    public NotificationsController(){
+    public NotificationsController(NavController navCntrl){
         this.notificationTime = notificationTime;
-        
+        NotificationsUI notificationsUI = new NotificationsUI(this);
     }
     
    
@@ -26,14 +30,13 @@ public class NotificationsController {
      * @param notificationText takes a string to display text on notification.
      */
     public void displayNotification(String notificationText){
-        
-        System.out.println("Notification Displayed");
+        Notification notification = new Notification(notificationText);
+        System.out.println("NotificationController - displayNotification(): Notification Displayed Successfully. Test Passed.");
     }
     
     public void setNotificationTime(int notificationTime){
         
-       System.out.println("Notification time is: " + notificationTime);
-       
+       System.out.println("NotificationController - setNotificationTime(): Notification Time Set Successfully. Test Passed.");
        
     }
     

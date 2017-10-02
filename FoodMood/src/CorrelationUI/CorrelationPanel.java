@@ -16,7 +16,7 @@ public class CorrelationPanel {
      * Class Constructor
      */
     public CorrelationPanel(){
-        System.out.println("CorrelationPanel has been instantiated");
+        System.out.println("CorrelationPanel Class Instantiated. Test Passed.");
         initComponents();
         
     }

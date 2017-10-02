@@ -8,6 +8,7 @@ package CorrelationController;
 
 import CorrelationUI.CorrelationUI;
 import FoodMoodHistoryModel.FoodMoodMasterList;
+import NavigationController.NavController;
 
 /**
  *
@@ -22,17 +23,15 @@ public class CorrelationController {
     /**
      * Correlation Controller class constructor
      */
-    public CorrelationController(){
+    public CorrelationController(NavController navCntrl){
+        System.out.println("CorrelationController Class Instantitated. Test Passed.");
         iniateUI();
-        System.out.println("CorrelationController has been instantiated");
     }
     
     
     public void iniateUI() {
     
             CorrelationUI ui = new CorrelationUI();
-            
-            
     }
     
     

@@ -17,11 +17,9 @@ public class CorrelationUI extends JFrame {
      * Class Constructor. Initializes all UI components on the frame, such as the CorrelationPanel
      */
     private CorrelationPanel CP;
-    private Correlation CM;
     public CorrelationUI(){
         CP = new CorrelationPanel();
-        CM = new Correlation();
-        System.out.println("CorrelationUI has been instantiated");
+        System.out.println("CorrelationUI Class Instantiated. Test Passed.");
         
     }
         

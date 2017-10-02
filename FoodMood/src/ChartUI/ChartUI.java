@@ -17,8 +17,10 @@ public class ChartUI extends JFrame {
     /**
      * Class Constructor. Initializes all UI components on the frame, such as the ChartPanel. 
      */
+    private ChartPanel CP;
     public ChartUI(ChartController ChartCtrl){
-       
+       CP = new ChartPanel();
+       System.out.println("ChartUI has been instantiated");
     }
     
   

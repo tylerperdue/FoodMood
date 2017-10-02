@@ -24,6 +24,7 @@ public class CorrelationController {
      */
     public CorrelationController(){
         iniateUI();
+        System.out.println("CorrelationController has been instantiated");
     }
     
     

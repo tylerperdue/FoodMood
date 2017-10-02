@@ -16,7 +16,7 @@ public class CorrelationPanel {
      * Class Constructor
      */
     public CorrelationPanel(){
-        
+        System.out.println("CorrelationPanel has been instantiated");
         initComponents();
         
     }

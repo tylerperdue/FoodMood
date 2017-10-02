@@ -21,6 +21,7 @@ public class CorrelationUI extends JFrame {
     public CorrelationUI(){
         CP = new CorrelationPanel();
         CM = new Correlation();
+        System.out.println("CorrelationUI has been instantiated");
         
     }
         

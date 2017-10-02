@@ -8,6 +8,7 @@ public class Food {
     String description;
     
     public Food(String name, String description){
+        System.out.println("Food Class Instantiated. Test Passed.");
         this.name = name;
         this.description = description;
     }

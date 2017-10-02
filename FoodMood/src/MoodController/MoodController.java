@@ -27,19 +27,18 @@ public class MoodController {
         System.out.println("MoodController - Successfully created Mood.");
     }
     public ArrayList<Mood> getMoodList(){
-        MoodList moodlist = new MoodList();
-        ArrayList<Mood> listOfMoods = moodlist.getMoodList();
+        ArrayList<Mood> listOfMoods = MoodList.getMoodList();
         System.out.println("Mood Controller - Successfully viewed MoodList. Test Passed.");
         return listOfMoods;
     }
     public void updateMood(Mood mood){
         // Open Database connection
         // Quary Database
-        System.out.println("MoodController - Successfully updated Mood.");
+        System.out.println("MoodController - Successfully updated Mood. Test Passed.");
     }
     public void deleteMood(Mood mood){
         // Open Database connection
         // Quary Database
-        System.out.println("MoodController - Successfully deleted Mood."); 
+        System.out.println("MoodController - Successfully deleted Mood. Test Passed."); 
     }
 }

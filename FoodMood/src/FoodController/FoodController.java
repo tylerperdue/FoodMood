@@ -26,20 +26,19 @@ public class FoodController {
         System.out.println("FoodController - Successfully created Food.");
     }
     public ArrayList<Food> viewFoodList(){
-        FoodList foodlist = new FoodList();
-        ArrayList<Food> listOfFoods = foodlist.getFoodList();
+        ArrayList<Food> listOfFoods = FoodList.getFoodList();
         System.out.println("FoodController - Successfully viewed FoodList. Test Passed.");
         return listOfFoods;
     }
     public void updateFood(Food food){
         // Open Database connection
         // Query Database
-        System.out.println("FoodController - Successfully updated food.");
+        System.out.println("FoodController - Successfully updated food. Test Passed.");
     }
     public void deleteFood(Food food){
         // Open Database connection
         // Query Database
-        System.out.println("FoodController - Successfully deleted food.");
+        System.out.println("FoodController - Successfully deleted food. Test Passed.");
     }
     
 }

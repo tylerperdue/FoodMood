@@ -5,26 +5,24 @@
  */
 package FoodMoodStatsUI;
 
+import FoodMoodStatsController.FoodMoodStatsController;
+import java.awt.event.ActionListener;
+import javax.swing.JPanel;
+
 /**
  *
  * @author jro5165
  */
-public class FoodMoodStatsPanel {
-    
-    /**
-     * Class Constructor.
-     */
-    public FoodMoodStatsPanel(){
-        
-        initComponents();
-        
+public class FoodMoodStatsPanel extends JPanel {
+    public FoodMoodStatsPanel(FoodMoodStatsController foodMoodCntrl){
+        System.out.println("FoodMoodStatsPanel Class Instantiated. Test Passed.");
     }
     
-    /**
-     * Initiate Components method. Initiates all components to be placed on the panel. 
-     */
-    public void initComponents(){
-        
-        
+    private class Handler implements ActionListener {
+
+        @Override
+        public void actionPerformed(java.awt.event.ActionEvent e) {
+            throw new UnsupportedOperationException("Not supported yet.");
+        }
     }
 }

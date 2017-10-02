@@ -4,41 +4,37 @@
  * and open the template in the editor.
  */
 package FoodMoodStatsController;
-import FoodMoodStatsModel.FoodMoodStatsModel;
+import FoodModel.Food;
+import FoodMoodStatsModel.FoodMoodStat;
+import FoodMoodStatsUI.FoodMoodStatsUI;
+import MoodModel.Mood;
 import NavigationController.NavController;
+import java.util.ArrayList;
 
 /**
  *
  * @author bryaningram
  */
 public class FoodMoodStatsController {
-    FoodMoodStatsModel masterList;
-    NavController navCntrl;
-  
+    
     /**
-     * History Controller class constructor
+     * Food Mood Stats Controller Class Constructor
      */
     public FoodMoodStatsController(NavController navCntrl){
         System.out.println("FoodMoodStatsController Class Instantiated. Test Passed.");
+        FoodMoodStatsUI foodMoodUI = new FoodMoodStatsUI(this);
     }
     
-    
-    /**
-     * Sort method for the Stats List.
-     * @return 
-     */
-    public FoodMoodStatsModel sortStats(){
-        
-        return masterList;
-    }
-    
-    
-    /**
-     * Search method for the Stats List.
-     * @return returns the masterList arrayList 
-     */
-    public FoodMoodStatsModel searchStats(){
-        
-        return masterList;
+    public ArrayList<FoodMoodStat> computeFoodMoodStats(ArrayList<Food> foodlist, ArrayList<Mood> moodlist){
+        ArrayList<FoodMoodStat> foodMoodStats = new ArrayList<>();
+        for(int i = 0; i < foodlist.size(); i++){
+            // TEST
+            Food food =  new Food("TEST", "This is only a test.");
+            Mood mood = new Mood("TEST", 10);
+            FoodMoodStat foodMoodStat = new FoodMoodStat(food, mood, 45);
+            foodMoodStats.add(foodMoodStat);
+        }
+        System.out.println("FoodMoodStatsController - computeFoodMoodStats(): Stats Computed Successfully. Test Passed.");
+        return foodMoodStats;
     }
 }

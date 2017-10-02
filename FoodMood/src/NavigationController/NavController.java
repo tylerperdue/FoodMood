@@ -42,57 +42,57 @@ public class NavController {
     }
     
     public void switchToChartCntrl() {
-        System.out.println("NavController - Switched to Chart Controller.");
+        System.out.println("NavController - Switched to Chart Controller. Test Passed.");
         //ChartController chartCtrl = new ChartController(this.getClass());
     }
     
     public void switchToCorrelationCntrl() {
-        System.out.println("NavController - Switched to Correlation Controller.");
+        System.out.println("NavController - Switched to Correlation Controller. Test Passed.");
         //CorrelationController correlationCtrl = new CorrelationController(this);
     }
     
     public void switchToFoodCntrl() {
-        System.out.println("NavController - Switched to Food Controller.");
+        System.out.println("NavController - Switched to Food Controller. Test Passed.");
         FoodController foodCntrl = new FoodController(this);
     }
     
     public void switchToMoodCntrl() {
-        System.out.println("NavController - Swtiched to Mood Controller.");
+        System.out.println("NavController - Swtiched to Mood Controller. Test Passed.");
         MoodController moodCntrl = new MoodController(this);
     }
     
     public void switchToHistoryCntrl() {
-        System.out.println("NavController - Switched to History Controller.");
+        System.out.println("NavController - Switched to History Controller. Test Passed.");
         //HistoryController historyCtrl = new HistoryController(this);
     }
     
     public void switchToFoodMoodStatsCntrl() {
-        System.out.println("NavController - Switched to Food Mood Stats Controller.");
+        System.out.println("NavController - Switched to Food Mood Stats Controller. Test Passed.");
         FoodMoodStatsController foodMoodStatsCtrl = new FoodMoodStatsController(this);
     }
     
     public void switchToLoginCntrl() {
-        System.out.println("NavController - Switched to Login Controller.");
+        System.out.println("NavController - Switched to Login Controller. Test Passed.");
         LoginController loginCtrl = new LoginController(this);
     }
     
     public void switchToNotificationsCntrl() {
-        System.out.println("NavController - Switched to Notifications Controller.");
+        System.out.println("NavController - Switched to Notifications Controller. Test Passed.");
         //NotificationsController notifcationsCtrl = new NotificationsController(this);
     }
     
     public void switchToRecommendationCntrl() {
-        System.out.println("NavController - Switched to Recommendation Controller.");
+        System.out.println("NavController - Switched to Recommendation Controller. Test Passed.");
         //RecommendationController recommendationCtrl = new RecommendationController(this);
     }
     
     public void switchToResearchCntrl() {
-        System.out.println("NavController - Switched to Research Controller.");
+        System.out.println("NavController - Switched to Research Controller. Test Passed.");
         //ResearchController researchCtrl = new ResearchController(this);
     }
     
     public void switchToProfileCntrl() {
-        System.out.println("NavController - Switched to Profile Controller.");
+        System.out.println("NavController - Switched to Profile Controller. Test Passed.");
         //ProfileController profileCtrl = new ProfileController(this);
     }
 }

@@ -23,6 +23,7 @@ import UserProfileController.ProfileController;
  *
  * @author jro5165
  */
+import LoginUI.LoginPanel;
 public class NavController {
     
     private ChartController chartCtrl;
@@ -36,6 +37,8 @@ public class NavController {
     private RecommendationController recommendationCtrl;
     private ResearchController researchCtrl;
     private ProfileController profileCtrl;
+    
+
     
     public NavController(){
         System.out.println("NavController Class Instantiated. Test Passed.");
@@ -54,6 +57,7 @@ public class NavController {
     public void switchToFoodCntrl() {
         System.out.println("NavController - Switched to Food Controller. Test Passed.");
         FoodController foodCntrl = new FoodController(this);
+        
     }
     
     public void switchToMoodCntrl() {
@@ -74,6 +78,7 @@ public class NavController {
     public void switchToLoginCntrl() {
         System.out.println("NavController - Switched to Login Controller. Test Passed.");
         LoginController loginCtrl = new LoginController(this);
+        
     }
     
     public void switchToNotificationsCntrl() {

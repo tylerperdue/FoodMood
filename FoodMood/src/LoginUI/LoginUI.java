@@ -5,6 +5,8 @@
  */
 package LoginUI;
 
+import LoginController.LoginController;
+import UserProfileModel.UserList;
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
 
@@ -14,11 +16,15 @@ import java.awt.BorderLayout;
  */
 public class LoginUI extends JFrame {
 
-    public LoginUI() {
+    public LoginUI(LoginController loginCtrl) {
         System.out.println("LoginUI Class Instantiated. Test Passed.");
-        LoginPanel loginPanel = new LoginPanel();
-        JFrame frame = new JFrame();
-        frame.setLayout(new BorderLayout());
-        frame.add(loginPanel);
+        LoginPanel loginPanel = new LoginPanel(UserList.getUserList(), loginCtrl);
+        this.setBounds(0, 0, 485, 205);
+        this.setTitle("Login");
+        this.setResizable(true);
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        this.add(loginPanel);
+        this.setVisible(true);   
     }
 }

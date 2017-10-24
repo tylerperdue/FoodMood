@@ -19,7 +19,7 @@ public class FoodMood {
     public static void main(String[] args) {
         NavController navCtrl = new NavController(); 
         LoginController loginCtrl = new LoginController(navCtrl);
-        loginCtrl.authenticate("john", "password");
+        //loginCtrl.authenticate("john", "password");
     }
     
 }

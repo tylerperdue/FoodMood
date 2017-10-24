@@ -12,7 +12,7 @@ public class UserList {
         System.out.println("UserList Class Instantiated. Test Passed.");
     }
     
-    public ArrayList<User> getUserlist() {
+    public static ArrayList<User> getUserList() {
         ArrayList<User> userlist = new ArrayList<User>();
         
         // TEST

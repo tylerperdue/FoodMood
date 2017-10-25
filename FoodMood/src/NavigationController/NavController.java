@@ -32,7 +32,7 @@ public class NavController {
     private FoodController foodCtrl;
     private HistoryController historyCtrl;
     private FoodMoodStatsController foodMoodStatsCtrl;
-    private LoginController loginCtrl;
+    private final LoginController loginCtrl;
     private MoodController moodCtrl;
     private NotificationsController notificationsCtrl;
     private RecommendationController recommendationCtrl;
@@ -41,9 +41,9 @@ public class NavController {
     
     
     
-    public NavController(){
+    public NavController(LoginController loginCtrl){
         System.out.println("NavController Class Instantiated. Test Passed.");
-       
+        this.loginCtrl = loginCtrl;
     }
     
     public void switchToChartCntrl() {
@@ -100,6 +100,6 @@ public class NavController {
     
     public void switchToProfileCntrl() {
         System.out.println("NavController - Switched to Profile Controller. Test Passed.");
-        ProfileController profileCtrl = new ProfileController(this);
+        ProfileController profileCtrl = new ProfileController(this, loginCtrl.currUser);
     }
 }

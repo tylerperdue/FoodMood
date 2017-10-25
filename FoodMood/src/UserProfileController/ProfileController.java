@@ -1,7 +1,8 @@
 package UserProfileController;
+import LoginController.LoginController;
 import NavigationController.NavController;
 import UserProfileModel.User;
-import UserProfileUI.CreateProfileUI;
+import UserProfileUI.ProfileUI;
 
 /**
  *
@@ -9,11 +10,14 @@ import UserProfileUI.CreateProfileUI;
  */
 public class ProfileController {
     NavController navCtrl;
-   
-    public ProfileController(NavController navCntrl){
+    LoginController loginCtrl;
+    public User currUser;
+    
+    public ProfileController(NavController navCntrl, User currUser){
         System.out.println("ProfileController class Instantiated. Test Passed.");
-        this.navCtrl = navCtrl;
-        CreateProfileUI createProfileUI = new CreateProfileUI(this);
+        //this.navCtrl = navCtrl;
+        this.currUser = currUser;
+       ProfileUI createProfileUI = new ProfileUI(this,loginCtrl);
     }
     public void createAccount(User user){
         /**
@@ -47,5 +51,19 @@ public class ProfileController {
          * that record. 
          */   
         System.out.println("Profile Controller - Account deleted successfully. Test Passed.");
+    }
+
+    /**
+     * @return the currUser
+     */
+    public User getCurrUser() {
+        return currUser;
+    }
+
+    /**
+     * @param currUser the currUser to set
+     */
+    public void setCurrUser(User currUser) {
+        this.currUser = currUser;
     }
 }

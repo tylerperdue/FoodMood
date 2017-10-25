@@ -124,9 +124,10 @@ public class LoginPanel extends javax.swing.JPanel {
         System.out.println("OK Button Pressed");
         
         if(loginCtrl.authenticate(userTextField.getText(), passwordField.getText())){
-                loginCtrl.switchToNavCtrl();
-                loginCtrl.getNavCntrl().switchToFoodCntrl();  
-                loginCtrl.getLoginUI().dispose();
+            loginCtrl.getLoginUI().setVisible(false);     
+            loginCtrl.switchToNavCtrl();
+            loginCtrl.getNavCntrl().switchToProfileCntrl();  
+                
                 
         }
         else

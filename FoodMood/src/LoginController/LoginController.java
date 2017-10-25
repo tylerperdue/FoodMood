@@ -24,7 +24,7 @@ public class LoginController {
  
     private NavController navCntrl;
     public LoginUI loginUI;
-    
+    public  User currUser;
     public LoginController(){
         //this.navCntrl = navCntrl;
         System.out.println("LoginController Class Instantiated. Test Passed.");
@@ -34,7 +34,7 @@ public class LoginController {
     
     public void switchToNavCtrl(){
         
-        navCntrl = new NavController();
+        navCntrl = new NavController(this);
         
     }
     public ArrayList<User> viewUserList(){
@@ -47,9 +47,12 @@ public class LoginController {
         boolean authenticated = false;
         //UserList userlist = new UserList();
         ArrayList<User> listOfUsers = UserList.getUserList();
+        
         for(int i = 0; i < listOfUsers.size();  i++){
             if(listOfUsers.get(i).getUsername().equals(username) && listOfUsers.get(i).getPassword().equals(password) ){
                 authenticated = true;
+                currUser = new User(listOfUsers.get(i).getUsername(),listOfUsers.get(i).getPassword(),
+                        listOfUsers.get(i).getFirstname(), listOfUsers.get(i).getLastname(),listOfUsers.get(i).getAge());
                 System.out.println("LoginController - authenticate(): User Authenticated. Test Passed.");
 //                switchToNavCtrl();
 //                getNavCntrl().switchToFoodCntrl();  
@@ -61,6 +64,9 @@ public class LoginController {
        return false;
     }
 
+    public User getCurrUser(){
+        return currUser;
+    }
     public void closeApp(){
         System.exit(0);
         

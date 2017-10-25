@@ -17,8 +17,8 @@ public class FoodMood {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        NavController navCtrl = new NavController(); 
-        LoginController loginCtrl = new LoginController(navCtrl);
+        
+        LoginController loginCtrl = new LoginController();
         //loginCtrl.authenticate("john", "password");
     }
     

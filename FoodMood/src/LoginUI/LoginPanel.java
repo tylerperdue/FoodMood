@@ -7,8 +7,11 @@ package LoginUI;
 
 import LoginController.LoginController;
 import UserProfileModel.User;
+import UserProfileModel.UserList;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,8 +19,10 @@ import java.util.Arrays;
  */
 public class LoginPanel extends javax.swing.JPanel {
 
+   
+
     LoginController loginCtrl;
-    
+    UserList userList;
     
     /**
      * Creates new form LoginPanel
@@ -28,7 +33,7 @@ public class LoginPanel extends javax.swing.JPanel {
         System.out.println("LoginPanel Class Instantiated. Test Passed.");
         initComponents();
         this.loginCtrl= loginCtrl; 
-        
+       
     }
 
     /**
@@ -116,8 +121,17 @@ public class LoginPanel extends javax.swing.JPanel {
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
         // TODO add your handling code here:
-        loginCtrl.authenticate(userTextField.getText(), passwordField.getText());
-        System.out.println("Pressed");
+        System.out.println("OK Button Pressed");
+        
+        if(loginCtrl.authenticate(userTextField.getText(), passwordField.getText())){
+                loginCtrl.switchToNavCtrl();
+                loginCtrl.getNavCntrl().switchToFoodCntrl();  
+                loginCtrl.getLoginUI().dispose();
+                
+        }
+        else
+            JOptionPane.showMessageDialog(new JFrame(), "wrong password you suck. ", "Dialog",
+                 JOptionPane.ERROR_MESSAGE);
         
             
     }//GEN-LAST:event_okButtonActionPerformed
@@ -131,7 +145,19 @@ public class LoginPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordFieldActionPerformed
 
+ /**
+     * @return the userList
+     */
+    public UserList getUserList() {
+        return userList;
+    }
 
+    /**
+     * @param userList the userList to set
+     */
+    public void setUserList(UserList userList) {
+        this.userList = userList;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton cancelButton;
     private javax.swing.JButton okButton;

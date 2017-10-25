@@ -12,6 +12,8 @@ import UserProfileModel.UserList;
 import UserProfileModel.User;
 import NavigationController.NavController;
 import LoginUI.LoginUI;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -21,14 +23,20 @@ import LoginUI.LoginUI;
 public class LoginController {
  
     private NavController navCntrl;
-   
+    public LoginUI loginUI;
     
-    public LoginController(NavController navCntrl){
-        this.navCntrl = navCntrl;
+    public LoginController(){
+        //this.navCntrl = navCntrl;
         System.out.println("LoginController Class Instantiated. Test Passed.");
-        LoginUI loginUI = new LoginUI(this);
+        loginUI = new LoginUI(this);
     }
     
+    
+    public void switchToNavCtrl(){
+        
+        navCntrl = new NavController();
+        
+    }
     public ArrayList<User> viewUserList(){
         ArrayList<User> listOfUsers = UserList.getUserList();
         System.out.println("FoodController - Successfully viewed FoodList. Test Passed.");
@@ -37,16 +45,20 @@ public class LoginController {
     }
     public boolean authenticate(String username, String password){
         boolean authenticated = false;
-        UserList userlist = new UserList();
+        //UserList userlist = new UserList();
         ArrayList<User> listOfUsers = UserList.getUserList();
-        for(int i = 0; i < listOfUsers.size(); i++){
-            if(listOfUsers.get(i).getUsername().equals(username) && listOfUsers.get(i).getPassword().equals(password)){
+        for(int i = 0; i < listOfUsers.size();  i++){
+            if(listOfUsers.get(i).getUsername().equals(username) && listOfUsers.get(i).getPassword().equals(password) ){
+                authenticated = true;
                 System.out.println("LoginController - authenticate(): User Authenticated. Test Passed.");
-                getNavCntrl().switchToFoodCntrl();                
-                break;
+//                switchToNavCtrl();
+//                getNavCntrl().switchToFoodCntrl();  
+//                getLoginUI().dispose();
+               return authenticated;
+                
             }
         }
-        return authenticated;
+       return false;
     }
 
     public void closeApp(){
@@ -65,6 +77,20 @@ public class LoginController {
      */
     public void setNavCntrl(NavController navCntrl) {
         this.navCntrl = navCntrl;
+    }
+
+    /**
+     * @return the loginUI
+     */
+    public LoginUI getLoginUI() {
+        return loginUI;
+    }
+
+    /**
+     * @param loginUI the loginUI to set
+     */
+    public void setLoginUI(LoginUI loginUI) {
+        this.loginUI = loginUI;
     }
 
    

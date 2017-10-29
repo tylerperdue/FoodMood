@@ -5,16 +5,11 @@
  */
 
 package LoginController;
-import FoodModel.Food;
-import FoodModel.FoodList;
 import java.util.ArrayList;
 import UserProfileModel.UserList;
 import UserProfileModel.User;
 import NavigationController.NavController;
 import LoginUI.LoginUI;
-import MainMenu.MainMenuPanel;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 
 /**

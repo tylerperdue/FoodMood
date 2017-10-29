@@ -6,7 +6,6 @@
 package RecommendationController;
 
 import FoodModel.Food;
-import FoodModel.FoodList;
 import NavigationController.NavController;
 import RecommendationModel.RecommendationList;
 import RecommendationUI.RecommendationUI;

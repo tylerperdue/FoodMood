@@ -6,7 +6,7 @@
 package FoodMoodStatsUI;
 
 import FoodModel.Food;
-import FoodModel.FoodList;
+import FoodModel.FoodCache;
 import FoodMoodStatsController.FoodMoodStatsController;
 import MoodModel.Mood;
 import MoodModel.MoodList;
@@ -26,7 +26,7 @@ public class FoodMoodStatsUI extends JFrame {
         FoodMoodStatsPanel foodMoodPanel = new FoodMoodStatsPanel(foodMoodCntrl);
         this.setLayout(new BorderLayout());
         // TEST
-        ArrayList<Food> foodlist = FoodList.getFoodList();
+        ArrayList<Food> foodlist = FoodCache.getFoodList();
         ArrayList<Mood> moodlist = MoodList.getMoodList();
         foodMoodCntrl.computeFoodMoodStats(foodlist, moodlist);
         this.add(foodMoodPanel);

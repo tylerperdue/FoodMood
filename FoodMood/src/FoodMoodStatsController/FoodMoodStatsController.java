@@ -29,7 +29,7 @@ public class FoodMoodStatsController {
         ArrayList<FoodMoodStat> foodMoodStats = new ArrayList<>();
         for(int i = 0; i < foodlist.size(); i++){
             // TEST
-            Food food =  new Food("TEST", "This is only a test.");
+            Food food =  new Food(1, "TEST", "This is only a test.");
             Mood mood = new Mood("TEST", 10);
             FoodMoodStat foodMoodStat = new FoodMoodStat(food, mood, 45);
             foodMoodStats.add(foodMoodStat);

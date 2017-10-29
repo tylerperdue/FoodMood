@@ -32,7 +32,7 @@ public class FoodUI extends JFrame {
         // TEST
         //this.add(foodListPanel);
         //this.add(createFoodPanel);
-        Food food = new Food("TEST", "This is a test food item.");
+        Food food = new Food(1, "TEST", "This is a test food item.");
         foodCntrl.deleteFood(food);
         foodCntrl.updateFood(food);
     }

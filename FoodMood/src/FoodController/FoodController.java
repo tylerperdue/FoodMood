@@ -3,7 +3,7 @@ package FoodController;
 import NavigationController.NavController;
 import FoodUI.FoodUI;
 import FoodModel.Food;
-import FoodModel.FoodList;
+import FoodModel.FoodCache;
 import java.util.ArrayList;
 /**
  *
@@ -25,7 +25,7 @@ public class FoodController {
         System.out.println("FoodController - Successfully created Food. Test Passed.");
     }
     public ArrayList<Food> viewFoodList(){
-        ArrayList<Food> listOfFoods = FoodList.getFoodList();
+        ArrayList<Food> listOfFoods = FoodCache.getFoodList();
         System.out.println("FoodController - Successfully viewed FoodList. Test Passed.");
         return listOfFoods;
     }

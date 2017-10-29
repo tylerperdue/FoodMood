@@ -19,7 +19,7 @@ public class LoginUI extends JFrame {
     public LoginUI(LoginController loginCtrl) {
         System.out.println("LoginUI Class Instantiated. Test Passed.");
         LoginPanel loginPanel = new LoginPanel(UserList.getUserList(), loginCtrl);
-        this.setBounds(0, 0, 485, 205);
+        this.setBounds(0, 0, 485, 220);
         this.setTitle("Login");
         this.setResizable(true);
         this.setLocationRelativeTo(null);

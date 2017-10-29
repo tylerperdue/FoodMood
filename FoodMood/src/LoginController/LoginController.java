@@ -12,6 +12,7 @@ import UserProfileModel.UserList;
 import UserProfileModel.User;
 import NavigationController.NavController;
 import LoginUI.LoginUI;
+import MainMenu.MainMenuPanel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -25,12 +26,19 @@ public class LoginController {
     private NavController navCntrl;
     public LoginUI loginUI;
     public  User currUser;
+    
     public LoginController(){
         //this.navCntrl = navCntrl;
         System.out.println("LoginController Class Instantiated. Test Passed.");
         loginUI = new LoginUI(this);
     }
     
+    public void addUser(User newUser){
+       
+        UserList.getUserList().add(newUser);
+        
+        
+    }
     
     public void switchToNavCtrl(){
         

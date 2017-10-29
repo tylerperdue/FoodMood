@@ -25,6 +25,7 @@ import UserProfileController.ProfileController;
  */
 import LoginUI.LoginPanel;
 import LoginUI.LoginUI;
+import MainMenu.MainMenuController;
 public class NavController {
     
     private ChartController chartCtrl;
@@ -38,12 +39,18 @@ public class NavController {
     private RecommendationController recommendationCtrl;
     private ResearchController researchCtrl;
     private ProfileController profileCtrl;
+    private MainMenuController mainMenuCtrl;
     
     
     
     public NavController(LoginController loginCtrl){
         System.out.println("NavController Class Instantiated. Test Passed.");
         this.loginCtrl = loginCtrl;
+    }
+    
+    public void switchToMainMenuCtrl(){
+         System.out.println("NavController - Switched to Main Menu Controller. Test Passed.");
+         MainMenuController mainMenuCtrl = new MainMenuController(this);
     }
     
     public void switchToChartCntrl() {

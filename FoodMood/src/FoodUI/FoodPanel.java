@@ -161,7 +161,7 @@ public class FoodPanel extends javax.swing.JPanel {
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
         if (foodName.getText().equals("")) {
             System.out.println("Enter Food");
-            
+            model.fireTableDataChanged();
         } else {
             BufferedWriter bw = null;
             try {

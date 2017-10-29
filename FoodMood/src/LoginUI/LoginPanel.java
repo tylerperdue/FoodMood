@@ -126,8 +126,8 @@ public class LoginPanel extends javax.swing.JPanel {
         if(loginCtrl.authenticate(userTextField.getText(), passwordField.getText())){
             loginCtrl.getLoginUI().setVisible(false);     
             loginCtrl.switchToNavCtrl();
-            loginCtrl.getNavCntrl().switchToProfileCntrl();
-            loginCtrl.getNavCntrl().switchToFoodCntrl();
+            loginCtrl.getNavCntrl().switchToMainMenuCtrl();
+            
                 
                 
         }

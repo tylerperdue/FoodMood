@@ -24,7 +24,7 @@ public class MoodUI extends JFrame {
         // TEST
         this.add(moodListPanel);
         this.add(createMoodPanel);
-        Mood mood = new Mood("TEST", 4);
+        Mood mood = new Mood(1, "TEST", 4);
         moodCntrl.deleteMood(mood);
         moodCntrl.updateMood(mood);
     }

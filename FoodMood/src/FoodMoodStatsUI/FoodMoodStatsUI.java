@@ -9,7 +9,7 @@ import FoodModel.Food;
 import FoodModel.FoodCache;
 import FoodMoodStatsController.FoodMoodStatsController;
 import MoodModel.Mood;
-import MoodModel.MoodList;
+import MoodModel.MoodCache;
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public class FoodMoodStatsUI extends JFrame {
         this.setLayout(new BorderLayout());
         // TEST
         ArrayList<Food> foodlist = FoodCache.getFoodList();
-        ArrayList<Mood> moodlist = MoodList.getMoodList();
+        ArrayList<Mood> moodlist = MoodCache.getMoodList();
         foodMoodCntrl.computeFoodMoodStats(foodlist, moodlist);
         this.add(foodMoodPanel);
     }

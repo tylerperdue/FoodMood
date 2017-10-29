@@ -1,7 +1,7 @@
 package MoodController;
 
 import MoodModel.Mood;
-import MoodModel.MoodList;
+import MoodModel.MoodCache;
 import MoodUI.MoodUI;
 import NavigationController.NavController;
 import java.util.ArrayList;
@@ -26,7 +26,7 @@ public class MoodController {
         System.out.println("MoodController - Successfully created Mood. Test Passed.");
     }
     public ArrayList<Mood> getMoodList(){
-        ArrayList<Mood> listOfMoods = MoodList.getMoodList();
+        ArrayList<Mood> listOfMoods = MoodCache.getMoodList();
         System.out.println("Mood Controller - Successfully viewed MoodList. Test Passed.");
         return listOfMoods;
     }

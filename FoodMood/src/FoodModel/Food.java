@@ -26,7 +26,7 @@ public class Food implements Cloneable {
       }
       
       return clone;
-   }
+    }
     
     public int getId() {
         return id;

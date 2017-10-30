@@ -5,6 +5,9 @@
  */
 package FoodUI;
 
+import FoodController.AddFood;
+import FoodController.FoodCommand;
+import FoodController.Invoker;
 import NavigationController.NavController;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -164,6 +167,13 @@ public class FoodPanel extends javax.swing.JPanel {
             model.fireTableDataChanged();
         } else {
             BufferedWriter bw = null;
+            FoodCommand food = new FoodCommand();
+            AddFood addFood = new AddFood(food);
+
+            Invoker invoker = new Invoker();
+            invoker.invoke(addFood);
+
+            invoker.List();
             try {
                 Date date = new Date();
                 Timestamp timestamp = new Timestamp(date.getTime());
@@ -188,8 +198,8 @@ public class FoodPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField filterText;
-    private javax.swing.JTextField foodName;
-    private javax.swing.JTable foodTable;
+    public javax.swing.JTextField foodName;
+    public javax.swing.JTable foodTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;

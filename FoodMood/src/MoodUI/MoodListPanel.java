@@ -8,7 +8,7 @@ package MoodUI;
 import MoodController.MoodController;
 import MoodModel.Mood;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+import java.util.Hashtable;
 import javax.swing.JPanel;
 
 /**
@@ -19,7 +19,7 @@ public class MoodListPanel extends JPanel {
     
     MoodController moodCntrl;
     
-    public MoodListPanel(ArrayList<Mood> moodlist, MoodController moodCntrl){
+    public MoodListPanel(Hashtable<Integer, Mood> moodlist, MoodController moodCntrl){
         System.out.println("MoodListPanel Class Instantiated. Test Passed.");
         this.moodCntrl = moodCntrl;
     }

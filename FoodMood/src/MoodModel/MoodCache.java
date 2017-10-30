@@ -5,6 +5,7 @@
  */
 package MoodModel;
 
+import static FoodModel.FoodCache.loadCache;
 import java.util.Hashtable;
 import java.util.ArrayList;
 
@@ -22,15 +23,10 @@ public class MoodCache {
         return (Mood) cachedMood.clone();
     }
     
-    public static ArrayList<Mood> getMoodList() {
-        ArrayList<Mood> moodlist = new ArrayList();
-        
-        for(int i = 0;i <= moodMap.size();i++) {
-           Mood cachedMood = moodMap.get(i);
-           moodlist.add((Mood) cachedMood.clone());
-        }
+    public static Hashtable<Integer, Mood> getMoodList() {
+        loadCache();
         System.out.println("MoodCache - getMoodList method called.");
-        return moodlist;
+        return moodMap;
     }
     
     public static void loadCache() {

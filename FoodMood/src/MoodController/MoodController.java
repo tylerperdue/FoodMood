@@ -4,7 +4,7 @@ import MoodModel.Mood;
 import MoodModel.MoodCache;
 import MoodUI.MoodUI;
 import NavigationController.NavController;
-import java.util.ArrayList;
+import java.util.Hashtable;
 
 /**
  *
@@ -25,8 +25,8 @@ public class MoodController {
         // Quary Database
         System.out.println("MoodController - Successfully created Mood. Test Passed.");
     }
-    public ArrayList<Mood> getMoodList(){
-        ArrayList<Mood> listOfMoods = MoodCache.getMoodList();
+    public Hashtable<Integer, Mood> getMoodList(){
+        Hashtable<Integer, Mood> listOfMoods = MoodCache.getMoodList();
         System.out.println("Mood Controller - Successfully viewed MoodList. Test Passed.");
         return listOfMoods;
     }

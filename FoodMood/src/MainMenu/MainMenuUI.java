@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -25,6 +25,7 @@ NavController navCtrl;
         this.add(mainMenuPanel);
         this.setVisible(true); 
         initComponents();
+        this.navCtrl = navCtrl; 
       }
 
     /**
@@ -38,14 +39,33 @@ NavController navCtrl;
 
         MenuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         fileMenu.setText("File");
+
+        jMenuItem2.setText("Enter Food");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        fileMenu.add(jMenuItem2);
+
+        jMenuItem1.setText("Exit");
+        fileMenu.add(jMenuItem1);
+
         MenuBar.add(fileMenu);
 
-        editMenu.setText("Edit");
+        editMenu.setText("UserProfile");
+
+        jMenuItem3.setText("View Profile");
+        editMenu.add(jMenuItem3);
+
         MenuBar.add(editMenu);
 
         setJMenuBar(MenuBar);
@@ -64,10 +84,18 @@ NavController navCtrl;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        navCtrl.switchToFoodCntrl();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,6 +9,10 @@ import LoginController.LoginController;
 import UserProfileController.ProfileController;
 import java.awt.Color;
 import java.awt.Font;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -22,16 +26,30 @@ public class crudProfilePanel extends javax.swing.JPanel {
      * @param loginCtrl
      */
     private final ProfileController profileCtrl;
+    DefaultTableModel model = new DefaultTableModel();
+    
     public crudProfilePanel(ProfileController profileCtrl) {
         System.out.println("Profile panel");
         this.profileCtrl = profileCtrl;
+        readNotifications();
         initComponents();
+        notificationsTable.setModel(model);
 //        
 //        usernameLabel.setFont(new Font("Helvetica", Font.CENTER_BASELINE, 16));
 //        passwordLabel.setFont(new Font("Helvetica", Font.CENTER_BASELINE, 16));
 //        ageLabel.setFont(new Font("Helvetica", Font.CENTER_BASELINE, 16));
         viewProfileTab.setBackground(Color.LIGHT_GRAY);
         editProfileTab.setBackground(Color.LIGHT_GRAY);
+    }
+    
+    
+    public void readNotifications() {
+        model.addColumn("Notification");
+        model.addColumn("Received");
+        String[] test1 = {"Account Created", "8:00PM"};
+        String[] test2 = {"Please Take Mood Survey", "9:00PM"};
+        model.addRow(test1);
+        model.addRow(test2);
     }
 
     /**
@@ -59,6 +77,8 @@ public class crudProfilePanel extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         notificationsTab = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        notificationsTable = new javax.swing.JTable();
 
         nameLabel.setText("Name: " + profileCtrl.getCurrUser().getFirstname() + " " + profileCtrl.getCurrUser().getLastname());
 
@@ -92,7 +112,7 @@ public class crudProfilePanel extends javax.swing.JPanel {
                 .addComponent(passwordLabel)
                 .addGap(26, 26, 26)
                 .addComponent(ageLabel)
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         profileTabs.addTab("View Profile", viewProfileTab);
@@ -150,9 +170,8 @@ public class crudProfilePanel extends javax.swing.JPanel {
                 .addGroup(editProfileTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(editUsernameButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(editNameButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(editProfileTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(editPasswordButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(editPasswordButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(90, Short.MAX_VALUE))
         );
         editProfileTabLayout.setVerticalGroup(
@@ -174,20 +193,39 @@ public class crudProfilePanel extends javax.swing.JPanel {
                 .addGroup(editProfileTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jButton1))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         profileTabs.addTab("Edit Profile", editProfileTab);
+
+        notificationsTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(notificationsTable);
 
         javax.swing.GroupLayout notificationsTabLayout = new javax.swing.GroupLayout(notificationsTab);
         notificationsTab.setLayout(notificationsTabLayout);
         notificationsTabLayout.setHorizontalGroup(
             notificationsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 422, Short.MAX_VALUE)
+            .addGroup(notificationsTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
+                .addContainerGap())
         );
         notificationsTabLayout.setVerticalGroup(
             notificationsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, notificationsTabLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         profileTabs.addTab("Notifications", notificationsTab);
@@ -232,8 +270,10 @@ public class crudProfilePanel extends javax.swing.JPanel {
     private javax.swing.JLabel editUsernameLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JPanel notificationsTab;
+    private javax.swing.JTable notificationsTable;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JTabbedPane profileTabs;
     private javax.swing.JLabel usernameLabel;

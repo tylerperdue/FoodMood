@@ -41,12 +41,13 @@ NavController navCtrl;
         fileMenu = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        fileMenu.setText("File");
+        fileMenu.setText("FoodMood");
 
         jMenuItem2.setText("Enter Food");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -56,14 +57,27 @@ NavController navCtrl;
         });
         fileMenu.add(jMenuItem2);
 
-        jMenuItem1.setText("Exit");
+        jMenuItem1.setText("Enter Mood");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         fileMenu.add(jMenuItem1);
+
+        jMenuItem4.setText("View History");
+        fileMenu.add(jMenuItem4);
 
         MenuBar.add(fileMenu);
 
         editMenu.setText("UserProfile");
 
         jMenuItem3.setText("View Profile");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         editMenu.add(jMenuItem3);
 
         MenuBar.add(editMenu);
@@ -89,6 +103,16 @@ NavController navCtrl;
         navCtrl.switchToFoodCntrl();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        navCtrl.switchToMoodCntrl();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        navCtrl.switchToProfileCntrl();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar;
@@ -97,5 +121,6 @@ NavController navCtrl;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
 }

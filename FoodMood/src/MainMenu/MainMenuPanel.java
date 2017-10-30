@@ -103,6 +103,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
 
     private void MoodButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MoodButtonActionPerformed
         // TODO add your handling code here:
+        navCtrl.switchToMoodCntrl();
     }//GEN-LAST:event_MoodButtonActionPerformed
 
     private void userProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userProfileButtonActionPerformed

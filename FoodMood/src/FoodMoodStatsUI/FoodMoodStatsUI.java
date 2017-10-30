@@ -12,7 +12,7 @@ import MoodModel.Mood;
 import MoodModel.MoodCache;
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
-import java.util.ArrayList;
+import java.util.Hashtable;
 
 /**
  *
@@ -26,8 +26,8 @@ public class FoodMoodStatsUI extends JFrame {
         FoodMoodStatsPanel foodMoodPanel = new FoodMoodStatsPanel(foodMoodCntrl);
         this.setLayout(new BorderLayout());
         // TEST
-        ArrayList<Food> foodlist = FoodCache.getFoodList();
-        ArrayList<Mood> moodlist = MoodCache.getMoodList();
+        Hashtable<Integer, Food> foodlist = FoodCache.getFoodList();
+        Hashtable<Integer, Mood> moodlist = MoodCache.getMoodList();
         foodMoodCntrl.computeFoodMoodStats(foodlist, moodlist);
         this.add(foodMoodPanel);
     }

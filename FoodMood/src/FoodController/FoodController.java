@@ -4,7 +4,7 @@ import NavigationController.NavController;
 import FoodUI.FoodUI;
 import FoodModel.Food;
 import FoodModel.FoodCache;
-import java.util.ArrayList;
+import java.util.Hashtable;
 /**
  *
  * Last Updated By: Tyler
@@ -24,8 +24,8 @@ public class FoodController {
         // Query Database
         System.out.println("FoodController - Successfully created Food. Test Passed.");
     }
-    public ArrayList<Food> viewFoodList(){
-        ArrayList<Food> listOfFoods = FoodCache.getFoodList();
+    public Hashtable<Integer, Food> viewFoodList(){
+        Hashtable<Integer, Food> listOfFoods = FoodCache.getFoodList();
         System.out.println("FoodController - Successfully viewed FoodList. Test Passed.");
         return listOfFoods;
     }

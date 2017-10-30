@@ -22,15 +22,10 @@ public class FoodCache {
         return (Food) cachedFood.clone();
     }
     
-    public static ArrayList<Food> getFoodList() {
-        ArrayList<Food> foodlist = new ArrayList();
-        
-        for(int i = 0;i <= foodMap.size();i++) {
-           Food cachedFood = foodMap.get(i);
-           foodlist.add((Food) cachedFood.clone());
-        }
+    public static Hashtable<Integer, Food> getFoodList() {
+        loadCache();
         System.out.println("FoodCache - getFoodList method called.");
-        return foodlist;
+        return foodMap;
     }
     
     public static void loadCache() {

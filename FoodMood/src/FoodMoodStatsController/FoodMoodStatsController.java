@@ -9,6 +9,7 @@ import FoodMoodStatsModel.FoodMoodStat;
 import FoodMoodStatsUI.FoodMoodStatsUI;
 import MoodModel.Mood;
 import NavigationController.NavController;
+import java.util.Hashtable;
 import java.util.ArrayList;
 
 /**
@@ -25,7 +26,7 @@ public class FoodMoodStatsController {
         FoodMoodStatsUI foodMoodUI = new FoodMoodStatsUI(this);
     }
     
-    public ArrayList<FoodMoodStat> computeFoodMoodStats(ArrayList<Food> foodlist, ArrayList<Mood> moodlist){
+    public ArrayList<FoodMoodStat> computeFoodMoodStats(Hashtable<Integer, Food> foodlist, Hashtable<Integer, Mood> moodlist){
         ArrayList<FoodMoodStat> foodMoodStats = new ArrayList<>();
         for(int i = 0; i < foodlist.size(); i++){
             // TEST

@@ -15,3 +15,9 @@ Tyler Perdue: Prototype & Notifications
 Prototype - Implemented in Food, FoodCache (FoodModel Package), Mood, and MoodCache (MoodModel Package). This will hopefully minimize the amount of database queries we execute to these resources. 
 
 Notifications - Implemented in User Profile (UserProfilePanel). The notifications are displayed as a table. Functionality is limited until the notifications use case is built out. The table clearly shows the notifications a user has received. 
+
+Zack Lehmann: Singleton & Menus
+
+Singleton - Implemented on the Main Menu, as well as all of our interfaces. None of the interfaces are instantiated more than once because all we do is pass control between the controllers. 
+
+Menus - Implemented on the Main Menu. The list items are similar to the buttons on the Main Menu Panel right now, but the options will expand as we expand the app. 

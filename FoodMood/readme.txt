@@ -21,3 +21,10 @@ Zack Lehmann: Singleton & Menus
 Singleton - Implemented on the Main Menu, as well as all of our interfaces. None of the interfaces are instantiated more than once because all we do is pass control between the controllers. 
 
 Menus - Implemented on the Main Menu. The list items are similar to the buttons on the Main Menu Panel right now, but the options will expand as we expand the app. 
+
+
+Bryan Ingram: Command & Filters
+
+Command - Implemented in FoodController and submit button on FoodPanel. Consists of a command class that executes a request. Notifies when a food is entered.
+
+Filters - Implemented in the FoodPanel and the MoodPanel. Under the tables on those panels is a filter textfield that allows the user to type in a certain food and that food is what gets displayed on the table.

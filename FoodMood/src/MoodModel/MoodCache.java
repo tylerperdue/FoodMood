@@ -16,7 +16,7 @@ public class MoodCache {
     
     private static Hashtable<Integer, Mood> moodMap = new Hashtable<Integer, Mood>();
     
-    public static Mood getFood(int moodId) {
+    public static Mood getMood(int moodId) {
         Mood cachedMood = moodMap.get(moodId);
         System.out.println("MoodCache - getMood method called.");
         return (Mood) cachedMood.clone();

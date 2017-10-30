@@ -21,7 +21,7 @@ NavController navCtrl;
         this.setTitle("Main");
         this.setResizable(true);
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        //this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         this.add(mainMenuPanel);
         this.setVisible(true); 
         initComponents();

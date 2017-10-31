@@ -30,25 +30,22 @@ import javax.swing.table.TableRowSorter;
 public class FoodPanel extends javax.swing.JPanel {
     
     NavController navCtrl;
-    DefaultTableModel model = new DefaultTableModel();
     
     
     /**
      * Creates new form FoodPanel
      */
     public FoodPanel() {
-        readFoodList();
         initComponents();
+        readFoodList();
     }
     
     public void readFoodList() {
-        model.addColumn("Food Consumed");
-        model.addColumn("Date");
-        
         try {
             FileReader file = new FileReader("Foods.txt");
             BufferedReader br = new BufferedReader(file);
-            
+            DefaultTableModel model = (DefaultTableModel)foodTable.getModel();
+            model.setColumnIdentifiers(new String[] {"Food Consumed", "Date"});
             Object[] tableLines = br.lines().toArray();
             for (int i = 0; i < tableLines.length; i++) 
             {
@@ -62,6 +59,7 @@ public class FoodPanel extends javax.swing.JPanel {
     }
     
     private void filter(String sort) {
+        DefaultTableModel model = (DefaultTableModel)foodTable.getModel();
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
         foodTable.setRowSorter(sorter);
         sorter.setRowFilter(RowFilter.regexFilter(sort));
@@ -172,6 +170,7 @@ public class FoodPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
+        DefaultTableModel model = (DefaultTableModel)foodTable.getModel();
         if (foodName.getText().equals("")) {
             System.out.println("Enter Food");
             model.fireTableDataChanged();

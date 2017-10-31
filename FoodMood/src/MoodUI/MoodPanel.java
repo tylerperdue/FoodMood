@@ -27,25 +27,22 @@ import javax.swing.table.TableRowSorter;
 public class MoodPanel extends javax.swing.JPanel {
     
     NavController navCtrl;
-    DefaultTableModel model = new DefaultTableModel();
     
     
     /**
      * Creates new form FoodPanel
      */
     public MoodPanel() {
-        readMoodList();
         initComponents();
+        readMoodList();
     }
     
     public void readMoodList() {
-        model.addColumn("Mood");
-        model.addColumn("Date");
-        
         try {
             FileReader file = new FileReader("Moods.txt");
             BufferedReader br = new BufferedReader(file);
-            
+            DefaultTableModel model = (DefaultTableModel)moodTable.getModel();
+            model.setColumnIdentifiers(new String[] {"Mood", "Date"});
             Object[] tableLines = br.lines().toArray();
             for (int i = 0; i < tableLines.length; i++) 
             {
@@ -59,6 +56,7 @@ public class MoodPanel extends javax.swing.JPanel {
     }
     
     private void filter(String sort) {
+        DefaultTableModel model = (DefaultTableModel)moodTable.getModel();
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
         moodTable.setRowSorter(sorter);
         sorter.setRowFilter(RowFilter.regexFilter(sort));
@@ -169,6 +167,7 @@ public class MoodPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
+        DefaultTableModel model = (DefaultTableModel)moodTable.getModel();
         if (moodName.getText().equals("")) {
             System.out.println("Enter Mood");
             model.fireTableDataChanged();

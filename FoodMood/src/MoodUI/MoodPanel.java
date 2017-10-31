@@ -25,10 +25,9 @@ import javax.swing.table.TableRowSorter;
  * @author bryaningram
  */
 public class MoodPanel extends javax.swing.JPanel {
-    
+
     NavController navCtrl;
-    
-    
+
     /**
      * Creates new form FoodPanel
      */
@@ -36,16 +35,15 @@ public class MoodPanel extends javax.swing.JPanel {
         initComponents();
         readMoodList();
     }
-    
+
     public void readMoodList() {
         try {
             FileReader file = new FileReader("Moods.txt");
             BufferedReader br = new BufferedReader(file);
-            DefaultTableModel model = (DefaultTableModel)moodTable.getModel();
-            model.setColumnIdentifiers(new String[] {"Mood", "Date"});
+            DefaultTableModel model = (DefaultTableModel) moodTable.getModel();
+            model.setColumnIdentifiers(new String[]{"Mood", "Date"});
             Object[] tableLines = br.lines().toArray();
-            for (int i = 0; i < tableLines.length; i++) 
-            {
+            for (int i = 0; i < tableLines.length; i++) {
                 String line = tableLines[i].toString().trim();
                 String[] data = line.split("/");
                 model.addRow(data);
@@ -54,14 +52,14 @@ public class MoodPanel extends javax.swing.JPanel {
             System.out.println("Error is " + e);
         }
     }
-    
+
     private void filter(String sort) {
-        DefaultTableModel model = (DefaultTableModel)moodTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) moodTable.getModel();
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
         moodTable.setRowSorter(sorter);
         sorter.setRowFilter(RowFilter.regexFilter(sort));
     }
- 
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,6 +77,7 @@ public class MoodPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         filterText = new javax.swing.JTextField();
         deleteBtn = new javax.swing.JButton();
+        updateBtn = new javax.swing.JButton();
 
         jLabel1.setText("Enter Mood Consumed:");
 
@@ -91,7 +90,7 @@ public class MoodPanel extends javax.swing.JPanel {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -125,6 +124,13 @@ public class MoodPanel extends javax.swing.JPanel {
             }
         });
 
+        updateBtn.setText("Update");
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -144,6 +150,8 @@ public class MoodPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(filterText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(updateBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(deleteBtn)))
                 .addContainerGap())
         );
@@ -161,13 +169,14 @@ public class MoodPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(filterText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteBtn))
+                    .addComponent(deleteBtn)
+                    .addComponent(updateBtn))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
-        DefaultTableModel model = (DefaultTableModel)moodTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) moodTable.getModel();
         if (moodName.getText().equals("")) {
             System.out.println("Enter Mood");
             model.fireTableDataChanged();
@@ -200,25 +209,44 @@ public class MoodPanel extends javax.swing.JPanel {
             int modelIndex = moodTable.convertRowIndexToModel(viewIndex); // converts the row index in the view to the appropriate index in the model
             DefaultTableModel table = (DefaultTableModel) moodTable.getModel();
             table.removeRow(modelIndex);
-            
+
             try {
                 File file = new File("Moods.txt");
                 FileWriter fw = new FileWriter(file);
                 BufferedWriter bw = new BufferedWriter(fw);
-                
-                for(int i = 0; i < moodTable.getRowCount(); i++) {
-                    for(int j = 0; j < moodTable.getColumnCount(); j++) {
-                        bw.write(moodTable.getModel().getValueAt(i,j) + "/");
+
+                for (int i = 0; i < moodTable.getRowCount(); i++) {
+                    for (int j = 0; j < moodTable.getColumnCount(); j++) {
+                        bw.write(moodTable.getModel().getValueAt(i, j) + "/");
                     }
                     bw.newLine();
                 }
                 bw.close();
                 fw.close();
-            } catch(Exception ex) {
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
         }
     }//GEN-LAST:event_deleteBtnActionPerformed
+
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+        try {
+            File file = new File("Moods.txt");
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            for (int i = 0; i < moodTable.getRowCount(); i++) {
+                for (int j = 0; j < moodTable.getColumnCount(); j++) {
+                    bw.write(moodTable.getModel().getValueAt(i, j) + "/");
+                }
+                bw.newLine();
+            }
+            bw.close();
+            fw.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_updateBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -230,6 +258,7 @@ public class MoodPanel extends javax.swing.JPanel {
     private javax.swing.JTextField moodName;
     public javax.swing.JTable moodTable;
     private javax.swing.JButton submitBtn;
+    private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
 
 }

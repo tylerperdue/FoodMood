@@ -61,8 +61,6 @@ public class LoginPanel extends javax.swing.JPanel {
         passwordField = new javax.swing.JTextField();
         createUserButton = new javax.swing.JButton();
 
-        userTextField.setText("User");
-
         userLabel.setText("Username:");
 
         passLabel.setText("Password:");
@@ -81,7 +79,6 @@ public class LoginPanel extends javax.swing.JPanel {
             }
         });
 
-        passwordField.setText("Pass");
         passwordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordFieldActionPerformed(evt);
@@ -147,103 +144,20 @@ public class LoginPanel extends javax.swing.JPanel {
             loginCtrl.getLoginUI().setVisible(false);     
             loginCtrl.switchToNavCtrl();
             loginCtrl.getNavCntrl().switchToMainMenuCtrl();
-            
-                
-                
         }
         else
             JOptionPane.showMessageDialog(new JFrame(), "wrong password you suck. ", "Dialog",
                  JOptionPane.ERROR_MESSAGE);
-        
-            
-            
         }
     private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        
         JFrame newUserUI = new JFrame();
-        newUserUI.setBounds(0, 0, 400, 400);
-        newUserUI.setTitle("Login");
+        newUserUI.setBounds(0, 0, 360, 480);
+        newUserUI.setTitle("Create Profile");
         newUserUI.setResizable(true);
         newUserUI.setLocationRelativeTo(null);
-        //newUserUI.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        
-        JPanel newUserPanel = new JPanel(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
-        
-        JLabel firstnameLabel = new JLabel("First Name:");
-        c.gridx =0;
-        c.gridy = 0;
-        c.ipadx = 20;
-        newUserPanel.add(firstnameLabel, c);
-        
-        JLabel lastnameLabel = new JLabel("Last Name:");
-        c.gridx =0;
-        c.gridy = 1;
-        c.ipadx = 20;
-        newUserPanel.add(lastnameLabel, c);
-        
-        JLabel usernameLabel = new JLabel("Username:");
-        c.gridx =0;
-        c.gridy = 2;
-        c.ipadx = 20;
-        newUserPanel.add(usernameLabel, c);
-        
-        JLabel passwordLabel = new JLabel("Password:");
-        c.gridx =0;
-        c.gridy = 3;
-        c.ipadx = 20;
-        newUserPanel.add(passwordLabel, c);
-        
-        JLabel ageLabel = new JLabel("Age:");
-        c.gridx =0;
-        c.gridy = 4;
-        c.ipadx = 20;
-        newUserPanel.add(ageLabel, c);
-        
-        JTextField firstnameText = new JTextField("Enter First Name: ");
-        c.gridx = 1;
-        c.gridy = 0;
-        c.ipadx = 20;
-        newUserPanel.add(firstnameText, c);
-       
-        JTextField lastnameText = new JTextField("Enter Last Name: ");
-        c.gridx = 1;
-        c.gridy = 1;
-        newUserPanel.add(lastnameText, c);
-        
-        JTextField usernameText = new JTextField("Enter Username: ");
-        c.gridx = 1;
-        c.gridy = 2;
-        newUserPanel.add(usernameText, c);
-
-        JTextField passwordText = new JTextField("Enter Password: ");
-        c.gridx = 1;
-        c.gridy = 3;
-        newUserPanel.add(passwordText, c);
-        
-        JTextField ageText = new JTextField("Enter Age: ");
-        c.gridx = 1;
-        c.gridy = 4;
-        newUserPanel.add(ageText, c);
-        
-        JButton submitButton = new JButton("Create New User");
-        c.gridheight = 5;
-        c.insets = new Insets(25,25,25,25);
-        c.gridx = 1;
-        c.gridy = 5;
-        newUserPanel.add(submitButton, c);
-      
-        
-        newUserUI.add(newUserPanel);
+        RegisterPanel registerPanel = new RegisterPanel(this.loginCtrl, newUserUI);
+        newUserUI.add(registerPanel);
         newUserUI.setVisible(true);
-        
-        
-       
-      
-        
-
-
-        
     }//GEN-LAST:event_okButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed

@@ -23,16 +23,8 @@ public class LoginController {
     public  User currUser;
     
     public LoginController(){
-        //this.navCntrl = navCntrl;
         System.out.println("LoginController Class Instantiated. Test Passed.");
         loginUI = new LoginUI(this);
-    }
-    
-    public void addUser(User newUser){
-       
-        UserList.getUserList().add(newUser);
-        
-        
     }
     
     public void switchToNavCtrl(){
@@ -40,36 +32,31 @@ public class LoginController {
         navCntrl = new NavController(this);
         
     }
-    public ArrayList<User> viewUserList(){
-        ArrayList<User> listOfUsers = UserList.getUserList();
-        System.out.println("FoodController - Successfully viewed FoodList. Test Passed.");
-        return listOfUsers;
-        
-    }
+    
     public boolean authenticate(String username, String password){
-        boolean authenticated = false;
         //UserList userlist = new UserList();
         ArrayList<User> listOfUsers = UserList.getUserList();
         
         for(int i = 0; i < listOfUsers.size();  i++){
             if(listOfUsers.get(i).getUsername().equals(username) && listOfUsers.get(i).getPassword().equals(password) ){
-                authenticated = true;
-                currUser = new User(listOfUsers.get(i).getUsername(),listOfUsers.get(i).getPassword(),
-                        listOfUsers.get(i).getFirstname(), listOfUsers.get(i).getLastname(),listOfUsers.get(i).getAge());
+                currUser = listOfUsers.get(i);
                 System.out.println("LoginController - authenticate(): User Authenticated. Test Passed.");
-//                switchToNavCtrl();
-//                getNavCntrl().switchToFoodCntrl();  
-//                getLoginUI().dispose();
-               return authenticated;
-                
+               return true; 
             }
         }
        return false;
     }
+    
+    public void createUser(String username, String password, String firstname, String lastname, int age) {
+        User user = new User(1, username, password, firstname, lastname, age);
+        UserList.addUser(user);
+    }
+    
 
     public User getCurrUser(){
         return currUser;
     }
+    
     public void closeApp(){
         System.exit(0);
         

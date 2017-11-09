@@ -8,14 +8,15 @@ package UserProfileModel;
  * Last Update By: Tyler
  */
 public class User {
+    int id;
     String username;
     String password;
     String firstname;
     String lastname;
     int age;
     
-    public User(String username, String password, String firstname, String lastname, int age) {
-        
+    public User(int id, String username, String password, String firstname, String lastname, int age) {
+        this.id = id;
         this.username = username;
         this.password = password;
         this.firstname = firstname;
@@ -24,6 +25,14 @@ public class User {
         System.out.println("User Class Instantiated. Test Passed.");
     }
 
+    public int getID() {
+        return id;
+    }
+    
+    public void setID(int id) {
+        this.id = id;
+    }
+    
     public String getUsername() {
         return username;
     }

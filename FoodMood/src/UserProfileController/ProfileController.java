@@ -33,7 +33,7 @@ public class ProfileController {
          */
         //Open DB Connection
         //Query to read target user account
-        User example = new User("john", "password", "John", "Doe", 45);
+        User example = new User(1, "john", "password", "John", "Doe", 45);
         System.out.println("Profile Controller - User account read. Test Passed. ");
         return example;
     }

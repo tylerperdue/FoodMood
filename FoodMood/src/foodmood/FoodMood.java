@@ -5,8 +5,8 @@
  */
 package foodmood;
 
-import NavigationController.NavController;
 import LoginController.LoginController;
+
 
 /**
  *
@@ -19,7 +19,7 @@ public class FoodMood {
     public static void main(String[] args) {
         
         LoginController loginCtrl = new LoginController();
-        //loginCtrl.authenticate("john", "password");
+        loginCtrl.authenticate("john", "password");
     }
     
 }

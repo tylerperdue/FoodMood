@@ -8,4 +8,4 @@ CREATE TABLE APP.FOODMOODUSER (
     PRIMARY KEY(id)
 );
 
-INSERT INTO APP.FOODMOODUSER VALUES ("test", "test", "John", "Doe", 40);
+INSERT INTO APP.FOODMOODUSER (username, password, first_name, last_name, age) VALUES ('test', 'test', 'John', 'Doe', 40);

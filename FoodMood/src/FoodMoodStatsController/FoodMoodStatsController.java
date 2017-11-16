@@ -18,11 +18,13 @@ import java.util.ArrayList;
  */
 public class FoodMoodStatsController {
     
+    NavController navCntrl;
     /**
      * Food Mood Stats Controller Class Constructor
      */
     public FoodMoodStatsController(NavController navCntrl){
         System.out.println("FoodMoodStatsController Class Instantiated. Test Passed.");
+        this.navCntrl= navCntrl;
         FoodMoodStatsUI foodMoodUI = new FoodMoodStatsUI(this);
     }
     

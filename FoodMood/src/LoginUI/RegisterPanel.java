@@ -7,7 +7,6 @@ package LoginUI;
 
 import LoginController.LoginController;
 import UserProfileModel.UserList;
-import UserProfileModel.User;
 import javax.swing.JFrame;
 
 /**

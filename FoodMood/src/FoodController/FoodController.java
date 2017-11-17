@@ -19,9 +19,9 @@ public class FoodController {
         FoodUI foodUI = new FoodUI(this);
     }
     
-    public void createFood(Food food){
-        // Open Database connection 
-        // Query Database
+    public void createFood(String name, String type, String description){
+        Food food = new Food(1, name, type, description, "time");
+        FoodCache.addFood(food);
         System.out.println("FoodController - Successfully created Food. Test Passed.");
     }
     public Hashtable<Integer, Food> viewFoodList(){

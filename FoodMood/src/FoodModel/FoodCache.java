@@ -6,6 +6,7 @@
 package FoodModel;
 
 import DatabaseController.DatabaseController;
+import UserProfileModel.User;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -56,6 +57,19 @@ public class FoodCache {
           System.err.println(e.getMessage());
         }
         System.out.println("FoodCache - loadCache method called.");
+    }
+    
+    public static void addFood(Food food) {
+        try
+        {
+            Connection conn = DriverManager.getConnection(DatabaseController.getHost());
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate("INSERT INTO FOOD (NAME, TYPE, DESCRIPTION, TIMESTAMP) VALUES ('"+food.getName()+"', '"+food.getType()+"', '"+food.getDescription()+"', datetime('now', 'localtime'))");
+            System.out.println("FoodList - addFood(): Food (" + food.getName() + ") successfully added to database.");
+        } catch (SQLException e) {
+            System.out.println("SQLException: UserList - addUser()");
+            System.out.println(e.getMessage());
+        }
     }
     
 }

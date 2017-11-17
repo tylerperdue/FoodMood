@@ -10,6 +10,7 @@ import FoodController.FoodCommand;
 import FoodController.FoodController;
 import FoodController.Invoker;
 import FoodModel.Food;
+import LoginUI.RegisterPanel;
 import NavigationController.NavController;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -21,6 +22,7 @@ import java.util.Date;
 import java.util.Hashtable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
 
@@ -73,17 +75,13 @@ public class FoodPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         foodTable = new javax.swing.JTable();
-        submitBtn = new javax.swing.JButton();
-        foodName = new javax.swing.JTextField();
+        addFoodBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         filterText = new javax.swing.JTextField();
         deleteBtn = new javax.swing.JButton();
         updateBtn = new javax.swing.JButton();
-
-        jLabel1.setText("Enter Food Consumed:");
 
         foodTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -103,14 +101,12 @@ public class FoodPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(foodTable);
 
-        submitBtn.setText("Submit");
-        submitBtn.addActionListener(new java.awt.event.ActionListener() {
+        addFoodBtn.setText("Add Food");
+        addFoodBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitBtnActionPerformed(evt);
+                addFoodBtnActionPerformed(evt);
             }
         });
-
-        foodName.setColumns(8);
 
         jLabel2.setText("Filter:");
 
@@ -144,16 +140,13 @@ public class FoodPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(foodName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                        .addComponent(submitBtn))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(addFoodBtn))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(filterText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                         .addComponent(updateBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(deleteBtn)))
@@ -163,10 +156,7 @@ public class FoodPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(submitBtn)
-                    .addComponent(foodName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(addFoodBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -179,35 +169,16 @@ public class FoodPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
-        DefaultTableModel model = (DefaultTableModel) foodTable.getModel();
-        if (foodName.getText().equals("")) {
-            System.out.println("Enter Food");
-            model.fireTableDataChanged();
-        } else {
-            BufferedWriter bw = null;
-            FoodCommand food = new FoodCommand();
-            AddFood addFood = new AddFood(food);
-
-            Invoker invoker = new Invoker();
-            invoker.invoke(addFood);
-
-            invoker.List();
-            try {
-                Date date = new Date();
-                Timestamp timestamp = new Timestamp(date.getTime());
-                model.addRow(new Object[]{foodName.getText(), timestamp});
-                foodTable.setModel(model);
-                bw = new BufferedWriter(new FileWriter(new File("Foods.txt"), true));
-                bw.write(foodName.getText() + "/" + timestamp);
-                bw.newLine();
-                bw.close();
-            } catch (IOException ex) {
-                Logger.getLogger(FoodPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        foodName.setText("");
-    }//GEN-LAST:event_submitBtnActionPerformed
+    private void addFoodBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFoodBtnActionPerformed
+        JFrame newFoodUI = new JFrame();
+        newFoodUI.setBounds(0, 0, 360, 480);
+        newFoodUI.setTitle("Create Profile");
+        newFoodUI.setResizable(true);
+        newFoodUI.setLocationRelativeTo(null);
+        CreateFoodPanel foodPanel = new CreateFoodPanel(this.foodCtrl, newFoodUI);
+        newFoodUI.add(foodPanel);
+        newFoodUI.setVisible(true);
+    }//GEN-LAST:event_addFoodBtnActionPerformed
 
     private void filterTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_filterTextKeyReleased
         String sort = filterText.getText();
@@ -261,14 +232,12 @@ public class FoodPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addFoodBtn;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JTextField filterText;
-    public javax.swing.JTextField foodName;
     public javax.swing.JTable foodTable;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton submitBtn;
     private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
 

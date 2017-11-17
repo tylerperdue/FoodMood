@@ -23,9 +23,9 @@ public class UserList {
         ArrayList<User> userlist = new ArrayList<User>();
         try
         {
-          Connection con = DriverManager.getConnection(DatabaseController.getHost(), DatabaseController.getUsername(), DatabaseController.getPassword());
+          Connection con = DriverManager.getConnection(DatabaseController.getHost());
           Statement stmt = con.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-          String SQL = "SELECT * FROM APP.FOODMOODUSER";
+          String SQL = "SELECT * FROM USER";
           ResultSet rs = stmt.executeQuery(SQL);
           while (rs.next()) {
               int id = rs.getInt("ID");
@@ -52,9 +52,9 @@ public class UserList {
     public static void addUser(User user) {
         try
         {
-            Connection conn = DriverManager.getConnection(DatabaseController.getHost(), DatabaseController.getUsername(), DatabaseController.getPassword());
+            Connection conn = DriverManager.getConnection(DatabaseController.getHost());
             Statement stmt = conn.createStatement();
-            stmt.executeUpdate("INSERT INTO APP.FOODMOODUSER (username, password, first_name, last_name, age) VALUES ('"+user.getUsername()+"', '"+user.getPassword()+"', '"+user.getFirstname()+"', '"+user.getLastname()+"', "+user.getAge()+")");
+            stmt.executeUpdate("INSERT INTO USER (USERNAME, PASSWORD, FIRST_NAME, LAST_NAME, AGE) VALUES ('"+user.getUsername()+"', '"+user.getPassword()+"', '"+user.getFirstname()+"', '"+user.getLastname()+"', "+user.getAge()+")");
             System.out.println("UserList - addUser(): User (" + user.getFirstname()+ " " + user.getLastname() + ") successfully added to database.");
         } catch (SQLException e) {
             System.out.println("SQLException: UserList - addUser()");

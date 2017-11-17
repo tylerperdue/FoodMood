@@ -1,11 +1,23 @@
-CREATE TABLE APP.FOODMOODUSER (
-    id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), 
-    username VARCHAR(25),
-    password VARCHAR(25),
-    first_name VARCHAR(25),
-    last_name VARCHAR(25),
-    age INTEGER,
-    PRIMARY KEY(id)
+CREATE TABLE USER (
+    id INT PRIMARY KEY, 
+    USERNAME TEXT,
+    PASSWORD TEXT,
+    FIRST_NAME CHAR(25),
+    LAST_NAME CHAR(25),
+    AGE INT
 );
 
-INSERT INTO APP.FOODMOODUSER (username, password, first_name, last_name, age) VALUES ('test', 'test', 'John', 'Doe', 40);
+CREATE TABLE FOOD (
+    ID INT, 
+    NAME CHAR(25),
+    TYPE CHAR(25),
+    DESCRIPTION CHAR(25),
+    TIMESTAMP CHAR(25)
+);
+
+CREATE TABLE MOOD (
+    ID INT, 
+    NAME CHAR(25),
+    RATING INT,
+    TIMESTAMP CHAR(25)
+);

@@ -10,18 +10,9 @@ package DatabaseController;
  * @author tylerperdue
  */
 public class DatabaseController {
-    final static String host = "jdbc:derby://localhost:1527/FoodMood";
-    final static String username = "ist412";
-    final static String password = "ist412";
+    final static String host = "jdbc:sqlite:foodmood.db";
     
     public static String getHost() {
         return host;
-    }
-    public static String getUsername() {
-        return username;
-    }
-    public static String getPassword() {
-        return password;
-    }
-    
+    }   
 }

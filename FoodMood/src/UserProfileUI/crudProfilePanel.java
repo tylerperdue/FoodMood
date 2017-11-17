@@ -5,13 +5,14 @@
  */
 package UserProfileUI;
 
-import LoginController.LoginController;
+import FoodModel.Food;
 import UserProfileController.ProfileController;
 import java.awt.Color;
-import java.awt.Font;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+
+import javax.swing.JOptionPane;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -31,7 +32,7 @@ public class crudProfilePanel extends javax.swing.JPanel {
     public crudProfilePanel(ProfileController profileCtrl) {
         System.out.println("Profile panel");
         this.profileCtrl = profileCtrl;
-        readNotifications();
+        
         initComponents();
         notificationsTable.setModel(model);
 //        
@@ -43,15 +44,8 @@ public class crudProfilePanel extends javax.swing.JPanel {
     }
     
     
-    public void readNotifications() {
-        model.addColumn("Notification");
-        model.addColumn("Received");
-        String[] test1 = {"Account Created", "8:00PM"};
-        String[] test2 = {"Please Take Mood Survey", "9:00PM"};
-        model.addRow(test1);
-        model.addRow(test2);
-    }
-
+    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

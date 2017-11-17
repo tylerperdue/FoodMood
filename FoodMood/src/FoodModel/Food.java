@@ -6,13 +6,17 @@ package FoodModel;
 public class Food implements Cloneable {
     int id;
     String name;
+    String type;
     String description;
+    String timestamp;
     
-    public Food(int id, String name, String description){
+    public Food(int id, String name, String type, String description, String timestamp){
         System.out.println("Food Class Instantiated. Test Passed.");
         this.id = id;
         this.name = name;
+        this.type = type;
         this.description = description;
+        this.timestamp = timestamp;
     }
     
     public Object clone() {
@@ -43,6 +47,14 @@ public class Food implements Cloneable {
     public void setName(String name) {
         this.name = name;
     }
+    
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     public String getDescription() {
         return description;
@@ -50,6 +62,14 @@ public class Food implements Cloneable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(String timestamp) {
+        this.timestamp = timestamp;
     }
    
 }

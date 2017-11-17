@@ -20,7 +20,7 @@ public class MoodUI extends JFrame {
         System.out.println("MoodUI Class Instantiated. Test Passed.");
         // MoodListPanel moodListPanel = new MoodListPanel(moodCntrl.getMoodList(), moodCntrl);
         // CreateMoodPanel createMoodPanel = new CreateMoodPanel(moodCntrl);
-        MoodPanel moodPanel = new MoodPanel();
+        MoodPanel moodPanel = new MoodPanel(moodCntrl);
         this.setLayout(new BorderLayout());
         this.setSize(500, 500);
         this.setTitle("Mood");
@@ -33,7 +33,7 @@ public class MoodUI extends JFrame {
         // TEST
         // this.add(moodListPanel);
         // this.add(createMoodPanel);
-        Mood mood = new Mood(1, "TEST", 4);
+        Mood mood = new Mood(1, "TEST", 4, "time");
         moodCntrl.deleteMood(mood);
         moodCntrl.updateMood(mood);
     }

@@ -5,16 +5,17 @@
  */
 package MoodUI;
 
+import MoodController.MoodController;
+import MoodModel.Mood;
 import NavigationController.NavController;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Timestamp;
 import javax.swing.table.DefaultTableModel;
 import java.util.Date;
+import java.util.Hashtable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.RowFilter;
@@ -27,29 +28,29 @@ import javax.swing.table.TableRowSorter;
 public class MoodPanel extends javax.swing.JPanel {
 
     NavController navCtrl;
+    MoodController moodCtrl;
 
     /**
      * Creates new form FoodPanel
      */
-    public MoodPanel() {
+    public MoodPanel(MoodController moodCtrl) {
+        this.moodCtrl = moodCtrl;
         initComponents();
         readMoodList();
     }
 
     public void readMoodList() {
         try {
-            FileReader file = new FileReader("Moods.txt");
-            BufferedReader br = new BufferedReader(file);
+            Hashtable<Integer, Mood> moods = moodCtrl.getMoodList();
             DefaultTableModel model = (DefaultTableModel) moodTable.getModel();
-            model.setColumnIdentifiers(new String[]{"Mood", "Date"});
-            Object[] tableLines = br.lines().toArray();
-            for (int i = 0; i < tableLines.length; i++) {
-                String line = tableLines[i].toString().trim();
-                String[] data = line.split("/");
+            model.setColumnIdentifiers(new String[]{"Mood", "Rating", "Timestamp"});
+            for (int i = 0; i < moods.size(); i++) {
+                Mood mood = moods.get(i);
+                String[] data = {mood.getName(), Integer.toString(mood.getRating()), mood.getTimestamp()};
                 model.addRow(data);
             }
-        } catch (IOException e) {
-            System.out.println("Error is " + e);
+        } catch (Exception e) {
+            System.out.println("Error has occurred in MoodPanel - readMoodList(): " + e);
         }
     }
 

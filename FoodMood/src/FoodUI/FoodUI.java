@@ -20,7 +20,7 @@ public class FoodUI extends JFrame {
         System.out.println("FoodUI Class Instantiated. Test Passed.");
         //FoodListPanel foodListPanel = new FoodListPanel(foodCntrl.viewFoodList(), foodCntrl);
         //CreateFoodPanel createFoodPanel = new CreateFoodPanel(foodCntrl);
-        FoodPanel foodPanel = new FoodPanel();
+        FoodPanel foodPanel = new FoodPanel(foodCntrl);
         this.setLayout(new BorderLayout());
         this.setSize(500, 500);
         this.setTitle("Food");
@@ -32,7 +32,7 @@ public class FoodUI extends JFrame {
         // TEST
         //this.add(foodListPanel);
         //this.add(createFoodPanel);
-        Food food = new Food(1, "TEST", "This is a test food item.");
+        Food food = new Food(1, "TEST", "This is a test food item.", "test", "test");
         foodCntrl.deleteFood(food);
         foodCntrl.updateFood(food);
     }

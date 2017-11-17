@@ -5,8 +5,13 @@
  */
 package FoodModel;
 
+import DatabaseController.DatabaseController;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Hashtable;
-import java.util.ArrayList;
 
 /**
  *
@@ -29,13 +34,27 @@ public class FoodCache {
     }
     
     public static void loadCache() {
-        // Eventually run database query and create Food objects for each
-        // For now, just going to use text file
-        // Add each shape to Hashtable
-        Food test1 = new Food(1, "Strawberry", "A red fruit.");
-        foodMap.put(test1.getId(), test1);
-        Food test2 = new Food(2, "Blueberry", "A blue fruit.");
-        foodMap.put(test2.getId(), test2);
+        try
+        {
+          Connection con = DriverManager.getConnection(DatabaseController.getHost());
+          Statement stmt = con.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+          String SQL = "SELECT * FROM FOOD";
+          ResultSet rs = stmt.executeQuery(SQL);
+          while (rs.next()) {
+              int id = rs.getInt("ID");
+              String name = rs.getString("NAME");
+              String type = rs.getString("TYPE");
+              String description = rs.getString("DESCRIPTION");
+              String timestamp = rs.getString("TIMESTAMP");
+              Food food = new Food(id, name, type, description, timestamp);
+              foodMap.put(food.getId(), food);
+          }
+        }
+        catch (SQLException e)
+        {
+          System.err.println("SQLException: FoodCache - loadCache()");
+          System.err.println(e.getMessage());
+        }
         System.out.println("FoodCache - loadCache method called.");
     }
     

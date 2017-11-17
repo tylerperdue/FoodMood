@@ -7,17 +7,18 @@ package FoodUI;
 
 import FoodController.AddFood;
 import FoodController.FoodCommand;
+import FoodController.FoodController;
 import FoodController.Invoker;
+import FoodModel.Food;
 import NavigationController.NavController;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Timestamp;
 import javax.swing.table.DefaultTableModel;
 import java.util.Date;
+import java.util.Hashtable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.RowFilter;
@@ -30,29 +31,29 @@ import javax.swing.table.TableRowSorter;
 public class FoodPanel extends javax.swing.JPanel {
 
     NavController navCtrl;
+    FoodController foodCtrl;
 
     /**
      * Creates new form FoodPanel
      */
-    public FoodPanel() {
+    public FoodPanel(FoodController foodCtrl) {
+        this.foodCtrl = foodCtrl;
         initComponents();
         readFoodList();
     }
 
     public void readFoodList() {
         try {
-            FileReader file = new FileReader("Foods.txt");
-            BufferedReader br = new BufferedReader(file);
+            Hashtable<Integer, Food> foods = foodCtrl.viewFoodList();
             DefaultTableModel model = (DefaultTableModel) foodTable.getModel();
-            model.setColumnIdentifiers(new String[]{"Food Consumed", "Date"});
-            Object[] tableLines = br.lines().toArray();
-            for (int i = 0; i < tableLines.length; i++) {
-                String line = tableLines[i].toString().trim();
-                String[] data = line.split("/");
+            model.setColumnIdentifiers(new String[]{"Food Consumed", "Type", "Description", "Timestamp"});
+            for (int i = 0; i < foods.size(); i++) {
+                Food food = foods.get(i);
+                String[] data = {food.getName(), food.getType(), food.getDescription(), food.getTimestamp()};
                 model.addRow(data);
             }
-        } catch (IOException e) {
-            System.out.println("Error is " + e);
+        } catch (Exception e) {
+            System.out.println("Error has occurred in FoodPanel - readFoodList(): " + e);
         }
     }
 

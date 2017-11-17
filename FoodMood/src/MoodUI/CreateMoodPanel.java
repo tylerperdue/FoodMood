@@ -18,7 +18,7 @@ public class CreateMoodPanel extends JPanel {
     public CreateMoodPanel(MoodController moodCntrl){
         System.out.println("MoodLisPanel Class Instantiated. Test Passed.");
         // TEST
-        Mood mood = new Mood(1, "TEST", 4);
+        Mood mood = new Mood(1, "TEST", 4, "time");
         moodCntrl.createMood(mood);
     }
     

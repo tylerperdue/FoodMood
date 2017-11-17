@@ -5,9 +5,13 @@
  */
 package MoodModel;
 
-import static FoodModel.FoodCache.loadCache;
+import DatabaseController.DatabaseController;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Hashtable;
-import java.util.ArrayList;
 
 /**
  *
@@ -30,13 +34,26 @@ public class MoodCache {
     }
     
     public static void loadCache() {
-        // Eventually run database query and create Food objects for each
-        // For now, just going to use text file
-        // Add each shape to Hashtable
-        Mood test1 = new Mood(1, "Angry", 10);
-        moodMap.put(test1.getId(), test1);
-        Mood test2 = new Mood(2, "Sad", 8);
-        moodMap.put(test2.getId(), test2);
+        try
+        {
+          Connection con = DriverManager.getConnection(DatabaseController.getHost());
+          Statement stmt = con.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+          String SQL = "SELECT * FROM MOOD";
+          ResultSet rs = stmt.executeQuery(SQL);
+          while (rs.next()) {
+              int id = rs.getInt("ID");
+              String name = rs.getString("NAME");
+              int rating = rs.getInt("RATING");
+              String timestamp = rs.getString("TIMESTAMP");
+              Mood mood = new Mood(id, name, rating, timestamp);
+              moodMap.put(mood.getId(), mood);
+          }
+        }
+        catch (SQLException e)
+        {
+          System.err.println("SQLException: MoodCache - loadCache()");
+          System.err.println(e.getMessage());
+        }
         System.out.println("MoodCache - loadCache method called.");
     }
     

@@ -5,15 +5,38 @@
  */
 package NotificationsModel;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
+
 /**
  *
- * @author bryaningram
+ * @author Zack
  */
 public class Notification {
     
-    public Notification(String notificationText){
-        System.out.println("Notification Class Instantiated. Test Passed.");
-        notificationText = "Notification test";
+    ArrayList<String> notificationHistory;
+    public Notification(String foodname){
+            
+        Timer timer = new Timer(30, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String message = "";
+                message = "It has been 30 minutes...please enter a mood for " + foodname;
+                JOptionPane.showMessageDialog(null,message);
+                notificationHistory.add(message);
+            }
+        });
+        timer.setRepeats(false);
+        timer.start(); 
+    
+        
+         }
+    public ArrayList<String> getHistory()
+    {
+        return notificationHistory;
     }
     
 }

@@ -4,6 +4,7 @@ import NavigationController.NavController;
 import FoodUI.FoodUI;
 import FoodModel.Food;
 import FoodModel.FoodCache;
+import NotificationsModel.Notification;
 import java.util.Hashtable;
 /**
  *
@@ -21,6 +22,7 @@ public class FoodController {
     
     public void createFood(String name, String type, String description){
         Food food = new Food(1, name, type, description, "time");
+        Notification notefic = new Notification(name);
         FoodCache.addFood(food);
         System.out.println("FoodController - Successfully created Food. Test Passed.");
     }

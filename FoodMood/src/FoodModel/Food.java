@@ -21,7 +21,7 @@ public class Food implements Cloneable {
         this.type = type;
         this.description = description;
         this.timestamp = timestamp;
-        Notification notefic = new Notification(name);
+       
     }
     
     public Object clone() {

@@ -2,7 +2,6 @@ package MoodController;
 
 import MoodModel.Mood;
 import MoodModel.MoodCache;
-import MoodUI.MoodUI;
 import NavigationController.NavController;
 import java.util.Hashtable;
 
@@ -17,7 +16,6 @@ public class MoodController {
     public MoodController(NavController navCntrl){
         System.out.println("MoodController Class Instantiated. Test Passed.");
         this.navCntrl = navCntrl;
-        MoodUI moodUI = new MoodUI(this); 
     }
     
     public void createMood(Mood mood){

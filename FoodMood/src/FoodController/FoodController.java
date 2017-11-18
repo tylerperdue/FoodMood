@@ -1,7 +1,6 @@
 package FoodController;
 
 import NavigationController.NavController;
-import FoodUI.FoodUI;
 import FoodModel.Food;
 import FoodModel.FoodCache;
 import NotificationsModel.Notification;
@@ -17,7 +16,6 @@ public class FoodController {
     public FoodController(NavController navCntrl){
         System.out.println("FoodController Class Instantiated. Test Passed.");
         this.navCntrl= navCntrl;
-        FoodUI foodUI = new FoodUI(this);
     }
     
     public void createFood(String name, String type, String description){

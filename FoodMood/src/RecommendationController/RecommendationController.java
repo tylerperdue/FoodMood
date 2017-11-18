@@ -8,8 +8,10 @@ package RecommendationController;
 import FoodModel.Food;
 import NavigationController.NavController;
 import RecommendationModel.RecommendationList;
-import RecommendationUI.RecommendationUI;
+import RecommendationUI.RecommendationPanel;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
 
 /**
  *
@@ -17,6 +19,7 @@ import java.util.ArrayList;
  */
 public class RecommendationController {
     
+    RecommendationPanel recPanel;
     NavController navCntrl;
     
     /**
@@ -25,8 +28,19 @@ public class RecommendationController {
     public RecommendationController(NavController navCntrl){
         System.out.println("FoodController Class Instantiated. Test Passed.");
         this.navCntrl= navCntrl;
-        RecommendationUI recommendation = new RecommendationUI(this);
     }
+    
+    public ArrayList<String> recs = new ArrayList((
+		Arrays.asList("Nuts, pulses, and grains are in important part of a healthy diet.",
+                        "Fruits, leafy greens, and vegetables contain vital nutrients and fiber.",
+                        "Salmon, eggs, chicken, and venison are all excellent sources of protein.",
+                        "An apple a day keeps the doctor away!",
+                        "Brazil nuts,  are some of the most healthful nuts on the planet,",
+                        "Blueberries are rich in fiber, antioxidants, and phytonutrients.",
+                        "Avocados are rich in healthy fats, as well as B vitamins, vitamin K,"
+                                + " and vitamin E and have a very high fiber content. ",
+                        "Sweet potatoes are rich in dietary fiber, "
+                                + "beta-carotene (vitamin A), potassium, vitamin C, and vitamin B-6.")));
     
     
     /**
@@ -36,16 +50,25 @@ public class RecommendationController {
         System.out.println("RecommendationController - Successfully refreshed food list. Test Passed.");
     }
     
+//    public void generateRecommendations(){
+//        Random r = new Random();
+//    
+//        
+//    }
+//    
+//}
+
     /**
-     * Method to generate a recommendation from the list based on Moods.
-     * @return 
+     * @return the recs
      */
-    public ArrayList<Food> findRecommedation(){
-        RecommendationList recommend = new RecommendationList();
-        ArrayList<Food> recommendations = recommend.getRecList();
-        System.out.println("RecommendationController - Successfully recommended food. Test Passed.");
-        return recommendations;
+    public ArrayList<String> getRecs() {
+        return recs;
     }
-    
-    
+
+    /**
+     * @param recs the recs to set
+     */
+    public void setRecs(ArrayList<String> recs) {
+        this.recs = recs;
+    }
 }

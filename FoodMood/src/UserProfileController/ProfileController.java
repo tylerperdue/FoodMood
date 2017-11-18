@@ -2,7 +2,6 @@ package UserProfileController;
 import LoginController.LoginController;
 import NavigationController.NavController;
 import UserProfileModel.User;
-import UserProfileUI.ProfileUI;
 
 /**
  *
@@ -17,7 +16,6 @@ public class ProfileController {
         System.out.println("ProfileController class Instantiated. Test Passed.");
         //this.navCtrl = navCtrl;
         this.currUser = currUser;
-       ProfileUI createProfileUI = new ProfileUI(this,loginCtrl);
     }
     public void createAccount(User user){
         /**

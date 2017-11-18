@@ -5,6 +5,8 @@
  */
 package MainMenu;
 
+import FoodController.FoodController;
+import FoodUI.FoodPanel;
 import NavigationController.NavController;
 
 /**
@@ -12,22 +14,38 @@ import NavigationController.NavController;
  * @author Jake
  */
 public class MainMenuUI extends javax.swing.JFrame {
-NavController navCtrl;
+    NavController navCtrl;
+    private MainMenuPanel mainMenuPanel;
+    private FoodPanel foodPanel;
+    private FoodController foodCtrl;
     
-      public MainMenuUI(NavController navCtrl) {
+    public MainMenuUI(NavController navCtrl) {
         System.out.println("MainMenu UI Class Instantiated. Test Passed.");
-        MainMenuPanel mainMenuPanel = new MainMenuPanel(navCtrl);
+        mainMenuPanel = new MainMenuPanel(navCtrl);
         this.setBounds(0, 0, 500,500);
         this.setTitle("Main");
         this.setResizable(true);
         this.setLocationRelativeTo(null);
         //this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         this.add(mainMenuPanel);
+        
         this.setVisible(true); 
         initComponents();
         this.navCtrl = navCtrl; 
       }
 
+      
+      public void removeMainPanel(){
+          this.remove(mainMenuPanel);
+      }
+      
+      public void removeFoodPanel(){
+          if (this.foodPanel != null)
+              this.remove(foodPanel);
+      }
+      
+   
+      
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,6 +60,7 @@ NavController navCtrl;
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         foodMoodMenu = new javax.swing.JMenu();
@@ -69,6 +88,14 @@ NavController navCtrl;
 
         jMenuItem4.setText("View History");
         fileMenu.add(jMenuItem4);
+
+        jMenuItem6.setText("Recommendations");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        fileMenu.add(jMenuItem6);
 
         MenuBar.add(fileMenu);
 
@@ -114,7 +141,9 @@ NavController navCtrl;
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
+        
         navCtrl.switchToFoodCntrl();
+        
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -132,6 +161,11 @@ NavController navCtrl;
         navCtrl.switchToFoodMoodStatsCntrl();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        navCtrl.switchToRecommendationCntrl();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar;
@@ -143,5 +177,6 @@ NavController navCtrl;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     // End of variables declaration//GEN-END:variables
 }

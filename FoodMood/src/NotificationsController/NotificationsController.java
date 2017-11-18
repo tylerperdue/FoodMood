@@ -21,7 +21,7 @@ public class NotificationsController {
     int notificationTime = 0;
     public NotificationsController(NavController navCntrl){
         this.notificationTime = notificationTime;
-        NotificationsUI notificationsUI = new NotificationsUI(this);
+        //NotificationsUI notificationsUI = new NotificationsUI(this);
     }
     
    

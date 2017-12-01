@@ -25,7 +25,9 @@ import UserProfileController.ProfileController;
  */
 import LoginUI.LoginPanel;
 import LoginUI.LoginUI;
-import MainMenu.MainMenuUI;
+import MainMenu.AnalyticalMenuUI;
+import MainMenu.AppSelectionUI;
+import MainMenu.MobileMenuUI;
 import MoodUI.MoodPanel;
 import RecommendationUI.RecommendationPanel;
 import UserProfileUI.crudProfilePanel;
@@ -41,21 +43,28 @@ public class NavController {
     private NotificationsController notificationsCtrl;
     private RecommendationController recCtrl;
     private ProfileController profileCtrl;
-    
+    private AppSelectionUI appSelection;
     private RecommendationPanel recPanel;
     private FoodPanel foodPanel;
     private MoodPanel moodPanel;
-    private MainMenuUI mainMenuUI;
+    private MobileMenuUI mobileMenuUI;
+    private AnalyticalMenuUI analyticMenu;
     private crudProfilePanel profilePanel;
     public NavController(LoginController loginCtrl){
         System.out.println("NavController Class Instantiated. Test Passed.");
-        mainMenuUI = new MainMenuUI(this);
+        appSelection = new AppSelectionUI(this);
         this.loginCtrl = loginCtrl;
         //this.mainMenuUI = mainMenuUI;
     }
     
-    public void switchToMainMenuCtrl(){
-         System.out.println("NavController - Switched to Main Menu Controller. Test Passed.");
+    public void switchToMobileMenu(){
+         appSelection.setVisible(false);
+         mobileMenuUI = new MobileMenuUI(this);
+    }
+    
+    public void switchToAnalyticMenu(){
+        appSelection.setVisible(false);
+        analyticMenu = new AnalyticalMenuUI(this);
     }
     
     public void switchToChartCntrl() {
@@ -70,44 +79,44 @@ public class NavController {
     
     //Controller is instantiated in MainMenuUI
     public void switchToFoodCntrl() {
-        mainMenuUI.removeMainPanel();
+        mobileMenuUI.removeMainPanel();
         if(this.moodPanel != null){
-        mainMenuUI.remove(this.moodPanel);
+        mobileMenuUI.remove(this.moodPanel);
         }
         if(this.profilePanel != null){
-            mainMenuUI.remove(this.profilePanel);
+            mobileMenuUI.remove(this.profilePanel);
         }
         if(this.recPanel != null){
-            mainMenuUI.remove(this.recPanel);
+            mobileMenuUI.remove(this.recPanel);
         }
         foodCtrl = new FoodController(this);
         foodPanel = new FoodPanel(foodCtrl);
-        mainMenuUI.add(foodPanel);
+        mobileMenuUI.add(foodPanel);
         foodPanel.setVisible(true);
         foodPanel.setSize(500, 400);
-        mainMenuUI.repaint();
-        mainMenuUI.revalidate();
+        mobileMenuUI.repaint();
+        mobileMenuUI.revalidate();
     }
     
     public void switchToMoodCntrl() {
         System.out.println("NavController - Swtiched to Mood Controller. Test Passed.");
-        mainMenuUI.removeMainPanel();
+        mobileMenuUI.removeMainPanel();
         if(this.foodPanel != null){
-        mainMenuUI.remove(this.foodPanel);
+        mobileMenuUI.remove(this.foodPanel);
         }
         if(this.profilePanel != null){
-            mainMenuUI.remove(this.profilePanel);
+            mobileMenuUI.remove(this.profilePanel);
         }
         if(this.recPanel != null){
-            mainMenuUI.remove(this.recPanel);
+            mobileMenuUI.remove(this.recPanel);
         }
         moodCtrl = new MoodController(this);
         moodPanel = new MoodPanel(moodCtrl);
-        mainMenuUI.add(moodPanel);
+        mobileMenuUI.add(moodPanel);
         moodPanel.setVisible(true);
         moodPanel.setSize(500, 400);
-        mainMenuUI.repaint();
-        mainMenuUI.revalidate();
+        mobileMenuUI.repaint();
+        mobileMenuUI.revalidate();
     }
     
     public void switchToHistoryCntrl() {
@@ -134,44 +143,44 @@ public class NavController {
     public void switchToRecommendationCntrl() {
         System.out.println("NavController - Switched to Recommendation Controller. Test Passed.");
         recCtrl = new RecommendationController(this);
-        mainMenuUI.removeMainPanel();
+        mobileMenuUI.removeMainPanel();
          if(this.foodPanel != null){
-        mainMenuUI.remove(this.foodPanel);
+        mobileMenuUI.remove(this.foodPanel);
         }
          if(this.moodPanel != null){
-        mainMenuUI.remove(this.moodPanel);
+        mobileMenuUI.remove(this.moodPanel);
         }
          if(this.profilePanel != null){
-            mainMenuUI.remove(this.profilePanel);
+            mobileMenuUI.remove(this.profilePanel);
         }
         recPanel = new RecommendationPanel(recCtrl);
-        mainMenuUI.add(recPanel);
+        mobileMenuUI.add(recPanel);
         recPanel.setVisible(true);
         recPanel.setSize(500, 400);
-        mainMenuUI.repaint();
-        mainMenuUI.revalidate();
+        mobileMenuUI.repaint();
+        mobileMenuUI.revalidate();
     }
     
     
     public void switchToProfileCntrl() {
         System.out.println("NavController - Switched to Profile Controller. Test Passed.");
         profileCtrl = new ProfileController(this, loginCtrl.currUser);
-        mainMenuUI.removeMainPanel();
+        mobileMenuUI.removeMainPanel();
          if(this.foodPanel != null){
-        mainMenuUI.remove(this.foodPanel);
+        mobileMenuUI.remove(this.foodPanel);
         }
          if(this.moodPanel != null){
-        mainMenuUI.remove(this.moodPanel);
+        mobileMenuUI.remove(this.moodPanel);
         }
          if(this.recPanel != null){
-            mainMenuUI.remove(this.recPanel);
+            mobileMenuUI.remove(this.recPanel);
         }
         profilePanel = new crudProfilePanel(profileCtrl);
-        mainMenuUI.add(profilePanel);
+        mobileMenuUI.add(profilePanel);
         profilePanel.setVisible(true);
         profilePanel.setSize(500, 400);
-        mainMenuUI.repaint();
-        mainMenuUI.revalidate();
+        mobileMenuUI.repaint();
+        mobileMenuUI.revalidate();
     }
 
     /**

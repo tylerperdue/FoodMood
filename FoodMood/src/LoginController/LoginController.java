@@ -38,8 +38,11 @@ public class LoginController {
         ArrayList<User> listOfUsers = UserList.getUserList();
         
         for(int i = 0; i < listOfUsers.size();  i++){
-            if(listOfUsers.get(i).getUsername().equals(username) && listOfUsers.get(i).getPassword().equals(password) ){
+            if(listOfUsers.get(i).getUsername().equals(username) && listOfUsers.get(i).getPassword().equals(password)){
                 currUser = listOfUsers.get(i);
+                User.loggedInUser = listOfUsers.get(i).getID();
+                System.out.println(listOfUsers.get(i).getID());
+                System.out.println(User.loggedInUser);
                 System.out.println("LoginController - authenticate(): User Authenticated. Test Passed.");
                return true; 
             }

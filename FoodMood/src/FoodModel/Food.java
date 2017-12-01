@@ -13,15 +13,16 @@ public class Food implements Cloneable {
     String description;
     String timestamp;
     Notification notefic;
+    int userId;
     
-    public Food(int id, String name, String type, String description, String timestamp){
+    public Food(int id, String name, String type, String description, String timestamp, int userId){
         System.out.println("Food Class Instantiated. Test Passed.");
         this.id = id;
         this.name = name;
         this.type = type;
         this.description = description;
         this.timestamp = timestamp;
-       
+        this.userId = userId;
     }
     
     public Object clone() {
@@ -76,6 +77,14 @@ public class Food implements Cloneable {
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
        
+    }
+    
+    public int getUserId() {
+        return userId;
+    }
+    
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
    
 }

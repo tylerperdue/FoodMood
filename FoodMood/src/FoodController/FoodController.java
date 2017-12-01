@@ -4,7 +4,8 @@ import NavigationController.NavController;
 import FoodModel.Food;
 import FoodModel.FoodCache;
 import NotificationsModel.Notification;
-import java.util.Hashtable;
+import UserProfileModel.User;
+import java.util.ArrayList;
 /**
  *
  * Last Updated By: Tyler
@@ -19,13 +20,14 @@ public class FoodController {
     }
     
     public void createFood(String name, String type, String description){
-        Food food = new Food(1, name, type, description, "time");
+        Food food = new Food(1, name, type, description, "time", User.loggedInUser);
+        System.out.println(User.loggedInUser);
         Notification notefic = new Notification(name);
         FoodCache.addFood(food);
         System.out.println("FoodController - Successfully created Food. Test Passed.");
     }
-    public Hashtable<Integer, Food> viewFoodList(){
-        Hashtable<Integer, Food> listOfFoods = FoodCache.getFoodList();
+    public ArrayList<Food> viewFoodList(){
+        ArrayList<Food> listOfFoods = FoodCache.getFoodList();
         System.out.println("FoodController - Successfully viewed FoodList. Test Passed.");
         return listOfFoods;
     }

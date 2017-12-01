@@ -15,6 +15,8 @@ public class User {
     String lastname;
     int age;
     
+    public static int loggedInUser;
+    
     public User(int id, String username, String password, String firstname, String lastname, int age) {
         this.id = id;
         this.username = username;
@@ -23,6 +25,10 @@ public class User {
         this.lastname = lastname;
         this.age = age;
         System.out.println("User Class Instantiated. Test Passed.");
+    }
+    
+    public void setLoggedInUser(int id) {
+        this.loggedInUser = id;
     }
 
     public int getID() {

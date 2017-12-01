@@ -5,23 +5,14 @@
  */
 package FoodUI;
 
-import FoodController.AddFood;
-import FoodController.FoodCommand;
 import FoodController.FoodController;
-import FoodController.Invoker;
 import FoodModel.Food;
-import LoginUI.RegisterPanel;
 import NavigationController.NavController;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.sql.Timestamp;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-import java.util.Date;
-import java.util.Hashtable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
@@ -46,7 +37,7 @@ public class FoodPanel extends javax.swing.JPanel {
 
     public void readFoodList() {
         try {
-            Hashtable<Integer, Food> foods = foodCtrl.viewFoodList();
+            ArrayList<Food> foods = foodCtrl.viewFoodList();
             DefaultTableModel model = (DefaultTableModel) foodTable.getModel();
             model.setColumnIdentifiers(new String[]{"Food Consumed", "Type", "Description", "Timestamp"});
             for (int i = 0; i < foods.size(); i++) {
@@ -83,22 +74,6 @@ public class FoodPanel extends javax.swing.JPanel {
         deleteBtn = new javax.swing.JButton();
         updateBtn = new javax.swing.JButton();
 
-        foodTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Food Consumed", "Date"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                true, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
         jScrollPane1.setViewportView(foodTable);
 
         addFoodBtn.setText("Add Food");
@@ -139,9 +114,7 @@ public class FoodPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(addFoodBtn))
+                    .addComponent(addFoodBtn)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

@@ -143,7 +143,7 @@ public class LoginPanel extends javax.swing.JPanel {
         if(loginCtrl.authenticate(userTextField.getText(), passwordField.getText())){
             loginCtrl.getLoginUI().setVisible(false);     
             loginCtrl.switchToNavCtrl();
-            loginCtrl.getNavCntrl().switchToMainMenuCtrl();
+            //loginCtrl.getNavCntrl().switchToMainMenuCtrl();
         }
         else
             JOptionPane.showMessageDialog(new JFrame(), "wrong password you suck. ", "Dialog",

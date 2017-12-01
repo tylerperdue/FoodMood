@@ -13,13 +13,13 @@ import NavigationController.NavController;
  *
  * @author Jake
  */
-public class MainMenuUI extends javax.swing.JFrame {
-    NavController navCtrl;
+public class MobileMenuUI extends javax.swing.JFrame {
+    private NavController navCtrl;
     private MainMenuPanel mainMenuPanel;
     private FoodPanel foodPanel;
     private FoodController foodCtrl;
     
-    public MainMenuUI(NavController navCtrl) {
+    public MobileMenuUI(NavController navCtrl) {
         System.out.println("MainMenu UI Class Instantiated. Test Passed.");
         mainMenuPanel = new MainMenuPanel(navCtrl);
         this.setBounds(0, 0, 500,500);

@@ -14,7 +14,7 @@ import java.awt.Font;
  */
 public class MainMenuPanel extends javax.swing.JPanel {
 
-     NavController navCtrl;
+     private NavController navCtrl;
     /**
      * Creates new form MainMenuUI
      * @param navCtrl

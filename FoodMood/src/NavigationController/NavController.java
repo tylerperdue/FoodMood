@@ -15,7 +15,6 @@ import LoginController.LoginController;
 import MoodController.MoodController;
 import NotificationsController.NotificationsController;
 import RecommendationController.RecommendationController;
-import ResearchController.ResearchController;
 import UserProfileController.ProfileController;
 
 
@@ -41,7 +40,6 @@ public class NavController {
     private MoodController moodCtrl;
     private NotificationsController notificationsCtrl;
     private RecommendationController recCtrl;
-    private ResearchController researchCtrl;
     private ProfileController profileCtrl;
     
     private RecommendationPanel recPanel;
@@ -154,10 +152,6 @@ public class NavController {
         mainMenuUI.revalidate();
     }
     
-    public void switchToResearchCntrl() {
-        System.out.println("NavController - Switched to Research Controller. Test Passed.");
-        ResearchController researchCtrl = new ResearchController(this);
-    }
     
     public void switchToProfileCntrl() {
         System.out.println("NavController - Switched to Profile Controller. Test Passed.");

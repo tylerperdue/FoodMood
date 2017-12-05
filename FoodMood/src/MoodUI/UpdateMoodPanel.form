@@ -16,19 +16,19 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="47" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="nameLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="nameComboBox" min="-2" pref="290" max="-2" attributes="0"/>
-                  <Component id="ratingLbl" min="-2" max="-2" attributes="0"/>
-                  <Component id="ratingComboBox" min="-2" pref="290" max="-2" attributes="0"/>
+                  <Component id="nameLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="nameComboBox" alignment="0" min="-2" pref="290" max="-2" attributes="0"/>
+                  <Component id="ratingLbl" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="ratingComboBox" alignment="0" min="-2" pref="290" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
-              <Component id="addMoodBtn" min="-2" pref="140" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
+              <Component id="updateMoodBtn" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -44,9 +44,9 @@
               <Component id="ratingLbl" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="ratingComboBox" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="122" max="32767" attributes="0"/>
-              <Component id="addMoodBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+              <Component id="updateMoodBtn" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="115" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -86,12 +86,12 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="addMoodBtn">
+    <Component class="javax.swing.JButton" name="updateMoodBtn">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Add Mood"/>
+        <Property name="text" type="java.lang.String" value="Update Mood"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addMoodBtnActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateMoodBtnActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

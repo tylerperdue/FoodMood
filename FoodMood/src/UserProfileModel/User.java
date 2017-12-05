@@ -24,7 +24,7 @@ public class User {
         this.firstname = firstname;
         this.lastname = lastname;
         this.age = age;
-        System.out.println("User Class Instantiated. Test Passed.");
+        System.out.println("User Class Instantiated.");
     }
     
     public void setLoggedInUser(int id) {

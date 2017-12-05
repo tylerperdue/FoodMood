@@ -9,13 +9,15 @@ public class Mood implements Cloneable {
     String name;
     int rating;
     String timestamp;
+    int userId;
     
-    public Mood(int id, String name, int rating, String timestamp){
-        System.out.println("Mood Class Instantiated. Test Passed.");
+    public Mood(int id, String name, int rating, String timestamp, int userId){
+        System.out.println("Mood Class Instantiated.");
         this.id = id;
         this.name = name;
         this.rating = rating;
         this.timestamp = timestamp;
+        this.userId = userId;
     }
     
     public Object clone() {
@@ -61,6 +63,14 @@ public class Mood implements Cloneable {
 
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
+    }
+    
+    public int getUserId() {
+        return userId;
+    }
+    
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
    
 }

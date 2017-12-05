@@ -8,16 +8,9 @@ package MoodUI;
 import MoodController.MoodController;
 import MoodModel.Mood;
 import NavigationController.NavController;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.sql.Timestamp;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-import java.util.Date;
-import java.util.Hashtable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
 
@@ -34,6 +27,7 @@ public class MoodPanel extends javax.swing.JPanel {
      * Creates new form FoodPanel
      */
     public MoodPanel(MoodController moodCtrl) {
+        System.out.println("MoodPanel Class Instantiated.");
         this.moodCtrl = moodCtrl;
         initComponents();
         readMoodList();
@@ -41,7 +35,7 @@ public class MoodPanel extends javax.swing.JPanel {
 
     public void readMoodList() {
         try {
-            Hashtable<Integer, Mood> moods = moodCtrl.getMoodList();
+            ArrayList<Mood> moods = moodCtrl.viewMoodList();
             DefaultTableModel model = (DefaultTableModel) moodTable.getModel();
             model.setColumnIdentifiers(new String[]{"Mood", "Rating", "Timestamp"});
             for (int i = 0; i < moods.size(); i++) {
@@ -70,17 +64,14 @@ public class MoodPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         moodTable = new javax.swing.JTable();
-        submitBtn = new javax.swing.JButton();
-        moodName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         filterText = new javax.swing.JTextField();
         deleteBtn = new javax.swing.JButton();
         updateBtn = new javax.swing.JButton();
-
-        jLabel1.setText("Enter Mood Consumed:");
+        addMoodBtn = new javax.swing.JButton();
+        refreshBtn = new javax.swing.JButton();
 
         moodTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -99,15 +90,6 @@ public class MoodPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(moodTable);
-
-        submitBtn.setText("Submit");
-        submitBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                submitBtnActionPerformed(evt);
-            }
-        });
-
-        moodName.setColumns(8);
 
         jLabel2.setText("Filter:");
 
@@ -132,6 +114,20 @@ public class MoodPanel extends javax.swing.JPanel {
             }
         });
 
+        addMoodBtn.setText("Add Mood");
+        addMoodBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addMoodBtnActionPerformed(evt);
+            }
+        });
+
+        refreshBtn.setText("Refresh");
+        refreshBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -141,19 +137,17 @@ public class MoodPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(moodName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                        .addComponent(submitBtn))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(filterText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
                         .addComponent(updateBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(deleteBtn)))
+                        .addComponent(deleteBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(addMoodBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(refreshBtn)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -161,9 +155,8 @@ public class MoodPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(submitBtn)
-                    .addComponent(moodName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addMoodBtn)
+                    .addComponent(refreshBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -176,29 +169,6 @@ public class MoodPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void submitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitBtnActionPerformed
-        DefaultTableModel model = (DefaultTableModel) moodTable.getModel();
-        if (moodName.getText().equals("")) {
-            System.out.println("Enter Mood");
-            model.fireTableDataChanged();
-        } else {
-            BufferedWriter bw = null;
-            try {
-                Date date = new Date();
-                Timestamp timestamp = new Timestamp(date.getTime());
-                model.addRow(new Object[]{moodName.getText(), timestamp});
-                moodTable.setModel(model);
-                bw = new BufferedWriter(new FileWriter(new File("Moods.txt"), true));
-                bw.write(moodName.getText() + "/" + timestamp);
-                bw.newLine();
-                bw.close();
-            } catch (IOException ex) {
-                Logger.getLogger(MoodPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        moodName.setText("");
-    }//GEN-LAST:event_submitBtnActionPerformed
-
     private void filterTextKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_filterTextKeyReleased
         String sort = filterText.getText();
         filter(sort);
@@ -206,59 +176,55 @@ public class MoodPanel extends javax.swing.JPanel {
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         int viewIndex = moodTable.getSelectedRow();
-        if (viewIndex != -1) {
-            int modelIndex = moodTable.convertRowIndexToModel(viewIndex); // converts the row index in the view to the appropriate index in the model
-            DefaultTableModel table = (DefaultTableModel) moodTable.getModel();
-            table.removeRow(modelIndex);
-
-            try {
-                File file = new File("Moods.txt");
-                FileWriter fw = new FileWriter(file);
-                BufferedWriter bw = new BufferedWriter(fw);
-
-                for (int i = 0; i < moodTable.getRowCount(); i++) {
-                    for (int j = 0; j < moodTable.getColumnCount(); j++) {
-                        bw.write(moodTable.getModel().getValueAt(i, j) + "/");
-                    }
-                    bw.newLine();
-                }
-                bw.close();
-                fw.close();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
+        String name = moodTable.getValueAt(viewIndex, 0).toString();
+        String timestamp = moodTable.getValueAt(viewIndex, 2).toString();
+        moodCtrl.deleteMood(name, timestamp);
+        DefaultTableModel model = (DefaultTableModel) moodTable.getModel();
+        model.getDataVector().removeAllElements();
+        readMoodList();
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
-        try {
-            File file = new File("Moods.txt");
-            FileWriter fw = new FileWriter(file);
-            BufferedWriter bw = new BufferedWriter(fw);
-
-            for (int i = 0; i < moodTable.getRowCount(); i++) {
-                for (int j = 0; j < moodTable.getColumnCount(); j++) {
-                    bw.write(moodTable.getModel().getValueAt(i, j) + "/");
-                }
-                bw.newLine();
-            }
-            bw.close();
-            fw.close();
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+        JFrame newMoodUI = new JFrame();
+        newMoodUI.setBounds(0, 0, 360, 480);
+        newMoodUI.setTitle("Update Mood");
+        newMoodUI.setResizable(true);
+        newMoodUI.setLocationRelativeTo(null);
+        int viewIndex = moodTable.getSelectedRow();
+        String name = moodTable.getValueAt(viewIndex, 0).toString();
+        String timestamp = moodTable.getValueAt(viewIndex, 2).toString();
+        Mood mood = moodCtrl.getMood(name, timestamp);
+        UpdateMoodPanel moodPanel = new UpdateMoodPanel(this.moodCtrl, newMoodUI, mood);
+        newMoodUI.add(moodPanel);
+        newMoodUI.setVisible(true);
     }//GEN-LAST:event_updateBtnActionPerformed
+
+    private void refreshBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBtnActionPerformed
+        DefaultTableModel model = (DefaultTableModel) moodTable.getModel();
+        model.getDataVector().removeAllElements();
+        readMoodList();
+    }//GEN-LAST:event_refreshBtnActionPerformed
+
+    private void addMoodBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMoodBtnActionPerformed
+        JFrame newMoodUI = new JFrame();
+        newMoodUI.setBounds(0, 0, 360, 480);
+        newMoodUI.setTitle("Add Mood");
+        newMoodUI.setResizable(true);
+        newMoodUI.setLocationRelativeTo(null);
+        CreateMoodPanel moodPanel = new CreateMoodPanel(this.moodCtrl, newMoodUI);
+        newMoodUI.add(moodPanel);
+        newMoodUI.setVisible(true);
+    }//GEN-LAST:event_addMoodBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addMoodBtn;
     private javax.swing.JButton deleteBtn;
     private javax.swing.JTextField filterText;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField moodName;
     public javax.swing.JTable moodTable;
-    private javax.swing.JButton submitBtn;
+    private javax.swing.JButton refreshBtn;
     private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
 

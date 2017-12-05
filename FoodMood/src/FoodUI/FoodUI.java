@@ -16,11 +16,12 @@ import java.awt.BorderLayout;
  */
 public class FoodUI extends JFrame {
     
+    CreateFoodPanel createFoodPanel;
+    FoodPanel foodPanel;
+    
     public FoodUI(FoodController foodCntrl) {
-        System.out.println("FoodUI Class Instantiated. Test Passed.");
-        //FoodListPanel foodListPanel = new FoodListPanel(foodCntrl.viewFoodList(), foodCntrl);
-        //CreateFoodPanel createFoodPanel = new CreateFoodPanel(foodCntrl);
-        FoodPanel foodPanel = new FoodPanel(foodCntrl);
+        System.out.println("FoodUI Class Instantiated.");
+        this.foodPanel = new FoodPanel(foodCntrl);
         this.setLayout(new BorderLayout());
         this.setSize(500, 500);
         this.setTitle("Food");
@@ -29,11 +30,7 @@ public class FoodUI extends JFrame {
         //this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         this.add(foodPanel);
         this.setVisible(true);   
-        // TEST
-        //this.add(foodListPanel);
-        //this.add(createFoodPanel);
-        Food food = new Food(1, "TEST", "This is a test food item.", "test", "test", 2);
-        foodCntrl.deleteFood(food);
-        foodCntrl.updateFood(food);
     }
+    
+    
 }

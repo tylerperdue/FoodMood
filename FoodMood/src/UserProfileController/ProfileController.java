@@ -2,6 +2,7 @@ package UserProfileController;
 import LoginController.LoginController;
 import NavigationController.NavController;
 import UserProfileModel.User;
+import UserProfileModel.UserList;
 
 /**
  *
@@ -13,8 +14,8 @@ public class ProfileController {
     public User currUser;
     
     public ProfileController(NavController navCntrl, User currUser){
-        System.out.println("ProfileController class Instantiated. Test Passed.");
-        //this.navCtrl = navCtrl;
+        System.out.println("ProfileController class Instantiated.");
+        this.navCtrl = navCntrl;
         this.currUser = currUser;
     }
     public void createAccount(User user){
@@ -23,7 +24,7 @@ public class ProfileController {
          */
         //Open DB Connection
         //Query
-        System.out.println("Profile Controller - User account created. Test Passed.");
+        System.out.println("Profile Controller - User account created.");
     }
     public User readAccount(){
         /**
@@ -32,23 +33,25 @@ public class ProfileController {
         //Open DB Connection
         //Query to read target user account
         User example = new User(1, "john", "password", "John", "Doe", 45);
-        System.out.println("Profile Controller - User account read. Test Passed. ");
+        System.out.println("Profile Controller - User account read.");
         return example;
     }
     
-    public void updateAccount(User user){
+    public void updateAccount(String firstname, String lastname, String username, String password, int age){
         /**
          * Accepts a User object, parses the database for that user, and updates
          * that record with new user information. 
          */
-        System.out.println("Profile Controller - Account updated. Test Passed.");
+        UserList.updateUser(firstname, lastname, username, password, age);
+        System.out.println("Profile Controller - Account updated.");
+        navCtrl.switchToProfileCntrl();
     }
     public void deleteAccount(User user){
         /**
          * Accepts a User object, parses the database for that user, and deletes
          * that record. 
          */   
-        System.out.println("Profile Controller - Account deleted successfully. Test Passed.");
+        System.out.println("Profile Controller - Account deleted successfully.");
     }
 
     /**

@@ -29,7 +29,8 @@ import LoginUI.LoginUI;
 import MainMenu.MainMenuUI;
 import MoodUI.MoodPanel;
 import RecommendationUI.RecommendationPanel;
-import UserProfileUI.crudProfilePanel;
+import UserProfileModel.UserList;
+import UserProfileUI.ProfilePanel;
 public class NavController {
     
     private ChartController chartCtrl;
@@ -48,7 +49,7 @@ public class NavController {
     private FoodPanel foodPanel;
     private MoodPanel moodPanel;
     private MainMenuUI mainMenuUI;
-    private crudProfilePanel profilePanel;
+    private ProfilePanel profilePanel;
     public NavController(LoginController loginCtrl){
         System.out.println("NavController Class Instantiated. Test Passed.");
         mainMenuUI = new MainMenuUI(this);
@@ -74,7 +75,10 @@ public class NavController {
     public void switchToFoodCntrl() {
         mainMenuUI.removeMainPanel();
         if(this.moodPanel != null){
-        mainMenuUI.remove(this.moodPanel);
+            mainMenuUI.remove(this.moodPanel);
+        }
+        if(this.foodPanel != null){
+            mainMenuUI.remove(this.foodPanel);
         }
         if(this.profilePanel != null){
             mainMenuUI.remove(this.profilePanel);
@@ -95,7 +99,10 @@ public class NavController {
         System.out.println("NavController - Swtiched to Mood Controller. Test Passed.");
         mainMenuUI.removeMainPanel();
         if(this.foodPanel != null){
-        mainMenuUI.remove(this.foodPanel);
+            mainMenuUI.remove(this.foodPanel);
+        }
+        if(this.moodPanel != null){
+            mainMenuUI.remove(this.moodPanel);
         }
         if(this.profilePanel != null){
             mainMenuUI.remove(this.profilePanel);
@@ -163,8 +170,11 @@ public class NavController {
         System.out.println("NavController - Switched to Profile Controller. Test Passed.");
         profileCtrl = new ProfileController(this, loginCtrl.currUser);
         mainMenuUI.removeMainPanel();
-         if(this.foodPanel != null){
+        if(this.foodPanel != null){
         mainMenuUI.remove(this.foodPanel);
+        }
+        if(this.profilePanel != null){
+            mainMenuUI.remove(this.profilePanel);
         }
          if(this.moodPanel != null){
         mainMenuUI.remove(this.moodPanel);
@@ -172,7 +182,7 @@ public class NavController {
          if(this.recPanel != null){
             mainMenuUI.remove(this.recPanel);
         }
-        profilePanel = new crudProfilePanel(profileCtrl);
+        profilePanel = new ProfilePanel(profileCtrl, UserList.getUser());
         mainMenuUI.add(profilePanel);
         profilePanel.setVisible(true);
         profilePanel.setSize(500, 400);

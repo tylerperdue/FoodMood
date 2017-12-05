@@ -6,27 +6,33 @@
 package MoodUI;
 
 import MoodController.MoodController;
+import MoodModel.Mood;
 import javax.swing.JFrame;
 
 /**
  *
  * @author tylerperdue
  */
-public class CreateMoodPanel extends javax.swing.JPanel {
-    
+public class UpdateMoodPanel extends javax.swing.JPanel {
+
     MoodController moodCtrl;
     JFrame moodUI;
+    Mood mood;
+    
     
     /**
-     * Creates new form NewNew
+     * Creates new form UpdateMoodPanel
      */
-    public CreateMoodPanel(MoodController moodCtrl, JFrame moodUI) {
-        System.out.println("CreateMoodPanel Class Instantiated.");
+    public UpdateMoodPanel(MoodController moodCtrl, JFrame moodUI, Mood mood) {
+        System.out.println("UpdateMoodPanel Class Instantiated.");
+        initComponents();
         this.moodCtrl = moodCtrl;
         this.moodUI = moodUI;
-        initComponents();
+        this.mood = mood;
         addRatingItemsToComboBox(ratingComboBox);
         addNameItemsToComboBox(nameComboBox);
+        setSelectedIndexCombobox(nameComboBox, mood.getName());
+        setSelectedIndexCombobox(ratingComboBox, Integer.toString(mood.getRating()));
     }
     
     private void addRatingItemsToComboBox(javax.swing.JComboBox typeComboBox){
@@ -39,7 +45,17 @@ public class CreateMoodPanel extends javax.swing.JPanel {
         typeComboBox.setModel(new javax.swing.DefaultComboBoxModel(options));
     }
     
-    
+    private void setSelectedIndexCombobox(javax.swing.JComboBox comboBox, String type){
+        for (int i = 0; i < comboBox.getItemCount(); i++)
+        {
+            if (comboBox.getItemAt(i).toString().contains (type)) 
+            { 
+                comboBox.setSelectedIndex(i);
+                System.out.println(comboBox.getSelectedItem());
+                break;
+            }
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,7 +70,7 @@ public class CreateMoodPanel extends javax.swing.JPanel {
         nameComboBox = new javax.swing.JComboBox();
         ratingLbl = new javax.swing.JLabel();
         ratingComboBox = new javax.swing.JComboBox();
-        addMoodBtn = new javax.swing.JButton();
+        updateMoodBtn = new javax.swing.JButton();
 
         nameLbl.setText("Mood You're Experiencing");
 
@@ -64,10 +80,10 @@ public class CreateMoodPanel extends javax.swing.JPanel {
 
         ratingComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        addMoodBtn.setText("Add Mood");
-        addMoodBtn.addActionListener(new java.awt.event.ActionListener() {
+        updateMoodBtn.setText("Update Mood");
+        updateMoodBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addMoodBtnActionPerformed(evt);
+                updateMoodBtnActionPerformed(evt);
             }
         });
 
@@ -75,7 +91,7 @@ public class CreateMoodPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 47, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(nameLbl)
@@ -84,8 +100,8 @@ public class CreateMoodPanel extends javax.swing.JPanel {
                     .addComponent(ratingComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(43, 43, 43))
             .addGroup(layout.createSequentialGroup()
-                .addGap(119, 119, 119)
-                .addComponent(addMoodBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(130, 130, 130)
+                .addComponent(updateMoodBtn)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -99,25 +115,25 @@ public class CreateMoodPanel extends javax.swing.JPanel {
                 .addComponent(ratingLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ratingComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                .addComponent(addMoodBtn)
-                .addGap(110, 110, 110))
+                .addGap(117, 117, 117)
+                .addComponent(updateMoodBtn)
+                .addContainerGap(115, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addMoodBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMoodBtnActionPerformed
+    private void updateMoodBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateMoodBtnActionPerformed
         String name = nameComboBox.getSelectedItem().toString();
         int rating = Integer.parseInt(ratingComboBox.getSelectedItem().toString());
-        moodCtrl.createMood(name, rating);
+        moodCtrl.updateMood(mood.getId(),name, rating);
         moodUI.setVisible(false);
-    }//GEN-LAST:event_addMoodBtnActionPerformed
+    }//GEN-LAST:event_updateMoodBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addMoodBtn;
     private javax.swing.JComboBox nameComboBox;
     private javax.swing.JLabel nameLbl;
     private javax.swing.JComboBox ratingComboBox;
     private javax.swing.JLabel ratingLbl;
+    private javax.swing.JButton updateMoodBtn;
     // End of variables declaration//GEN-END:variables
 }

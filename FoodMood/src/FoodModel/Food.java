@@ -1,7 +1,6 @@
 package FoodModel;
 
 import NotificationsModel.Notification;
-import javax.swing.Timer;
 
 /**
  * Last Updated By: Zack
@@ -16,7 +15,7 @@ public class Food implements Cloneable {
     int userId;
     
     public Food(int id, String name, String type, String description, String timestamp, int userId){
-        System.out.println("Food Class Instantiated. Test Passed.");
+        System.out.println("Food Class Instantiated.");
         this.id = id;
         this.name = name;
         this.type = type;

@@ -8,9 +8,6 @@ package FoodUI;
 import FoodController.FoodController;
 import FoodModel.Food;
 import NavigationController.NavController;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JFrame;
@@ -30,6 +27,7 @@ public class FoodPanel extends javax.swing.JPanel {
      * Creates new form FoodPanel
      */
     public FoodPanel(FoodController foodCtrl) {
+        System.out.println("CreateFoodPanel Class Instantiated.");
         this.foodCtrl = foodCtrl;
         initComponents();
         readFoodList();
@@ -73,6 +71,7 @@ public class FoodPanel extends javax.swing.JPanel {
         filterText = new javax.swing.JTextField();
         deleteBtn = new javax.swing.JButton();
         updateBtn = new javax.swing.JButton();
+        refreshBtn = new javax.swing.JButton();
 
         jScrollPane1.setViewportView(foodTable);
 
@@ -106,6 +105,13 @@ public class FoodPanel extends javax.swing.JPanel {
             }
         });
 
+        refreshBtn.setText("Refresh");
+        refreshBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,7 +120,10 @@ public class FoodPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(addFoodBtn)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(addFoodBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(refreshBtn))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -129,7 +138,9 @@ public class FoodPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(addFoodBtn)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addFoodBtn)
+                    .addComponent(refreshBtn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -145,7 +156,7 @@ public class FoodPanel extends javax.swing.JPanel {
     private void addFoodBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addFoodBtnActionPerformed
         JFrame newFoodUI = new JFrame();
         newFoodUI.setBounds(0, 0, 360, 480);
-        newFoodUI.setTitle("Create Profile");
+        newFoodUI.setTitle("Add Food");
         newFoodUI.setResizable(true);
         newFoodUI.setLocationRelativeTo(null);
         CreateFoodPanel foodPanel = new CreateFoodPanel(this.foodCtrl, newFoodUI);
@@ -160,48 +171,34 @@ public class FoodPanel extends javax.swing.JPanel {
 
     private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
         int viewIndex = foodTable.getSelectedRow();
-        if (viewIndex != -1) {
-            int modelIndex = foodTable.convertRowIndexToModel(viewIndex); // converts the row index in the view to the appropriate index in the model
-            DefaultTableModel table = (DefaultTableModel) foodTable.getModel();
-            table.removeRow(modelIndex);
-
-            try {
-                File file = new File("Foods.txt");
-                FileWriter fw = new FileWriter(file);
-                BufferedWriter bw = new BufferedWriter(fw);
-
-                for (int i = 0; i < foodTable.getRowCount(); i++) {
-                    for (int j = 0; j < foodTable.getColumnCount(); j++) {
-                        bw.write(foodTable.getModel().getValueAt(i, j) + "/");
-                    }
-                    bw.newLine();
-                }
-                bw.close();
-                fw.close();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
-        }
+        String name = foodTable.getValueAt(viewIndex, 0).toString();
+        String timestamp = foodTable.getValueAt(viewIndex, 3).toString();
+        foodCtrl.deleteFood(name, timestamp);
+        DefaultTableModel model = (DefaultTableModel) foodTable.getModel();
+        model.getDataVector().removeAllElements();
+        readFoodList();
     }//GEN-LAST:event_deleteBtnActionPerformed
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
-        try {
-                File file = new File("Foods.txt");
-                FileWriter fw = new FileWriter(file);
-                BufferedWriter bw = new BufferedWriter(fw);
-
-                for (int i = 0; i < foodTable.getRowCount(); i++) {
-                    for (int j = 0; j < foodTable.getColumnCount(); j++) {
-                        bw.write(foodTable.getModel().getValueAt(i, j) + "/");
-                    }
-                    bw.newLine();
-                }
-                bw.close();
-                fw.close();
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+        JFrame newFoodUI = new JFrame();
+        newFoodUI.setBounds(0, 0, 360, 480);
+        newFoodUI.setTitle("Update Food");
+        newFoodUI.setResizable(true);
+        newFoodUI.setLocationRelativeTo(null);
+        int viewIndex = foodTable.getSelectedRow();
+        String name = foodTable.getValueAt(viewIndex, 0).toString();
+        String timestamp = foodTable.getValueAt(viewIndex, 3).toString();
+        Food food = foodCtrl.getFood(name, timestamp);
+        UpdateFoodPanel foodPanel = new UpdateFoodPanel(this.foodCtrl, newFoodUI, food);
+        newFoodUI.add(foodPanel);
+        newFoodUI.setVisible(true);
     }//GEN-LAST:event_updateBtnActionPerformed
+
+    private void refreshBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBtnActionPerformed
+        DefaultTableModel model = (DefaultTableModel) foodTable.getModel();
+        model.getDataVector().removeAllElements();
+        readFoodList();
+    }//GEN-LAST:event_refreshBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -211,6 +208,7 @@ public class FoodPanel extends javax.swing.JPanel {
     public javax.swing.JTable foodTable;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton refreshBtn;
     private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
 

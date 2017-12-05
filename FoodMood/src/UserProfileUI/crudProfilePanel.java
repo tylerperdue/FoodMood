@@ -8,6 +8,7 @@ package UserProfileUI;
 import FoodModel.Food;
 import UserProfileController.ProfileController;
 import java.awt.Color;
+import java.awt.Dimension;
 
 import javax.swing.JOptionPane;
 import java.text.SimpleDateFormat;
@@ -29,6 +30,12 @@ public class crudProfilePanel extends javax.swing.JPanel {
     ArrayList<String> notifications = new ArrayList<String>();
     private final ProfileController profileCtrl;
     DefaultTableModel model = new DefaultTableModel();
+    
+       @Override
+    public Dimension getPreferredSize() {
+        return new Dimension(360, 480);
+    }
+    
     
     public crudProfilePanel(ProfileController profileCtrl) {
         System.out.println("Profile panel");
@@ -62,6 +69,10 @@ public class crudProfilePanel extends javax.swing.JPanel {
     private void initComponents() {
 
         profileTabs = new javax.swing.JTabbedPane();
+        notificationsTab = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        NotificationHistory = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
         viewProfileTab = new javax.swing.JPanel();
         nameLabel = new javax.swing.JLabel();
         usernameLabel = new javax.swing.JLabel();
@@ -76,10 +87,41 @@ public class crudProfilePanel extends javax.swing.JPanel {
         editPasswordButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        notificationsTab = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        NotificationHistory = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
+
+        profileTabs.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+        profileTabs.setToolTipText("");
+        profileTabs.setAlignmentX(0.0F);
+        profileTabs.setSize(new java.awt.Dimension(360, 480));
+
+        NotificationHistory.setColumns(20);
+        NotificationHistory.setRows(5);
+        jScrollPane1.setViewportView(NotificationHistory);
+
+        jLabel1.setText("Notification History");
+
+        javax.swing.GroupLayout notificationsTabLayout = new javax.swing.GroupLayout(notificationsTab);
+        notificationsTab.setLayout(notificationsTabLayout);
+        notificationsTabLayout.setHorizontalGroup(
+            notificationsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(notificationsTabLayout.createSequentialGroup()
+                .addGap(113, 113, 113)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(notificationsTabLayout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 77, Short.MAX_VALUE))
+        );
+        notificationsTabLayout.setVerticalGroup(
+            notificationsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(notificationsTabLayout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        profileTabs.addTab("Notifications", notificationsTab);
 
         nameLabel.setText("Name: " + profileCtrl.getCurrUser().getFirstname() + " " + profileCtrl.getCurrUser().getLastname());
 
@@ -94,13 +136,13 @@ public class crudProfilePanel extends javax.swing.JPanel {
         viewProfileTabLayout.setHorizontalGroup(
             viewProfileTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(viewProfileTabLayout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addGroup(viewProfileTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(usernameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(passwordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(230, 230, 230))
+                .addGap(26, 26, 26)
+                .addGroup(viewProfileTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(usernameLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ageLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(passwordLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         viewProfileTabLayout.setVerticalGroup(
             viewProfileTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,7 +155,7 @@ public class crudProfilePanel extends javax.swing.JPanel {
                 .addComponent(passwordLabel)
                 .addGap(26, 26, 26)
                 .addComponent(ageLabel)
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         profileTabs.addTab("View Profile", viewProfileTab);
@@ -160,10 +202,10 @@ public class crudProfilePanel extends javax.swing.JPanel {
         editProfileTabLayout.setHorizontalGroup(
             editProfileTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(editProfileTabLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(0, 0, 0)
                 .addGroup(editProfileTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(editProfileTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(editPasswordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
+                        .addComponent(editPasswordLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(editUsernameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(editNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(jLabel4))
@@ -173,7 +215,7 @@ public class crudProfilePanel extends javax.swing.JPanel {
                     .addComponent(editNameButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(editPasswordButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addGap(0, 0, 0))
         );
         editProfileTabLayout.setVerticalGroup(
             editProfileTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,70 +236,43 @@ public class crudProfilePanel extends javax.swing.JPanel {
                 .addGroup(editProfileTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jButton1))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        this.setSize(320, 480);
 
         profileTabs.addTab("Edit Profile", editProfileTab);
-
-        NotificationHistory.setColumns(20);
-        NotificationHistory.setRows(5);
-        jScrollPane1.setViewportView(NotificationHistory);
-
-        jLabel1.setText("Notification History");
-
-        javax.swing.GroupLayout notificationsTabLayout = new javax.swing.GroupLayout(notificationsTab);
-        notificationsTab.setLayout(notificationsTabLayout);
-        notificationsTabLayout.setHorizontalGroup(
-            notificationsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(notificationsTabLayout.createSequentialGroup()
-                .addGroup(notificationsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(notificationsTabLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(notificationsTabLayout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(jLabel1)))
-                .addContainerGap(136, Short.MAX_VALUE))
-        );
-        notificationsTabLayout.setVerticalGroup(
-            notificationsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(notificationsTabLayout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
-
-        profileTabs.addTab("Notifications", notificationsTab);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(profileTabs, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(profileTabs, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(160, 160, 160))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(profileTabs, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(profileTabs, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void editNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editNameButtonActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_editNameButtonActionPerformed
-
-    private void editUsernameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editUsernameButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_editUsernameButtonActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void editPasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editPasswordButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_editPasswordButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void editUsernameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editUsernameButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_editUsernameButtonActionPerformed
+
+    private void editNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editNameButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editNameButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

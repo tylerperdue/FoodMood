@@ -31,6 +31,7 @@ import MainMenu.MobileMenuUI;
 import MoodUI.MoodPanel;
 import RecommendationUI.RecommendationPanel;
 import UserProfileUI.crudProfilePanel;
+import UserProfileUI.profilePanel;
 public class NavController {
     
     private ChartController chartCtrl;
@@ -49,7 +50,10 @@ public class NavController {
     private MoodPanel moodPanel;
     private MobileMenuUI mobileMenuUI;
     private AnalyticalMenuUI analyticMenu;
-    private crudProfilePanel profilePanel;
+    
+    
+    //private crudProfilePanel profilePanel;
+    private profilePanel proPanel;
     public NavController(LoginController loginCtrl){
         System.out.println("NavController Class Instantiated. Test Passed.");
         appSelection = new AppSelectionUI(this);
@@ -83,8 +87,8 @@ public class NavController {
         if(this.moodPanel != null){
         mobileMenuUI.remove(this.moodPanel);
         }
-        if(this.profilePanel != null){
-            mobileMenuUI.remove(this.profilePanel);
+        if(this.proPanel != null){
+            mobileMenuUI.remove(this.proPanel);
         }
         if(this.recPanel != null){
             mobileMenuUI.remove(this.recPanel);
@@ -104,8 +108,8 @@ public class NavController {
         if(this.foodPanel != null){
         mobileMenuUI.remove(this.foodPanel);
         }
-        if(this.profilePanel != null){
-            mobileMenuUI.remove(this.profilePanel);
+        if(this.proPanel != null){
+            mobileMenuUI.remove(this.proPanel);
         }
         if(this.recPanel != null){
             mobileMenuUI.remove(this.recPanel);
@@ -150,8 +154,8 @@ public class NavController {
          if(this.moodPanel != null){
         mobileMenuUI.remove(this.moodPanel);
         }
-         if(this.profilePanel != null){
-            mobileMenuUI.remove(this.profilePanel);
+         if(this.proPanel != null){
+            mobileMenuUI.remove(this.proPanel);
         }
         recPanel = new RecommendationPanel(recCtrl);
         mobileMenuUI.add(recPanel);
@@ -175,10 +179,10 @@ public class NavController {
          if(this.recPanel != null){
             mobileMenuUI.remove(this.recPanel);
         }
-        profilePanel = new crudProfilePanel(profileCtrl);
-        mobileMenuUI.add(profilePanel);
-        profilePanel.setVisible(true);
-        profilePanel.setSize(500, 400);
+        proPanel = new profilePanel(profileCtrl);
+        mobileMenuUI.add(proPanel);
+        proPanel.setVisible(true);
+        proPanel.setSize(500, 400);
         mobileMenuUI.repaint();
         mobileMenuUI.revalidate();
     }

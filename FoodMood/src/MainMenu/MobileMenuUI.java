@@ -8,6 +8,7 @@ package MainMenu;
 import FoodController.FoodController;
 import FoodUI.FoodPanel;
 import NavigationController.NavController;
+import java.awt.Dimension;
 
 /**
  *
@@ -15,19 +16,23 @@ import NavigationController.NavController;
  */
 public class MobileMenuUI extends javax.swing.JFrame {
     private NavController navCtrl;
-    private MainMenuPanel mainMenuPanel;
+    private MobileMainMenu mobileMainMenu;
     private FoodPanel foodPanel;
     private FoodController foodCtrl;
     
+    @Override
+    public Dimension getPreferredSize() {
+        return new Dimension(360, 480);
+    }
     public MobileMenuUI(NavController navCtrl) {
         System.out.println("MainMenu UI Class Instantiated. Test Passed.");
-        mainMenuPanel = new MainMenuPanel(navCtrl);
-        this.setBounds(0, 0, 500,500);
+        mobileMainMenu = new MobileMainMenu(navCtrl);
+        this.setBounds(0, 0, 360,480);
         this.setTitle("Main");
         this.setResizable(true);
         this.setLocationRelativeTo(null);
         //this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        this.add(mainMenuPanel);
+        this.add(mobileMainMenu);
         
         this.setVisible(true); 
         initComponents();
@@ -36,7 +41,7 @@ public class MobileMenuUI extends javax.swing.JFrame {
 
       
       public void removeMainPanel(){
-          this.remove(mainMenuPanel);
+          this.remove(mobileMainMenu);
       }
       
       public void removeFoodPanel(){

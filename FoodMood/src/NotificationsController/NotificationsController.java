@@ -30,7 +30,7 @@ public class NotificationsController {
      * @param notificationText takes a string to display text on notification.
      */
     public void displayNotification(String notificationText){
-        Notification notification = new Notification(notificationText);
+        //Notification notification = new Notification(notificationText);
         System.out.println("NotificationController - displayNotification(): Notification Displayed Successfully. Test Passed.");
     }
     

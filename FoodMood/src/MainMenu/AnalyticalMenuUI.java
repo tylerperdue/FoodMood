@@ -13,36 +13,26 @@ import NavigationController.NavController;
  *
  * @author Jake
  */
-public class MainMenuUI extends javax.swing.JFrame {
-    NavController navCtrl;
-    private MainMenuPanel mainMenuPanel;
-    private FoodPanel foodPanel;
-    private FoodController foodCtrl;
+public class AnalyticalMenuUI extends javax.swing.JFrame {
+    private NavController navCtrl;
+    private AnalyticalMainMenu analyticalMenu;
     
-    public MainMenuUI(NavController navCtrl) {
+    
+    public AnalyticalMenuUI(NavController navCtrl) {
         System.out.println("MainMenu UI Class Instantiated. Test Passed.");
-        mainMenuPanel = new MainMenuPanel(navCtrl);
+        analyticalMenu = new AnalyticalMainMenu(navCtrl);
         this.setBounds(0, 0, 500,500);
         this.setTitle("Main");
         this.setResizable(true);
         this.setLocationRelativeTo(null);
-        //this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        this.add(mainMenuPanel);
-        
+        this.add(analyticalMenu);
         this.setVisible(true); 
         initComponents();
         this.navCtrl = navCtrl; 
       }
 
       
-      public void removeMainPanel(){
-          this.remove(mainMenuPanel);
-      }
       
-      public void removeFoodPanel(){
-          if (this.foodPanel != null)
-              this.remove(foodPanel);
-      }
       
    
       

@@ -31,6 +31,7 @@ import MainMenu.MobileMenuUI;
 import MoodUI.MoodPanel;
 import RecommendationUI.RecommendationPanel;
 import UserProfileModel.UserList;
+import UserProfileUI.AProfilePanel;
 import UserProfileUI.ProfilePanel;
 
 public class NavController {
@@ -52,7 +53,7 @@ public class NavController {
 
     private MobileMenuUI mobileMenuUI;
     private AnalyticalMenuUI analyticMenu;
-    private ProfilePanel profilePanel;
+    private AProfilePanel profilePanel;
     
     public NavController(LoginController loginCtrl){
         System.out.println("NavController Class Instantiated. Test Passed.");
@@ -189,7 +190,7 @@ public class NavController {
          if(this.recPanel != null){
             mobileMenuUI.remove(this.recPanel);
         }
-        profilePanel = new ProfilePanel(profileCtrl, UserList.getUser());
+        profilePanel = new AProfilePanel(profileCtrl, UserList.getUser());
         mobileMenuUI.add(profilePanel);
         profilePanel.setVisible(true);
         profilePanel.setSize(500, 400);

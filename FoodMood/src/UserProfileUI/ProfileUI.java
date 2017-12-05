@@ -16,7 +16,7 @@ public class ProfileUI extends JFrame{
     ProfileController pc;
     public ProfileUI(ProfileController pc, LoginController loginCtrl){
         System.out.println("ProfileUI Class Instantiated.");
-        ProfilePanel crudProfile = new ProfilePanel(pc, UserList.getUser());
+        AProfilePanel crudProfile = new AProfilePanel(pc, UserList.getUser());
         crudProfile.setVisible(true);
         this.setBounds(0, 0, 420, 450);
         this.setTitle("User Profile");

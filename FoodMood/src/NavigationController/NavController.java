@@ -32,6 +32,7 @@ import MoodUI.MoodPanel;
 import RecommendationUI.RecommendationPanel;
 import UserProfileModel.UserList;
 import UserProfileUI.ProfilePanel;
+
 public class NavController {
     
     private ChartController chartCtrl;
@@ -48,17 +49,11 @@ public class NavController {
     private RecommendationPanel recPanel;
     private FoodPanel foodPanel;
     private MoodPanel moodPanel;
-<<<<<<<
-    private MainMenuUI mainMenuUI;
-    private ProfilePanel profilePanel;
-=======
+
     private MobileMenuUI mobileMenuUI;
     private AnalyticalMenuUI analyticMenu;
+    private ProfilePanel profilePanel;
     
-    
-    //private crudProfilePanel profilePanel;
-    private profilePanel proPanel;
->>>>>>>
     public NavController(LoginController loginCtrl){
         System.out.println("NavController Class Instantiated. Test Passed.");
         appSelection = new AppSelectionUI(this);
@@ -90,22 +85,14 @@ public class NavController {
     public void switchToFoodCntrl() {
         mobileMenuUI.removeMainPanel();
         if(this.moodPanel != null){
-<<<<<<<
-            mainMenuUI.remove(this.moodPanel);
-=======
-        mobileMenuUI.remove(this.moodPanel);
->>>>>>>
+            mobileMenuUI.remove(this.moodPanel);
+
         }
-<<<<<<<
         if(this.foodPanel != null){
-            mainMenuUI.remove(this.foodPanel);
+            mobileMenuUI.remove(this.foodPanel);
         }
         if(this.profilePanel != null){
-            mainMenuUI.remove(this.profilePanel);
-=======
-        if(this.proPanel != null){
-            mobileMenuUI.remove(this.proPanel);
->>>>>>>
+            mobileMenuUI.remove(this.profilePanel);
         }
         if(this.recPanel != null){
             mobileMenuUI.remove(this.recPanel);
@@ -123,22 +110,13 @@ public class NavController {
         System.out.println("NavController - Swtiched to Mood Controller. Test Passed.");
         mobileMenuUI.removeMainPanel();
         if(this.foodPanel != null){
-<<<<<<<
-            mainMenuUI.remove(this.foodPanel);
-=======
-        mobileMenuUI.remove(this.foodPanel);
->>>>>>>
+            mobileMenuUI.remove(this.foodPanel);
         }
-<<<<<<<
         if(this.moodPanel != null){
-            mainMenuUI.remove(this.moodPanel);
+            mobileMenuUI.remove(this.moodPanel);
         }
         if(this.profilePanel != null){
-            mainMenuUI.remove(this.profilePanel);
-=======
-        if(this.proPanel != null){
-            mobileMenuUI.remove(this.proPanel);
->>>>>>>
+            mobileMenuUI.remove(this.profilePanel);
         }
         if(this.recPanel != null){
             mobileMenuUI.remove(this.recPanel);
@@ -183,8 +161,8 @@ public class NavController {
          if(this.moodPanel != null){
         mobileMenuUI.remove(this.moodPanel);
         }
-         if(this.proPanel != null){
-            mobileMenuUI.remove(this.proPanel);
+         if(this.profilePanel != null){
+            mobileMenuUI.remove(this.profilePanel);
         }
         recPanel = new RecommendationPanel(recCtrl);
         mobileMenuUI.add(recPanel);
@@ -198,18 +176,12 @@ public class NavController {
     public void switchToProfileCntrl() {
         System.out.println("NavController - Switched to Profile Controller. Test Passed.");
         profileCtrl = new ProfileController(this, loginCtrl.currUser);
-<<<<<<<
-        mainMenuUI.removeMainPanel();
-        if(this.foodPanel != null){
-        mainMenuUI.remove(this.foodPanel);
-=======
         mobileMenuUI.removeMainPanel();
-         if(this.foodPanel != null){
+        if(this.foodPanel != null){
         mobileMenuUI.remove(this.foodPanel);
->>>>>>>
         }
         if(this.profilePanel != null){
-            mainMenuUI.remove(this.profilePanel);
+            mobileMenuUI.remove(this.profilePanel);
         }
          if(this.moodPanel != null){
         mobileMenuUI.remove(this.moodPanel);
@@ -217,21 +189,12 @@ public class NavController {
          if(this.recPanel != null){
             mobileMenuUI.remove(this.recPanel);
         }
-<<<<<<<
         profilePanel = new ProfilePanel(profileCtrl, UserList.getUser());
-        mainMenuUI.add(profilePanel);
+        mobileMenuUI.add(profilePanel);
         profilePanel.setVisible(true);
         profilePanel.setSize(500, 400);
-        mainMenuUI.repaint();
-        mainMenuUI.revalidate();
-=======
-        proPanel = new profilePanel(profileCtrl);
-        mobileMenuUI.add(proPanel);
-        proPanel.setVisible(true);
-        proPanel.setSize(500, 400);
         mobileMenuUI.repaint();
         mobileMenuUI.revalidate();
->>>>>>>
     }
 
     /**

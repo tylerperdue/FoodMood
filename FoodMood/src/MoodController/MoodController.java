@@ -19,8 +19,8 @@ public class MoodController {
         this.navCntrl = navCntrl;
     }
     
-    public void createMood(String name, int rating){
-        Mood mood = new Mood(1, name, rating, "time", User.loggedInUser);
+    public void createMood(String name, int rating, int foodId){
+        Mood mood = new Mood(1, name, rating, "time", User.loggedInUser, foodId);
         MoodCache.addMood(mood);
         System.out.println("MoodController - Successfully created Mood.");
         navCntrl.switchToMoodCntrl();
@@ -38,8 +38,8 @@ public class MoodController {
         return mood;
     }
     
-    public void updateMood(int id, String name, int rating){
-        MoodCache.updateMood(id, name, rating);
+    public void updateMood(int id, String name, int rating, int foodId){
+        MoodCache.updateMood(id, name, rating, foodId);
         System.out.println("MoodController - Successfully updated Mood.");
         navCntrl.switchToMoodCntrl();
     }

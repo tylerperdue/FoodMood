@@ -23,8 +23,6 @@ import UserProfileController.ProfileController;
  *
  * @author jro5165
  */
-import LoginUI.LoginPanel;
-import LoginUI.LoginUI;
 import MainMenu.AnalyticalMenuUI;
 import MainMenu.AppSelectionUI;
 import MainMenu.MobileMenuUI;
@@ -32,7 +30,6 @@ import MoodUI.MoodPanel;
 import RecommendationUI.RecommendationPanel;
 import UserProfileModel.UserList;
 import UserProfileUI.AProfilePanel;
-import UserProfileUI.ProfilePanel;
 
 public class NavController {
     

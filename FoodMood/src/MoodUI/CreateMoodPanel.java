@@ -5,7 +5,10 @@
  */
 package MoodUI;
 
+import FoodModel.Food;
+import FoodModel.FoodCache;
 import MoodController.MoodController;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 
 /**
@@ -27,6 +30,7 @@ public class CreateMoodPanel extends javax.swing.JPanel {
         initComponents();
         addRatingItemsToComboBox(ratingComboBox);
         addNameItemsToComboBox(nameComboBox);
+        addFoodItemsToComboBox(foodComboBox);
     }
     
     private void addRatingItemsToComboBox(javax.swing.JComboBox typeComboBox){
@@ -36,6 +40,16 @@ public class CreateMoodPanel extends javax.swing.JPanel {
     
     private void addNameItemsToComboBox(javax.swing.JComboBox typeComboBox){
         String[] options = {"Happy", "Energetic", "Mellow", "Peaceful", "Blissful", "Angry", "Restless", "Depressed", "Grumpy", "Tired"};
+        typeComboBox.setModel(new javax.swing.DefaultComboBoxModel(options));
+    }
+    
+    private void addFoodItemsToComboBox(javax.swing.JComboBox typeComboBox){
+        ArrayList<Food> foods = FoodCache.getFoodList();
+        String[] options = new String[foods.size()];
+        for (int i = 0; i < foods.size(); i++) {
+            Food food = foods.get(i);
+            options[i] = food.getName() + " - " + food.getTimestamp();
+        }
         typeComboBox.setModel(new javax.swing.DefaultComboBoxModel(options));
     }
     
@@ -55,6 +69,8 @@ public class CreateMoodPanel extends javax.swing.JPanel {
         ratingLbl = new javax.swing.JLabel();
         ratingComboBox = new javax.swing.JComboBox();
         addMoodBtn = new javax.swing.JButton();
+        foodComboBox = new javax.swing.JComboBox();
+        correspondingFoodLbl = new javax.swing.JLabel();
 
         nameLbl.setText("Mood You're Experiencing");
 
@@ -71,22 +87,29 @@ public class CreateMoodPanel extends javax.swing.JPanel {
             }
         });
 
+        foodComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        correspondingFoodLbl.setText("Corresponding Food");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 47, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameLbl)
-                    .addComponent(nameComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ratingLbl)
-                    .addComponent(ratingComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(119, 119, 119)
+                .addGap(120, 120, 120)
                 .addComponent(addMoodBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 47, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(correspondingFoodLbl)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(nameLbl)
+                        .addComponent(nameComboBox, 0, 290, Short.MAX_VALUE)
+                        .addComponent(ratingLbl)
+                        .addComponent(ratingComboBox, 0, 290, Short.MAX_VALUE)
+                        .addComponent(foodComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(43, 43, 43))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,22 +122,30 @@ public class CreateMoodPanel extends javax.swing.JPanel {
                 .addComponent(ratingLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ratingComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
+                .addComponent(correspondingFoodLbl)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(foodComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addComponent(addMoodBtn)
-                .addGap(110, 110, 110))
+                .addGap(75, 75, 75))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void addMoodBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMoodBtnActionPerformed
         String name = nameComboBox.getSelectedItem().toString();
         int rating = Integer.parseInt(ratingComboBox.getSelectedItem().toString());
-        moodCtrl.createMood(name, rating);
+        String[] foodDetails = (foodComboBox.getSelectedItem().toString()).split(" - ");
+        Food food = FoodCache.getFood(foodDetails[0], foodDetails[1]);
+        moodCtrl.createMood(name, rating, food.getId());
         moodUI.setVisible(false);
     }//GEN-LAST:event_addMoodBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addMoodBtn;
+    private javax.swing.JLabel correspondingFoodLbl;
+    private javax.swing.JComboBox foodComboBox;
     private javax.swing.JComboBox nameComboBox;
     private javax.swing.JLabel nameLbl;
     private javax.swing.JComboBox ratingComboBox;

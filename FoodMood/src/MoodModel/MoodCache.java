@@ -25,7 +25,7 @@ public class MoodCache {
     
     public static Mood getMood(String name, String timestamp) {
         System.out.println("FoodCache - getFood() method called.");
-        Mood mood = new Mood(1, "TEST", 1, "TEST", 1);
+        Mood mood = new Mood(1, "TEST", 1, "TEST", 1, 1);
         try
         {
           Connection con = DriverManager.getConnection(DatabaseController.getHost());
@@ -36,7 +36,9 @@ public class MoodCache {
           String name_ = rs.getString("NAME");
           int rating = rs.getInt("RATING");
           String timestamp_ = rs.getString("TIMESTAMP");
-          mood  = new Mood(id, name_, rating, timestamp_, User.loggedInUser);
+          int userId = rs.getInt("USER");
+          int foodId = rs.getInt("FOOD");
+          mood  = new Mood(id, name_, rating, timestamp_, userId, foodId);
           con.close();
           System.out.println("MoodCache - getMood(): Mood (" + name + ") successfully retrieved from database.");
         }
@@ -69,7 +71,8 @@ public class MoodCache {
               int rating = rs.getInt("RATING");
               String timestamp = rs.getString("TIMESTAMP");
               int userId = rs.getInt("USER");
-              Mood mood = new Mood(id, name, rating, timestamp, userId);
+              int foodId = rs.getInt("FOOD");
+              Mood mood = new Mood(id, name, rating, timestamp, userId, foodId);
               moods.add(mood);
           }
           con.close();
@@ -95,7 +98,8 @@ public class MoodCache {
               int rating = rs.getInt("RATING");
               String timestamp = rs.getString("TIMESTAMP");
               int userId = rs.getInt("USER");
-              Mood mood = new Mood(id, name, rating, timestamp, userId);
+              int foodId = rs.getInt("FOOD");
+              Mood mood = new Mood(id, name, rating, timestamp, userId, foodId);
               moodMap.put(mood.getId(), mood);
           }
         }
@@ -112,7 +116,7 @@ public class MoodCache {
         {
             Connection conn = DriverManager.getConnection(DatabaseController.getHost());
             Statement stmt = conn.createStatement();
-            stmt.executeUpdate("INSERT INTO MOOD (NAME, RATING, TIMESTAMP, USER) VALUES ('"+mood.getName()+"', "+mood.getRating()+", datetime('now', 'localtime'), "+mood.getUserId()+")");
+            stmt.executeUpdate("INSERT INTO MOOD (NAME, RATING, TIMESTAMP, USER, FOOD) VALUES ('"+mood.getName()+"', "+mood.getRating()+", datetime('now', 'localtime'), "+mood.getUserId()+", "+mood.getFoodId()+")");
             System.out.println("MoodCache - addMood(): Mood (" + mood.getName() + ") successfully added to database.");
             conn.close();
         } catch (SQLException e) {
@@ -142,13 +146,13 @@ public class MoodCache {
         }
     }
     
-    public static void updateMood(int id, String name, int rating) {
+    public static void updateMood(int id, String name, int rating, int foodId) {
         System.out.println("MoodCache - updateMood() method called.");
         try
         {
           Connection con = DriverManager.getConnection(DatabaseController.getHost());
           Statement stmt = con.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-          String SQL = "UPDATE MOOD SET NAME = '"+name+"', RATING = "+rating+" WHERE ID = "+id+";";
+          String SQL = "UPDATE MOOD SET NAME = '"+name+"', RATING = "+rating+", FOOD = "+foodId+" WHERE ID = "+id+";";
           stmt.execute(SQL);
           System.out.println("MoodCache - updateMood(): Mood (" + name + ") successfully updated in the database.");
           con.close();

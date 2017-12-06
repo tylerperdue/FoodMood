@@ -49,6 +49,32 @@ public class FoodCache {
         return food;
     }
     
+    public static Food getFoodWithId(int id) {
+        System.out.println("FoodCache - getFoodWithId() method called.");
+        Food food = new Food(1, "TEST", "TEST", "TEST", "TEST", 1);
+        try
+        {
+          Connection con = DriverManager.getConnection(DatabaseController.getHost());
+          Statement stmt = con.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+          String SQL_FIND = "SELECT * FROM FOOD WHERE ID = "+id+";";
+          ResultSet rs = stmt.executeQuery(SQL_FIND);
+          int id_ = rs.getInt("ID");
+          String name = rs.getString("NAME");
+          String type = rs.getString("TYPE");
+          String description = rs.getString("DESCRIPTION");
+          String timestamp = rs.getString("TIMESTAMP");
+          food  = new Food(id_, name, type, description, timestamp, User.loggedInUser);
+          con.close();
+          System.out.println("FoodCache - getFood(): Food (" + name + ") successfully retrieved from database.");
+        }
+        catch (SQLException e)
+        {
+          System.err.println("SQLException: FoodCache - getFoodWithId()");
+          System.err.println(e.getMessage());
+        }
+        return food;
+    }
+    
     public static ArrayList<Food> getFoodList() {
         ArrayList<Food> foods = new ArrayList<Food>();
         try

@@ -10,14 +10,16 @@ public class Mood implements Cloneable {
     int rating;
     String timestamp;
     int userId;
+    int foodId;
     
-    public Mood(int id, String name, int rating, String timestamp, int userId){
+    public Mood(int id, String name, int rating, String timestamp, int userId, int foodId){
         System.out.println("Mood Class Instantiated.");
         this.id = id;
         this.name = name;
         this.rating = rating;
         this.timestamp = timestamp;
         this.userId = userId;
+        this.foodId = foodId;
     }
     
     public Object clone() {
@@ -71,6 +73,14 @@ public class Mood implements Cloneable {
     
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+    
+    public int getFoodId() {
+        return foodId;
+    }
+    
+    public void setFoodId(int foodId) {
+        this.foodId = foodId;
     }
    
 }

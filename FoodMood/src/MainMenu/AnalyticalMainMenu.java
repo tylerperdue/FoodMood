@@ -89,6 +89,7 @@ public class AnalyticalMainMenu extends javax.swing.JPanel {
 
     private void historyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyButtonActionPerformed
         // TODO add your handling code here:
+        navCtrl.switchToHistoryCntrl();
     }//GEN-LAST:event_historyButtonActionPerformed
 
     private void correlationButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_correlationButtonActionPerformed

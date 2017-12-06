@@ -18,11 +18,14 @@ public class HistoryUI extends JFrame {
     
     public HistoryUI(HistoryController historyCtrl){
         System.out.println("HistoryUI Class Instantiated. Test Passed.");
-        HistoryPanel historyPanel = new HistoryPanel(historyCtrl.viewFoodMoodList(), historyCtrl);
-        this.setLayout(new BorderLayout());
-        // TEST
+        HistoryPanel historyPanel = new HistoryPanel(historyCtrl);
+        this.setBounds(0, 0, 360, 485);
+        this.setTitle("FoodMood History");
+        this.setResizable(true);
+        this.setLocationRelativeTo(null);
         this.add(historyPanel);
-        FoodMoodMasterList foodmood = new FoodMoodMasterList("TEST", "This is a test foodmood item.");
+        this.setVisible(true);  
+        //FoodMoodMasterList foodmood = new FoodMoodMasterList("TEST", "This is a test foodmood item.");
     }
     
     

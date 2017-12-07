@@ -21,7 +21,7 @@ public class AppSelectionUI extends JFrame{
         this.navCtrl=navCtrl;
         appSelectionPanel = new AppSelectionPanel(navCtrl);
         this.setBounds(0, 0, 400,200);
-        this.setTitle("Main");
+        this.setTitle("Platform Selection");
         this.setResizable(true);
         this.setLocationRelativeTo(null);
         this.add(appSelectionPanel);

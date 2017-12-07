@@ -25,9 +25,8 @@ public class FoodMoodStatsController {
     public FoodMoodStatsController(NavController navCntrl){
         System.out.println("FoodMoodStatsController Class Instantiated. Test Passed.");
         this.navCntrl= navCntrl;
-        FoodMoodStatsUI foodMoodUI = new FoodMoodStatsUI(this);
     }
-    
+     
     public ArrayList<FoodMoodStat> computeFoodMoodStats(Hashtable<Integer, Food> foodlist, Hashtable<Integer, Mood> moodlist){
         ArrayList<FoodMoodStat> foodMoodStats = new ArrayList<>();
         for(int i = 0; i < foodlist.size(); i++){

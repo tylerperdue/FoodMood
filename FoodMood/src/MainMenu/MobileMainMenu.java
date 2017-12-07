@@ -45,6 +45,8 @@ public class MobileMainMenu extends javax.swing.JPanel {
         foodbutton = new javax.swing.JButton();
         moodButton = new javax.swing.JButton();
         userButton = new javax.swing.JButton();
+        recommendationsBtn = new javax.swing.JButton();
+        foodMoodStatsBtn = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(360, 480));
         setSize(new java.awt.Dimension(360, 480));
@@ -65,10 +67,24 @@ public class MobileMainMenu extends javax.swing.JPanel {
             }
         });
 
-        userButton.setText("User Profile");
+        userButton.setText("User Profile/Notifications");
         userButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userButtonActionPerformed(evt);
+            }
+        });
+
+        recommendationsBtn.setText("Recommendations");
+        recommendationsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                recommendationsBtnActionPerformed(evt);
+            }
+        });
+
+        foodMoodStatsBtn.setText("Food Mood Stats");
+        foodMoodStatsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                foodMoodStatsBtnActionPerformed(evt);
             }
         });
 
@@ -79,11 +95,17 @@ public class MobileMainMenu extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(87, 87, 87)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(welcomeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(foodbutton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(moodButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(userButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(183, 183, 183))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(welcomeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(foodMoodStatsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(recommendationsBtn, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(foodbutton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(moodButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(userButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(230, 230, 230))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -94,9 +116,13 @@ public class MobileMainMenu extends javax.swing.JPanel {
                 .addComponent(foodbutton)
                 .addGap(30, 30, 30)
                 .addComponent(moodButton)
-                .addGap(35, 35, 35)
+                .addGap(26, 26, 26)
+                .addComponent(foodMoodStatsBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addComponent(recommendationsBtn)
+                .addGap(29, 29, 29)
                 .addComponent(userButton)
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addGap(109, 109, 109))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -108,15 +134,24 @@ public class MobileMainMenu extends javax.swing.JPanel {
         navCtrl.switchToFoodCntrl();    }//GEN-LAST:event_foodbuttonActionPerformed
 
     private void moodButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moodButtonActionPerformed
-        // TODO add your handling code here:
         navCtrl.switchToMoodCntrl();                                           
 
     }//GEN-LAST:event_moodButtonActionPerformed
 
+    private void foodMoodStatsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_foodMoodStatsBtnActionPerformed
+        navCtrl.switchToFoodMoodStatsCntrl();
+    }//GEN-LAST:event_foodMoodStatsBtnActionPerformed
+
+    private void recommendationsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recommendationsBtnActionPerformed
+        navCtrl.switchToRecommendationCntrl();
+    }//GEN-LAST:event_recommendationsBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton foodMoodStatsBtn;
     private javax.swing.JButton foodbutton;
     private javax.swing.JButton moodButton;
+    private javax.swing.JButton recommendationsBtn;
     private javax.swing.JButton userButton;
     private javax.swing.JLabel welcomeLabel;
     // End of variables declaration//GEN-END:variables

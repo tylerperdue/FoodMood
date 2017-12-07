@@ -10,6 +10,7 @@ import CorrelationController.CorrelationController;
 import FoodController.FoodController;
 import FoodMoodHistoryController.HistoryController;
 import FoodMoodStatsController.FoodMoodStatsController;
+import FoodMoodStatsUI.FoodMoodStatsPanel;
 import FoodUI.FoodPanel;
 import LoginController.LoginController;
 import MoodController.MoodController;
@@ -47,6 +48,7 @@ public class NavController {
     private RecommendationPanel recPanel;
     private FoodPanel foodPanel;
     private MoodPanel moodPanel;
+    private FoodMoodStatsPanel foodMoodStatsPanel;
 
     private MobileMenuUI mobileMenuUI;
     private AnalyticalMenuUI analyticMenu;
@@ -56,7 +58,6 @@ public class NavController {
         System.out.println("NavController Class Instantiated. Test Passed.");
         appSelection = new AppSelectionUI(this);
         this.loginCtrl = loginCtrl;
-        //this.mainMenuUI = mainMenuUI;
     }
     
     public void switchToMobileMenu(){
@@ -134,8 +135,30 @@ public class NavController {
     }
     
     public void switchToFoodMoodStatsCntrl() {
-        System.out.println("NavController - Switched to Food Mood Stats Controller. Test Passed.");
-        FoodMoodStatsController foodMoodStatsCtrl = new FoodMoodStatsController(this);
+        System.out.println("NavController - Swtiched to Food Mood Stats Controller. Test Passed.");
+        mobileMenuUI.removeMainPanel();
+        if(this.foodPanel != null){
+            mobileMenuUI.remove(this.foodPanel);
+        }
+        if(this.moodPanel != null){
+            mobileMenuUI.remove(this.moodPanel);
+        }
+        if(this.profilePanel != null){
+            mobileMenuUI.remove(this.profilePanel);
+        }
+        if(this.recPanel != null){
+            mobileMenuUI.remove(this.recPanel);
+        }
+        if(this.foodMoodStatsPanel != null){
+            mobileMenuUI.remove(this.foodMoodStatsPanel);
+        }
+        foodMoodStatsCtrl = new FoodMoodStatsController(this);
+        foodMoodStatsPanel = new FoodMoodStatsPanel(foodMoodStatsCtrl);
+        mobileMenuUI.add(foodMoodStatsPanel);
+        mobileMenuUI.setVisible(true);
+        mobileMenuUI.setSize(360, 480);
+        mobileMenuUI.repaint();
+        mobileMenuUI.revalidate();
     }
     
     public void switchToLoginCntrl() {

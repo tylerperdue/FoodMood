@@ -28,7 +28,7 @@ public class MobileMenuUI extends javax.swing.JFrame {
         System.out.println("MainMenu UI Class Instantiated. Test Passed.");
         mobileMainMenu = new MobileMainMenu(navCtrl);
         this.setBounds(0, 0, 360,480);
-        this.setTitle("Main");
+        this.setTitle("Food Mood");
         this.setResizable(true);
         this.setLocationRelativeTo(null);
         //this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -64,18 +64,15 @@ public class MobileMenuUI extends javax.swing.JFrame {
         fileMenu = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        foodMoodMenu = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         fileMenu.setText("FoodMood");
 
-        jMenuItem2.setText("Enter Food");
+        jMenuItem2.setText("Food");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -83,7 +80,7 @@ public class MobileMenuUI extends javax.swing.JFrame {
         });
         fileMenu.add(jMenuItem2);
 
-        jMenuItem1.setText("Enter Mood");
+        jMenuItem1.setText("Mood");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -91,8 +88,13 @@ public class MobileMenuUI extends javax.swing.JFrame {
         });
         fileMenu.add(jMenuItem1);
 
-        jMenuItem4.setText("View History");
-        fileMenu.add(jMenuItem4);
+        jMenuItem5.setText("Food Mood Stats");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        fileMenu.add(jMenuItem5);
 
         jMenuItem6.setText("Recommendations");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
@@ -102,31 +104,15 @@ public class MobileMenuUI extends javax.swing.JFrame {
         });
         fileMenu.add(jMenuItem6);
 
-        MenuBar.add(fileMenu);
-
-        editMenu.setText("UserProfile");
-
-        jMenuItem3.setText("View Profile");
+        jMenuItem3.setText("User Profile/Notifications");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        editMenu.add(jMenuItem3);
+        fileMenu.add(jMenuItem3);
 
-        MenuBar.add(editMenu);
-
-        foodMoodMenu.setText("FoodMoodStats");
-
-        jMenuItem5.setText("View FoodMoodStats");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        foodMoodMenu.add(jMenuItem5);
-
-        MenuBar.add(foodMoodMenu);
+        MenuBar.add(fileMenu);
 
         setJMenuBar(MenuBar);
 
@@ -174,13 +160,10 @@ public class MobileMenuUI extends javax.swing.JFrame {
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar;
-    private javax.swing.JMenu editMenu;
     private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu foodMoodMenu;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     // End of variables declaration//GEN-END:variables

@@ -27,7 +27,6 @@ public class FoodUI extends JFrame {
         this.setTitle("Food");
         this.setResizable(true);
         this.setLocationRelativeTo(null);
-        //this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         this.add(foodPanel);
         this.setVisible(true);   
     }

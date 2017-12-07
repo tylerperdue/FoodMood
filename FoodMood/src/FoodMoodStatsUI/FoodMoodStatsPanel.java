@@ -37,9 +37,11 @@ public class FoodMoodStatsPanel extends javax.swing.JPanel {
      * Creates new form FoodMoodStatsPanel
      */
     public FoodMoodStatsPanel(FoodMoodStatsController foodMoodCntrl) {
+        System.out.println("FoodMoodStatsPanel Class Instantiated.");
         initComponents();
         readFoodStatList();
         readMoodStatList();
+        avgFood.setText("Hoopla");
     }
 
     public void readFoodStatList() {
@@ -171,30 +173,32 @@ public class FoodMoodStatsPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
+                        .addGap(184, 184, 184)
                         .addComponent(avgFood))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(avgMood)))
-                .addContainerGap(176, Short.MAX_VALUE))
+                        .addGap(271, 271, 271)
+                        .addComponent(avgMood))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(58, 58, 58)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(avgFood))
+                .addComponent(avgFood)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(avgMood))
-                .addContainerGap(377, Short.MAX_VALUE))
+                .addComponent(avgMood)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel1)
+                .addGap(82, 82, 82)
+                .addComponent(jLabel2)
+                .addContainerGap(283, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

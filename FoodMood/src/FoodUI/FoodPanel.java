@@ -32,7 +32,7 @@ public class FoodPanel extends javax.swing.JPanel {
         return new Dimension(360, 480);
     }
     public FoodPanel(FoodController foodCtrl) {
-        System.out.println("CreateFoodPanel Class Instantiated.");
+        System.out.println("FoodPanel Class Instantiated.");
         this.foodCtrl = foodCtrl;
         initComponents();
         readFoodList();

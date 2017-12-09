@@ -115,6 +115,7 @@ public class HistoryPanel extends javax.swing.JPanel {
         jDateChooser1.setDateFormatString("yyyy-MM-dd");
 
         jDateChooser2.setDateFormatString("yyyy-MM-dd");
+        jDateChooser2.setMinSelectableDate(jDateChooser1.getDate());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

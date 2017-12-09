@@ -218,13 +218,13 @@ public class NavController {
     
     public void removeOldAnalyticPanels() {
         if(this.historyPanel != null){
-            mobileMenuUI.remove(this.historyPanel);
+            analyticMenu.remove(this.historyPanel);
         }
         if(this.correlationPanel != null){
-            mobileMenuUI.remove(this.correlationPanel);
+            analyticMenu.remove(this.correlationPanel);
         }
         if(this.chartPanel != null){
-            mobileMenuUI.remove(this.chartPanel);
+            analyticMenu.remove(this.chartPanel);
         }   
     }
 }

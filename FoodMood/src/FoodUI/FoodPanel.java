@@ -56,7 +56,7 @@ public class FoodPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) foodTable.getModel();
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
         foodTable.setRowSorter(sorter);
-        sorter.setRowFilter(RowFilter.regexFilter(sort));
+        sorter.setRowFilter(RowFilter.regexFilter("(?i)" + sort));
     }
 
     /**

@@ -6,6 +6,7 @@
 package FoodMoodStatsUI;
 
 import FoodMoodStatsController.FoodMoodStatsController;
+import java.awt.Dimension;
 
 /**
  *
@@ -18,10 +19,21 @@ public class FoodMoodStatsPanel extends javax.swing.JPanel {
     /**
      * Creates new form FoodMoodStatsPanel
      */
+    @Override
+    public Dimension getPreferredSize() {
+        return new Dimension(360, 480);
+    }
+    
     public FoodMoodStatsPanel(FoodMoodStatsController foodMoodStatsCtrl) {
         System.out.println("FoodMoodStatsPanel Class Instantiated.");
         this.foodMoodStatsCtrl = foodMoodStatsCtrl;
         initComponents();
+        numFoodTxt.setText(foodMoodStatsCtrl.getNumberOfFoods());
+        avgFoodTxt.setText(foodMoodStatsCtrl.getAvgFood());
+        avgFoodTypeTxt.setText(foodMoodStatsCtrl.getAvgFoodType());
+        numMoodsTxt.setText(foodMoodStatsCtrl.getNumberOfMoods());
+        avgMoodTxt.setText(foodMoodStatsCtrl.getAvgMood());
+        avgMoodRatingTxt.setText(foodMoodStatsCtrl.getAvgMoodRating());   
     }
 
     /**

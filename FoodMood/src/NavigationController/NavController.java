@@ -96,6 +96,9 @@ public class NavController {
         if(this.recPanel != null){
             mobileMenuUI.remove(this.recPanel);
         }
+        if(this.foodMoodStatsPanel != null){
+            mobileMenuUI.remove(this.foodMoodStatsPanel);
+        }
         foodCtrl = new FoodController(this);
         foodPanel = new FoodPanel(foodCtrl);
         mobileMenuUI.add(foodPanel);
@@ -120,6 +123,9 @@ public class NavController {
         if(this.recPanel != null){
             mobileMenuUI.remove(this.recPanel);
         }
+        if(this.foodMoodStatsPanel != null){
+            mobileMenuUI.remove(this.foodMoodStatsPanel);
+        }
         moodCtrl = new MoodController(this);
         moodPanel = new MoodPanel(moodCtrl);
         mobileMenuUI.add(moodPanel);
@@ -135,13 +141,13 @@ public class NavController {
     }
     
     public void switchToFoodMoodStatsCntrl() {
-        System.out.println("NavController - Swtiched to Food Mood Stats Controller. Test Passed.");
         mobileMenuUI.removeMainPanel();
-        if(this.foodPanel != null){
-            mobileMenuUI.remove(this.foodPanel);
-        }
         if(this.moodPanel != null){
             mobileMenuUI.remove(this.moodPanel);
+
+        }
+        if(this.foodPanel != null){
+            mobileMenuUI.remove(this.foodPanel);
         }
         if(this.profilePanel != null){
             mobileMenuUI.remove(this.profilePanel);
@@ -155,8 +161,8 @@ public class NavController {
         foodMoodStatsCtrl = new FoodMoodStatsController(this);
         foodMoodStatsPanel = new FoodMoodStatsPanel(foodMoodStatsCtrl);
         mobileMenuUI.add(foodMoodStatsPanel);
-        mobileMenuUI.setVisible(true);
-        mobileMenuUI.setSize(500, 400);
+        foodMoodStatsPanel.setVisible(true);
+        foodMoodStatsPanel.setSize(500, 400);
         mobileMenuUI.repaint();
         mobileMenuUI.revalidate();
     }
@@ -185,6 +191,9 @@ public class NavController {
          if(this.profilePanel != null){
             mobileMenuUI.remove(this.profilePanel);
         }
+        if(this.foodMoodStatsPanel != null){
+            mobileMenuUI.remove(this.foodMoodStatsPanel);
+        }
         recPanel = new RecommendationPanel(recCtrl);
         mobileMenuUI.add(recPanel);
         recPanel.setVisible(true);
@@ -209,6 +218,9 @@ public class NavController {
         }
          if(this.recPanel != null){
             mobileMenuUI.remove(this.recPanel);
+        }
+        if(this.foodMoodStatsPanel != null){
+            mobileMenuUI.remove(this.foodMoodStatsPanel);
         }
         profilePanel = new AProfilePanel(profileCtrl, UserList.getUser());
         mobileMenuUI.add(profilePanel);

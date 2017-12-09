@@ -156,7 +156,7 @@ public class NavController {
         foodMoodStatsPanel = new FoodMoodStatsPanel(foodMoodStatsCtrl);
         mobileMenuUI.add(foodMoodStatsPanel);
         mobileMenuUI.setVisible(true);
-        mobileMenuUI.setSize(360, 480);
+        mobileMenuUI.setSize(500, 400);
         mobileMenuUI.repaint();
         mobileMenuUI.revalidate();
     }

@@ -57,7 +57,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="platformLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Choose A Platform:"/>
+        <Property name="text" type="java.lang.String" value="Choose a Platform:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="MobileButton">

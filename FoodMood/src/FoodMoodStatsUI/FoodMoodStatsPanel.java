@@ -5,150 +5,24 @@
  */
 package FoodMoodStatsUI;
 
-import DatabaseController.DatabaseController;
-import FoodModel.Food;
 import FoodMoodStatsController.FoodMoodStatsController;
-import MoodController.MoodController;
-import MoodModel.Mood;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author bryaningram
+ * @author tylerperdue
  */
 public class FoodMoodStatsPanel extends javax.swing.JPanel {
 
-    Food food;
-    Mood mood;
+    private FoodMoodStatsController foodMoodStatsCtrl;
+    
     /**
      * Creates new form FoodMoodStatsPanel
      */
-    public FoodMoodStatsPanel(FoodMoodStatsController foodMoodCntrl) {
+    public FoodMoodStatsPanel(FoodMoodStatsController foodMoodStatsCtrl) {
         System.out.println("FoodMoodStatsPanel Class Instantiated.");
+        this.foodMoodStatsCtrl = foodMoodStatsCtrl;
         initComponents();
-        readFoodStatList();
-        readMoodStatList();
-        avgFood.setText("Hoopla");
     }
-
-    public void readFoodStatList() {
-        try
-        {
-          Connection con = DriverManager.getConnection(DatabaseController.getHost());
-          Statement stmt = con.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-          String SQL = "SELECT NAME FROM FOOD GROUP BY NAME ORDER BY COUNT(*) DESC LIMIT 1";
-          ResultSet rs = stmt.executeQuery(SQL);
-          while (rs.next()) {
-              String foodName = rs.getString("NAME");
-              avgFood.setText(foodName);
-          }
-        }
-        catch (SQLException e)
-        {
-          System.err.println("SQLException: FoodMoodStats - readFoodStatList()");
-          System.err.println(e.getMessage());
-        }
-    }
-    
-//    public void readFoodStatList() {
-//        HashMap<String, Integer> foods = new HashMap<>();
-//        try {
-//            FileReader food = new FileReader("Foods.txt");
-//            BufferedReader foodBr = new BufferedReader(food);
-//            String line = foodBr.readLine();
-//            while (line != null) {
-//                String[] string = line.toLowerCase().split("/");
-//                for (String word : string) {
-//                    if (foods.containsKey(word)) {
-//                        foods.put(word, foods.get(word) + 1);
-//                    } else {
-//                        foods.put(word, 1);
-//                    }
-//                }
-//                line = foodBr.readLine();
-//            }
-//            String mostRepeated = null;
-//            int count = 0;
-//            Set<Entry<String, Integer>> entrySet = foods.entrySet();
-//            for (Entry<String, Integer> entry : entrySet) {
-//                if (entry.getValue() > count) {
-//                    mostRepeated = entry.getKey();
-//                    count = entry.getValue();
-//                }
-//            }
-//            avgFood.setText(mostRepeated);
-//            foodBr.close();
-//            food.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-    
-    public void readMoodStatList() {
-        try
-        {
-          Connection con = DriverManager.getConnection(DatabaseController.getHost());
-          Statement stmt = con.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-          String SQL = "SELECT NAME FROM MOOD GROUP BY NAME ORDER BY COUNT(*) DESC LIMIT 1";
-          ResultSet rs = stmt.executeQuery(SQL);
-          while (rs.next()) {
-              String moodName = rs.getString("NAME");
-              avgMood.setText(moodName);
-          }
-        }
-        catch (SQLException e)
-        {
-          System.err.println("SQLException: FoodMoodStats - readMoodStatList()");
-          System.err.println(e.getMessage());
-        }
-    }
-    
-//    public void readMoodStatLists() {
-//        HashMap<String, Integer> moods = new HashMap<>();
-//        try {
-//            FileReader mood = new FileReader("Moods.txt");
-//            BufferedReader moodBr = new BufferedReader(mood);
-//            String line = moodBr.readLine();
-//            while (line != null) {
-//                String[] string = line.toLowerCase().split("/");
-//                for (String word : string) {
-//                    if (moods.containsKey(word)) {
-//                        moods.put(word, moods.get(word) + 1);
-//                    } else {
-//                        moods.put(word, 1);
-//                    }
-//                }
-//                line = moodBr.readLine();
-//            }
-//            String mostRepeated = null;
-//            int count = 0;
-//            Set<Entry<String, Integer>> entrySet = moods.entrySet();
-//            for (Entry<String, Integer> entry : entrySet) {
-//                if (entry.getValue() > count) {
-//                    mostRepeated = entry.getKey();
-//                    count = entry.getValue();
-//                }
-//            }
-//            avgMood.setText(mostRepeated);
-//            moodBr.close();
-//            mood.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -159,14 +33,33 @@ public class FoodMoodStatsPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        avgFood = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        avgMood = new javax.swing.JLabel();
+        foodMoodStatsLbl = new javax.swing.JLabel();
+        numFoodsLbl = new javax.swing.JLabel();
+        avgFoodLbl = new javax.swing.JLabel();
+        numMoodsLbl = new javax.swing.JLabel();
+        avgMoodLbl = new javax.swing.JLabel();
+        avgFoodTypeLbl = new javax.swing.JLabel();
+        avgMoodRatingLbl = new javax.swing.JLabel();
+        numFoodTxt = new javax.swing.JLabel();
+        avgFoodTxt = new javax.swing.JLabel();
+        avgFoodTypeTxt = new javax.swing.JLabel();
+        numMoodsTxt = new javax.swing.JLabel();
+        avgMoodTxt = new javax.swing.JLabel();
+        avgMoodRatingTxt = new javax.swing.JLabel();
 
-        jLabel1.setText("Average Food Consumed:");
+        foodMoodStatsLbl.setText("Food Mood Stats");
 
-        jLabel2.setText("Average Mood:");
+        numFoodsLbl.setText("Number of Foods:");
+
+        avgFoodLbl.setText("Average Food:");
+
+        numMoodsLbl.setText("Number of Moods:");
+
+        avgMoodLbl.setText("Average Mood:");
+
+        avgFoodTypeLbl.setText("Average Food Type:");
+
+        avgMoodRatingLbl.setText("Average Mood Rating:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -175,38 +68,74 @@ public class FoodMoodStatsPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(184, 184, 184)
-                        .addComponent(avgFood))
+                        .addGap(127, 127, 127)
+                        .addComponent(foodMoodStatsLbl))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(271, 271, 271)
-                        .addComponent(avgMood))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(avgMoodLbl)
+                            .addComponent(avgFoodLbl)
+                            .addComponent(numFoodsLbl)
+                            .addComponent(avgFoodTypeLbl)
+                            .addComponent(numMoodsLbl)
+                            .addComponent(avgMoodRatingLbl))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))))
-                .addContainerGap(89, Short.MAX_VALUE))
+                            .addComponent(numFoodTxt)
+                            .addComponent(avgFoodTxt)
+                            .addComponent(avgFoodTypeTxt)
+                            .addComponent(numMoodsTxt)
+                            .addComponent(avgMoodTxt)
+                            .addComponent(avgMoodRatingTxt))))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(avgFood)
+                .addGap(32, 32, 32)
+                .addComponent(foodMoodStatsLbl)
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(numFoodsLbl)
+                    .addComponent(numFoodTxt))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(avgFoodLbl)
+                    .addComponent(avgFoodTxt))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(avgFoodTypeLbl)
+                    .addComponent(avgFoodTypeTxt))
+                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(numMoodsLbl)
+                    .addComponent(numMoodsTxt))
                 .addGap(18, 18, 18)
-                .addComponent(avgMood)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel1)
-                .addGap(82, 82, 82)
-                .addComponent(jLabel2)
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(avgMoodLbl)
+                    .addComponent(avgMoodTxt))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(avgMoodRatingLbl)
+                    .addComponent(avgMoodRatingTxt))
+                .addContainerGap(170, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel avgFood;
-    private javax.swing.JLabel avgMood;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel avgFoodLbl;
+    private javax.swing.JLabel avgFoodTxt;
+    private javax.swing.JLabel avgFoodTypeLbl;
+    private javax.swing.JLabel avgFoodTypeTxt;
+    private javax.swing.JLabel avgMoodLbl;
+    private javax.swing.JLabel avgMoodRatingLbl;
+    private javax.swing.JLabel avgMoodRatingTxt;
+    private javax.swing.JLabel avgMoodTxt;
+    private javax.swing.JLabel foodMoodStatsLbl;
+    private javax.swing.JLabel numFoodTxt;
+    private javax.swing.JLabel numFoodsLbl;
+    private javax.swing.JLabel numMoodsLbl;
+    private javax.swing.JLabel numMoodsTxt;
     // End of variables declaration//GEN-END:variables
 }

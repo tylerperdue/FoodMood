@@ -26,7 +26,6 @@ public class FoodMoodStatsUI extends JFrame {
     public FoodMoodStatsUI(FoodMoodStatsController foodMoodStatsCntrl) {
         System.out.println("FoodMoodStatsUI Class Instantiated.");
         this.foodMoodStatsPanel = new FoodMoodStatsPanel(foodMoodStatsCntrl);
-        this.setLayout(new BorderLayout());
         this.setSize(500, 400);
         this.setTitle("Food");
         this.setResizable(true);

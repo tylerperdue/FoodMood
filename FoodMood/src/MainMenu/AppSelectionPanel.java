@@ -38,7 +38,7 @@ public class AppSelectionPanel extends javax.swing.JPanel {
         AnalyticButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        platformLabel.setText("Choose A Platform:");
+        platformLabel.setText("Choose a Platform:");
 
         MobileButton.setText("Mobile App");
         MobileButton.addActionListener(new java.awt.event.ActionListener() {

@@ -18,56 +18,122 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
-                      <Component id="avgFood" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
+                      <Component id="foodMoodStatsLbl" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="271" max="-2" attributes="0"/>
-                      <Component id="avgMood" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="avgMoodLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="avgFoodLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="numFoodsLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="avgFoodTypeLbl" min="-2" max="-2" attributes="0"/>
+                          <Component id="numMoodsLbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="avgMoodRatingLbl" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="numFoodTxt" min="-2" max="-2" attributes="0"/>
+                          <Component id="avgFoodTxt" min="-2" max="-2" attributes="0"/>
+                          <Component id="avgFoodTypeTxt" min="-2" max="-2" attributes="0"/>
+                          <Component id="numMoodsTxt" min="-2" max="-2" attributes="0"/>
+                          <Component id="avgMoodTxt" min="-2" max="-2" attributes="0"/>
+                          <Component id="avgMoodRatingTxt" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="89" max="32767" attributes="0"/>
+              <EmptySpace pref="128" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-              <Component id="avgFood" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <Component id="foodMoodStatsLbl" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="numFoodsLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="numFoodTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="avgFoodLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="avgFoodTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="avgFoodTypeLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="avgFoodTypeTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="numMoodsLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="numMoodsTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="avgMood" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="283" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="avgMoodLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="avgMoodTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="avgMoodRatingLbl" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="avgMoodRatingTxt" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="170" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="foodMoodStatsLbl">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Average Food Consumed:"/>
+        <Property name="text" type="java.lang.String" value="Food Mood Stats"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="avgFood">
+    <Component class="javax.swing.JLabel" name="numFoodsLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Number of Foods:"/>
+      </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="avgFoodLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Average Food:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="numMoodsLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Number of Moods:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="avgMoodLbl">
       <Properties>
         <Property name="text" type="java.lang.String" value="Average Mood:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="avgMood">
+    <Component class="javax.swing.JLabel" name="avgFoodTypeLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Average Food Type:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="avgMoodRatingLbl">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Average Mood Rating:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="numFoodTxt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="avgFoodTxt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="avgFoodTypeTxt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="numMoodsTxt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="avgMoodTxt">
+    </Component>
+    <Component class="javax.swing.JLabel" name="avgMoodRatingTxt">
     </Component>
   </SubComponents>
 </Form>

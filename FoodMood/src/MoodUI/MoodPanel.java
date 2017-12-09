@@ -52,7 +52,7 @@ public class MoodPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) moodTable.getModel();
         TableRowSorter<DefaultTableModel> sorter = new TableRowSorter<DefaultTableModel>(model);
         moodTable.setRowSorter(sorter);
-        sorter.setRowFilter(RowFilter.regexFilter(sort));
+        sorter.setRowFilter(RowFilter.regexFilter("(?i)" + sort));
     }
 
     /**

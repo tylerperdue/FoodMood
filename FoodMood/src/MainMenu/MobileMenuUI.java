@@ -28,7 +28,7 @@ public class MobileMenuUI extends javax.swing.JFrame {
         System.out.println("MainMenu UI Class Instantiated. Test Passed.");
         mobileMainMenu = new MobileMainMenu(navCtrl);
         this.setBounds(0, 0, 360,480);
-        this.setTitle("Food Mood");
+        this.setTitle("Food Mood Mobile");
         this.setResizable(true);
         this.setLocationRelativeTo(null);
         //this.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,7 +70,7 @@ public class MobileMenuUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        fileMenu.setText("FoodMood");
+        fileMenu.setText("FoodMood Mobile");
 
         jMenuItem2.setText("Food");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {

@@ -5,8 +5,6 @@
  */
 package MainMenu;
 
-import FoodController.FoodController;
-import FoodUI.FoodPanel;
 import NavigationController.NavController;
 
 /**
@@ -15,14 +13,14 @@ import NavigationController.NavController;
  */
 public class AnalyticalMenuUI extends javax.swing.JFrame {
     private NavController navCtrl;
-    private AnalyticalMainMenu analyticalMenu;
+    private AnalyticMainMenuPanel analyticalMenu;
     
     
     public AnalyticalMenuUI(NavController navCtrl) {
-        System.out.println("MainMenu UI Class Instantiated. Test Passed.");
-        analyticalMenu = new AnalyticalMainMenu(navCtrl);
-        this.setBounds(0, 0, 500,500);
-        this.setTitle("Main");
+        System.out.println("AnalyticMenuU Class Instantiated.");
+        analyticalMenu = new AnalyticMainMenuPanel(navCtrl);
+        this.setBounds(0, 0, 500, 500);
+        this.setTitle("Food Mood Analytic");
         this.setResizable(true);
         this.setLocationRelativeTo(null);
         this.add(analyticalMenu);
@@ -30,11 +28,10 @@ public class AnalyticalMenuUI extends javax.swing.JFrame {
         initComponents();
         this.navCtrl = navCtrl; 
       }
-
-      
-      
-      
-   
+    
+    public void removeMainPanel(){
+        this.remove(analyticalMenu);
+    }
       
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,72 +43,40 @@ public class AnalyticalMenuUI extends javax.swing.JFrame {
     private void initComponents() {
 
         MenuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        foodMoodMenu = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        menu = new javax.swing.JMenu();
+        historyMenuItem = new javax.swing.JMenuItem();
+        correlationMenuItem = new javax.swing.JMenuItem();
+        chartMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        fileMenu.setText("FoodMood");
+        menu.setText("FoodMood Analytic");
 
-        jMenuItem2.setText("Enter Food");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        historyMenuItem.setText("History");
+        historyMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                historyMenuItemActionPerformed(evt);
             }
         });
-        fileMenu.add(jMenuItem2);
+        menu.add(historyMenuItem);
 
-        jMenuItem1.setText("Enter Mood");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        correlationMenuItem.setText("Correlation");
+        correlationMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                correlationMenuItemActionPerformed(evt);
             }
         });
-        fileMenu.add(jMenuItem1);
+        menu.add(correlationMenuItem);
 
-        jMenuItem4.setText("View History");
-        fileMenu.add(jMenuItem4);
-
-        jMenuItem6.setText("Recommendations");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        chartMenuItem.setText("Chart");
+        chartMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                chartMenuItemActionPerformed(evt);
             }
         });
-        fileMenu.add(jMenuItem6);
+        menu.add(chartMenuItem);
 
-        MenuBar.add(fileMenu);
-
-        editMenu.setText("UserProfile");
-
-        jMenuItem3.setText("View Profile");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        editMenu.add(jMenuItem3);
-
-        MenuBar.add(editMenu);
-
-        foodMoodMenu.setText("FoodMoodStats");
-
-        jMenuItem5.setText("View FoodMoodStats");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        foodMoodMenu.add(jMenuItem5);
-
-        MenuBar.add(foodMoodMenu);
+        MenuBar.add(menu);
 
         setJMenuBar(MenuBar);
 
@@ -129,44 +94,24 @@ public class AnalyticalMenuUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-        
-        navCtrl.switchToFoodCntrl();
-        
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private void historyMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historyMenuItemActionPerformed
+        navCtrl.switchToHistoryCntrl();
+    }//GEN-LAST:event_historyMenuItemActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        navCtrl.switchToMoodCntrl();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void correlationMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_correlationMenuItemActionPerformed
+        navCtrl.switchToCorrelationCntrl();
+    }//GEN-LAST:event_correlationMenuItemActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-        navCtrl.switchToProfileCntrl();
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
-        navCtrl.switchToFoodMoodStatsCntrl();
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
-        navCtrl.switchToRecommendationCntrl();
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    private void chartMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chartMenuItemActionPerformed
+        navCtrl.switchToChartCntrl();
+    }//GEN-LAST:event_chartMenuItemActionPerformed
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MenuBar;
-    private javax.swing.JMenu editMenu;
-    private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu foodMoodMenu;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem chartMenuItem;
+    private javax.swing.JMenuItem correlationMenuItem;
+    private javax.swing.JMenuItem historyMenuItem;
+    private javax.swing.JMenu menu;
     // End of variables declaration//GEN-END:variables
 }

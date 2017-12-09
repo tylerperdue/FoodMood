@@ -20,8 +20,7 @@ import javax.swing.table.TableRowSorter;
  * @author bryaningram
  */
 public class FoodPanel extends javax.swing.JPanel {
-
-    NavController navCtrl;
+    
     FoodController foodCtrl;
 
     /**

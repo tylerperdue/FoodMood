@@ -26,8 +26,6 @@ public class MobileMainMenu extends javax.swing.JPanel {
         this.navCtrl = navCtrl;
         //this.setSize(360,480);
         initComponents();
-        welcomeLabel.setFont(new Font("Helvetica", Font.CENTER_BASELINE, 16));
-        
     }
 
     

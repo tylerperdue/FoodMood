@@ -17,21 +17,14 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="chartBtn" min="-2" pref="175" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
-                          <Component id="titleLbl" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
-                          <Component id="historyBtn" min="-2" pref="175" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Component id="correlationBtn" alignment="1" min="-2" pref="175" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="2" attributes="0">
+                  <Component id="chartBtn" alignment="2" min="-2" pref="175" max="-2" attributes="0"/>
+                  <Component id="correlationBtn" alignment="2" min="-2" pref="175" max="-2" attributes="0"/>
+                  <Component id="historyBtn" alignment="2" min="-2" pref="175" max="-2" attributes="0"/>
+                  <Component id="titleLbl" alignment="2" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="167" max="32767" attributes="0"/>
+              <EmptySpace pref="146" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -46,7 +39,7 @@
               <Component id="correlationBtn" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="chartBtn" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="206" max="32767" attributes="0"/>
+              <EmptySpace pref="198" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -54,6 +47,9 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="titleLbl">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="18" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Welcome to Food Mood!"/>
       </Properties>
     </Component>

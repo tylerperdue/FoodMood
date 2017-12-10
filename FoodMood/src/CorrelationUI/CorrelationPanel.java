@@ -77,10 +77,13 @@ public class CorrelationPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         foodNameCorrelationTable = new javax.swing.JTable();
 
+        titleLbl.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         titleLbl.setText("Correlations");
 
+        foodNameCorrelationLbl.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         foodNameCorrelationLbl.setText("Food");
 
+        foodTypeCorrelationLbl.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         foodTypeCorrelationLbl.setText("Food Type");
 
         foodTypeCorrelationTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -140,7 +143,7 @@ public class CorrelationPanel extends javax.swing.JPanel {
                 .addComponent(foodTypeCorrelationLbl)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

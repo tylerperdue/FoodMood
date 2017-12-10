@@ -59,19 +59,38 @@ public class FoodMoodStatsPanel extends javax.swing.JPanel {
         avgMoodTxt = new javax.swing.JLabel();
         avgMoodRatingTxt = new javax.swing.JLabel();
 
+        foodMoodStatsLbl.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         foodMoodStatsLbl.setText("Food Mood Stats");
 
+        numFoodsLbl.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         numFoodsLbl.setText("Number of Foods:");
 
+        avgFoodLbl.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         avgFoodLbl.setText("Average Food:");
 
+        numMoodsLbl.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         numMoodsLbl.setText("Number of Moods:");
 
+        avgMoodLbl.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         avgMoodLbl.setText("Average Mood:");
 
+        avgFoodTypeLbl.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         avgFoodTypeLbl.setText("Average Food Type:");
 
+        avgMoodRatingLbl.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         avgMoodRatingLbl.setText("Average Mood Rating:");
+
+        numFoodTxt.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        avgFoodTxt.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        avgFoodTypeTxt.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        numMoodsTxt.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        avgMoodTxt.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+
+        avgMoodRatingTxt.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -99,7 +118,7 @@ public class FoodMoodStatsPanel extends javax.swing.JPanel {
                             .addComponent(numMoodsTxt)
                             .addComponent(avgMoodTxt)
                             .addComponent(avgMoodRatingTxt))))
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,7 +149,7 @@ public class FoodMoodStatsPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(avgMoodRatingLbl)
                     .addComponent(avgMoodRatingTxt))
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addContainerGap(144, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

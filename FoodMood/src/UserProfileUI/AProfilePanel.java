@@ -5,12 +5,18 @@
  */
 package UserProfileUI;
 
+import DatabaseController.DatabaseController;
 import NotificationsModel.Notification;
 import UserProfileController.ProfileController;
 import UserProfileModel.User;
 import UserProfileModel.UserList;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -42,7 +48,26 @@ public class AProfilePanel extends javax.swing.JPanel {
         usernameTxt.setText(user.getUsername());
         passwordTxt.setText(user.getPassword());
         ageTxt.setText(Integer.toString(user.getAge()));
+        try {
+            Connection con = DriverManager.getConnection(DatabaseController.getHost());
+            Statement stmt = con.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+            String SQL = "SELECT TIME, MESSAGE FROM NOTIFICATION";
+            ResultSet rs = stmt.executeQuery(SQL);
+            while (rs.next()) {
+                String time = rs.getString("TIME");
+                String message = rs.getString("MESSAGE");
+                
+                NotificationHistory.append(time);
+                NotificationHistory.append(message);
+            }
+        } catch (SQLException e) {
+            System.err.println("SQLException: History - readNotification()");
+            System.err.println(e.getMessage());
+        }
+        
     }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

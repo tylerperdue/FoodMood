@@ -30,7 +30,7 @@ public class CorrelationController {
     }
     
     public ArrayList<ArrayList> getFoodNameCorrelations(){
-        System.out.println("CorrelatinController - getFoodNameCorrelations()");
+        System.out.println("CorrelationController - getFoodNameCorrelations()");
         ArrayList<ArrayList> correlations = new ArrayList<ArrayList>();
         ArrayList<String> foodNames = getDistinctFoodNames(FoodCache.getFoodList());
         for(int i = 0; i < foodNames.size(); i++){

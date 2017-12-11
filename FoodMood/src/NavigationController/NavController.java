@@ -6,7 +6,7 @@
 package NavigationController;
 
 import ChartController.ChartController;
-import ChartUI.ChartPanel;
+import ChartUI.ChartUI;
 import CorrelationController.CorrelationController;
 import CorrelationUI.CorrelationPanel;
 import FoodController.FoodController;
@@ -60,7 +60,7 @@ public class NavController {
     private AProfilePanel profilePanel;
     private HistoryPanel historyPanel;
     private CorrelationPanel correlationPanel;
-    private ChartPanel chartPanel;
+    private ChartUI chartPanel;
     
     
     public NavController(LoginController loginCtrl){
@@ -189,7 +189,7 @@ public class NavController {
         analyticMenu.removeMainPanel();
         removeOldAnalyticPanels();
         chartCtrl = new ChartController(this);
-        chartPanel = new ChartPanel(chartCtrl);
+        chartPanel = new ChartUI(chartCtrl);
         analyticMenu.add(chartPanel);
         chartPanel.setVisible(true);
         chartPanel.setSize(500, 500);

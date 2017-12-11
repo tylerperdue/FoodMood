@@ -49,6 +49,26 @@ public class FoodCache {
         return food;
     }
     
+    public static int getNumOfFoodType(String type){
+        int numOfTimesConsumed = 0;
+        try
+        {
+          Connection con = DriverManager.getConnection(DatabaseController.getHost());
+          Statement stmt = con.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
+          String SQL_FIND = "SELECT COUNT(TYPE) AS count FROM FOOD WHERE TYPE = '"+type+"' AND USER = '"+User.loggedInUser+"';";
+          ResultSet rs = stmt.executeQuery(SQL_FIND);
+          numOfTimesConsumed = rs.getInt("count");
+          System.out.println("Hope: " + numOfTimesConsumed);
+          con.close();
+          System.out.println("FoodCache - getFood(): Food (" + type + ") successfully retrieved from database.");
+        }
+        catch (SQLException e)
+        {
+          System.err.println("SQLException: FoodCache - getFood()");
+          System.err.println(e.getMessage());
+        }
+        return numOfTimesConsumed;
+    }
     public static Food getFoodWithId(int id) {
         System.out.println("FoodCache - getFoodWithId() method called.");
         Food food = new Food(1, "TEST", "TEST", "TEST", "TEST", 1);

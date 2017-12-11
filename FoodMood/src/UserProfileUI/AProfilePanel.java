@@ -44,6 +44,7 @@ public class AProfilePanel extends javax.swing.JPanel {
         usernameTxt.setText(user.getUsername());
         passwordTxt.setText(user.getPassword());
         ageTxt.setText(Integer.toString(user.getAge()));
+        
     }
     
     private void readNotificationData() {

@@ -146,7 +146,7 @@ public class LoginPanel extends javax.swing.JPanel {
             //loginCtrl.getNavCntrl().switchToMainMenuCtrl();
         }
         else
-            JOptionPane.showMessageDialog(new JFrame(), "wrong password you suck. ", "Dialog",
+            JOptionPane.showMessageDialog(new JFrame(), "Wrong Password, Please Try Again... ", "Dialog",
                  JOptionPane.ERROR_MESSAGE);
         }
     private void createUserButtonActionPerformed(java.awt.event.ActionEvent evt) {

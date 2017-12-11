@@ -10,9 +10,10 @@ import UserProfileController.ProfileController;
 import UserProfileModel.User;
 import UserProfileModel.UserList;
 import java.awt.Dimension;
-import java.awt.Font;
+import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -29,6 +30,7 @@ public class AProfilePanel extends javax.swing.JPanel {
         this.profileCtrl = profileCtrl;
         this.user= user;
         readProfileData();
+        readNotificationData();
     }
     
     @Override
@@ -43,6 +45,22 @@ public class AProfilePanel extends javax.swing.JPanel {
         passwordTxt.setText(user.getPassword());
         ageTxt.setText(Integer.toString(user.getAge()));
     }
+    
+    private void readNotificationData() {
+        try {
+            ArrayList<ArrayList> notifications = Notification.getNotifications();
+            DefaultTableModel model = (DefaultTableModel) notificationTable.getModel();
+            model.setColumnIdentifiers(new String[]{"Message", "Time"});
+            for (int i = 0; i < notifications.size(); i++) {
+                ArrayList<String> notification = notifications.get(i);
+                System.out.println(notification);
+                String[] data = {notification.get(0), notification.get(1)};
+                model.addRow(data);
+            }
+        } catch (Exception e) {
+            System.out.println("Error has occurred in AProfilePanel - readNotificationData(): " + e);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,13 +72,13 @@ public class AProfilePanel extends javax.swing.JPanel {
 
         profileTabs = new javax.swing.JTabbedPane();
         notificationsTab = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        NotificationHistory = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        notificationTable = new javax.swing.JTable();
         viewProfileTab = new javax.swing.JPanel();
         updateProfileBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -75,10 +93,6 @@ public class AProfilePanel extends javax.swing.JPanel {
         ageTxt = new javax.swing.JLabel();
 
         profileTabs.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
-
-        NotificationHistory.setColumns(20);
-        NotificationHistory.setRows(5);
-        jScrollPane1.setViewportView(NotificationHistory);
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel1.setText("Notification History");
@@ -95,33 +109,60 @@ public class AProfilePanel extends javax.swing.JPanel {
             }
         });
 
+        notificationTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Message", "Time"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(notificationTable);
+
         javax.swing.GroupLayout notificationsTabLayout = new javax.swing.GroupLayout(notificationsTab);
         notificationsTab.setLayout(notificationsTabLayout);
         notificationsTabLayout.setHorizontalGroup(
             notificationsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(notificationsTabLayout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
-                .addGroup(notificationsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(notificationsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(notificationsTabLayout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel7))
-                    .addComponent(jButton1)
-                    .addComponent(jLabel6))
-                .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, notificationsTabLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(notificationsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, notificationsTabLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(15, 15, 15))
+                            .addGroup(notificationsTabLayout.createSequentialGroup()
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel7)
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, notificationsTabLayout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(24, 24, 24))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, notificationsTabLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(104, 104, 104))))
         );
         notificationsTabLayout.setVerticalGroup(
             notificationsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(notificationsTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
                 .addGroup(notificationsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(notificationsTabLayout.createSequentialGroup()
-                        .addGap(114, 114, 114)
+                        .addGap(60, 60, 60)
                         .addComponent(jLabel6)
-                        .addGap(4, 4, 4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(notificationsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel7))
@@ -129,10 +170,8 @@ public class AProfilePanel extends javax.swing.JPanel {
                         .addComponent(jButton1))
                     .addGroup(notificationsTabLayout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         profileTabs.addTab("Notifications", notificationsTab);
@@ -226,7 +265,7 @@ public class AProfilePanel extends javax.swing.JPanel {
                 .addGroup(viewProfileTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(ageTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(updateProfileBtn)
                 .addGap(31, 31, 31))
         );
@@ -241,7 +280,7 @@ public class AProfilePanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(profileTabs, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 141, Short.MAX_VALUE))
+                .addGap(0, 460, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,7 +318,6 @@ public class AProfilePanel extends javax.swing.JPanel {
    
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea NotificationHistory;
     private javax.swing.JLabel ageTxt;
     private javax.swing.JLabel firstnameTxt;
     private javax.swing.JButton jButton1;
@@ -291,9 +329,10 @@ public class AProfilePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lastnameTxt;
+    private javax.swing.JTable notificationTable;
     private javax.swing.JPanel notificationsTab;
     private javax.swing.JLabel passwordTxt;
     private javax.swing.JTabbedPane profileTabs;
